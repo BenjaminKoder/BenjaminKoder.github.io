@@ -7,7 +7,7 @@
 .header {
     min-height: 100vh;
     width:100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(./bildemappe_kap_2/Angry-people.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(Angry-people.jpg);
     background-position: center;
     background-size: cover;
     position: relative;
@@ -21,7 +21,7 @@ nav {
 }
 
 nav img {
-    width: 150px;
+    width: 100px;
 }
 .nav-links {
     flex:1;
