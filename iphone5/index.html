@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Layout og Midtstilling</title>
+        <meta charset="utf-8">
+        <link rel = "icon" href = "./bildemappe_kap_2/Apple-logo-black-and-white.png" type = "image/x-icon">
+        <style>
+
+html, body {
+    padding:0;
+    height:100%;
+}
+
+body {
+    font-size:30px;
+    background: rgb(208, 255, 150);
+    display:grid;
+    justify-items:center;
+    align-items:start;
+}
+/*
+* {
+  border: 1px solid red !important;
+}
+*/
+
+#mobil {
+    background-color: rgb(255,255,255);
+    border: black 2px solid;
+    border-radius: 20px;
+    margin:10px;
+    padding:50px;
+}
+#rutenett {
+    width: 500px;
+    height:667px;
+    border:2px solid black;
+    background-image: url("./bildemappe_kap_2/black.jfif");
+    background-size: cover;
+    padding:10px;
+
+
+    display:grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3,167px);
+   
+
+    justify-items:center;
+    align-items: center;
+
+
+}
+#rutenett:hover {
+    background-image: url("./bildemappe_kap_2/New-iPhone-XS-wallpaper-for-iPhone-8.jpg");
+    background-size: cover;
+    transition: 0.9s;
+}
+
+img {
+    width:100%;
+    height:100%;
+}
+
+
+#knapp {
+    width: 500px;
+    height:150px;
+    margin:auto;
+
+
+    display:flex;
+    justify-content: center;
+    align-items:end;
+
+}
+#knapp > div {
+    justify-items: center;
+    align-items:center;
+    border:black 2px solid;
+    text-align: center;
+    border-radius: 200px;
+    width:120px;
+    height:120px;
+    background-color: rgb(192,192,192);
+}
+
+#rutenett > div {
+
+    text-align: center;
+    border-radius: 10px;
+    width:120px;
+    height:120px;
+    background-color: rgba(255,255,255, 0.1);
+
+
+}
+
+
+
+#rutenett >div:hover {
+    background-color: rgba(255,255,255, 0.3);
+    cursor:pointer;
+    
+}
+#knapp_understått:hover {
+    background-color: rgb(110, 110, 110);
+    cursor:pointer;
+    
+}
+#knapp_understått:active {
+    background-color: rgb(0,0,0)
+}
+
+#rutenett > div:active {
+    border-radius:15px;
+}
+#spillmappe {
+    width: 100%;
+    height:100%;
+    
+    display:grid;
+    flex-wrap: wrap;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2,1fr);
+   
+
+    justify-items:center;
+    align-items: center;
+    
+}
+#spillmappe > div {
+
+    text-align: center;
+    border-radius: 10px;
+    width:85%;
+    height: 85%;
+
+
+}
+#io_games {
+    position:relative;
+    left:167px;
+    bottom:750px;
+    color:rgb(255, 255, 255);
+    border:1px solid rgb(32, 32, 32);
+    border-radius: 10px;
+    font-size: 70%;
+    font-family:Arial, "Helvetica", sans-serif;
+}
+
+h1 {
+    font-family:fantasy;
+    font-size: 250%;
+    text-align: end;
+}
+
+
+    </style>
+    </head>
+    <body>
+    
+        <h1>MOBILTELEFON</h1>
+
+    <div id="mobil">
+        <div id="rutenett">
+            <div>
+            <a href="https://www.instagram.com/" target="blank">
+                <img src="instagram.webp" alt="instagram">
+            </a>
+            </div>
+            <div>
+            <a href="https://www.facebook.com/" target="blank">
+                <img src="./bildemappe_kap_2/facebook.png" alt="facebook">
+            </a>
+            </div>
+            <div>
+            <a href="https://www.kiloo.com/subway-surfers/" target="blank">
+                <img src="./bildemappe_kap_2/subway_surfers.webp" alt="subway-surfers">
+            </a>
+            </div>
+            <div>
+            <a href="https://elgoog.im/t-rex/" target="blank">
+                <img src="./bildemappe_kap_2/dinosaur_game.png" alt="dinosaur game">
+            </a>
+            </div>
+            <div>
+            <a href="https://2048.ninja/" target="blank">
+                <img src="./bildemappe_kap_2/2048.png" alt="2048">
+            </a>
+            </div>
+            <div id="spillmappe">
+                <div>
+                    <a href="https://agar.io/" target="blank">
+                        <img src="./bildemappe_kap_2/agar.io.png" alt="Agar.io">
+                    </a>
+                    </div>
+                <div>
+                    <a href="http://slither.io/" target="blank">
+                        <img src="./bildemappe_kap_2/Slither.png" alt="Slither.io">
+                    </a>
+                    </div>
+                <div>
+                    <a href="https://diep.io/" target="blank">
+                        <img src="./bildemappe_kap_2/diep.io.jfif" alt="diep.io">
+                    </a>
+                    </div>
+                <div>
+                    <a href="https://paper-io.com/" target="blank">
+                        <img src="./bildemappe_kap_2/paper.io.jpeg" alt="paper.io">
+                    </a>
+                    </div>
+            </div>
+            <div>
+            <a href="https://pixabay.com/no/" target="blank">
+                <img src="./bildemappe_kap_2/pixabay.png" alt="pixabay">
+            </a>
+            </div>
+            <div>
+            <a href="https://www.coolmathgames.com/" target="blank">
+                <img src="./bildemappe_kap_2/coolmath.png" alt="coolmath">
+            </a>
+            </div>
+            <div>
+            <a href="https://aunivers.lokus.no/fagpakker/realfag/informasjonsteknologi-1-2/it-1" target="blank">
+                <img src="./bildemappe_kap_2/it_logo_2018.jpg" alt="Aunivers">
+            </a>
+            </div>
+            <div>
+            <a href="https://didrik147.github.io/hjelpeliste/" target="blank">
+                <img src="./bildemappe_kap_2/Helplist_icon_400x400.jpg" alt="Hjelpeliste">
+            </a>
+            </div>
+            
+<script>
+    var bleep = new Audio();
+    bleep.src="button-3.mp3";
+</script>
+
+           
+        </div>
+        <div id="knapp">
+            <div id="knapp_understått" onclick="bleep.play()">
+                
+            </div>
+        </div>
+    </div>
+    <p id="io_games">.io games</p>
+    </body>
+</html>
