@@ -29,8 +29,7 @@ var checkDead = setInterval(function(){
         score = currentDate.getTime() - tstart
         score = Math.floor(score/10)
         console.log(score)
-        let msg = "Du tapte. Din score: " + score
-        //alert("Du tapte lol");
+        let msg = "Du tapte lol. Din score er: " + score
         alert(msg);
     }
 
