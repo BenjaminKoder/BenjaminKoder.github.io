@@ -408,6 +408,20 @@ footer {
         height:75vh;
     }
 }
+@media (max-width:500px) {
+    footer {
+        height:90vh;
+    }
+    #kildeliste ul {
+        height:90vh;
+    }
+    .kortbarn {
+        height:780px;
+    }
+    #kort1 {
+        height:670px;
+    }
+}
 #kildeliste li a::after {
     content:"";
     display: block;
@@ -421,7 +435,6 @@ footer {
 #kildeliste li a:hover::after {
     width:100%;
 }
-
 
 
 
@@ -479,6 +492,7 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
         <div class="tekstogtabell"><p class="p-bakgrunn">En byte består som sagt av 8 bits, eksempelvis 1001 0101. Denne koden gjøres om fra totallsystemet til titallsystemet i prosessoren i datamaskinen som tar i bruk følgende regnemetode; Bit’en helt til høyre koder for enten <b>0 eller 1 × 2<sup>0</sup></b>, den til venstre for den koder for enten <b>0 eller 1 × 2<sup>1</sup></b>, så neste <b>0 eller 1 × 2<sup>2</sup></b>, osv. til <b>0 eller 1 × 2<sup>7</sup></b> helt til venstre i byten. Datamaskinen adderer alle bit’ene sammen og får et tall i titallsystemet mellom 0-255 ettersom 2<sup>0</sup> + 2<sup>1</sup> + 2<sup>2</sup> + 2<sup>3</sup> + 2<sup>4</sup> + 2<sup>5</sup> + 2<sup>6</sup> + 2<sup>7</sup> = 255. Det betyr at en byte kan kode for hele 256 verdier, hvordan dette omgjøres til tekst og farger gås kort gjennom i <a href="#lenkekort" class="lenke">siste del av nettsiden</a>. Tabellen under er et eksempel på en byte 10010101 i totallsystemet omgjort til titallsystemet.</p><!--tabell:-->
             <table class="table">
             <thead>
+            <tr>
                 <th class="th1">Totallsystemet</th>
                 <th>1</th>
                 <th>0</th>
@@ -489,6 +503,7 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
                 <th>0</th>
                 <th>1</th>
                 <th><b>10010101<sub>2</sub></b></th>
+            </tr>
             </thead>
     
             <tbody>
@@ -510,6 +525,7 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
         <div class="tekstogtabell"><p class="p-bakgrunn">Titallsystemet kjenner du sannsynligvis godt til fra før, det bruker tallene 0-9 og deretter et posisjonsystem sammensatt av kombinasjoner av 0-9. Posisjonsystemet kan defineres av tierpotenser slik: Likt totallsystemet er sifferet helt til høyre før desimaltegnet, altså enerposisjonen, lik <b>seg selv × 10<sup>0</sup></b>, for da får vi <b>tallet × 10<sup>0</sup> = 1</b>. Regnemetoden er lik i de neste sifrene mot venstre i uendeligheten, og man plusser sammen verdiene for å få hva det fulle tallet blir. For eksempel er 594 i titallsystemet lik <b>4 × 10<sup>0</sup> + 9 × 10<sup>1</sup> + 5 × 10<sup>2</sup> = 4 + 90 + 500 = 594</b>. Dette gjelder også for desimaltall, der potensen til 10 er en negativ verdi per desimal unna null, f.eks <b>0.001 = 1 x 10<sup>-3</sup></b>. Tabellen under er en forklaring av titallsystemet ved bruk av tallet 594,678</p>
             <table class="table">
                 <thead>
+                <tr>
                     <th class="th1">Titallsystemet</th>
                     <th>5</th>
                     <th>9</th>
@@ -518,6 +534,7 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
                     <th>7</th>
                     <th>8</th>
                     <th><b>594,678<sub>10</sub></b></th>
+                </tr>
                 </thead>
         
                 <tbody>
@@ -537,12 +554,14 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
         <div class="tekstogtabell"><p class="p-bakgrunn">Sekstentallsystemet, også kjent som det heksadesimale tallsystemet eller bare hex opererer på mange måter likt som to- og titallsystemet og brukes ofte til å representere farger. Likt to- og titallsystemet benytter hex seg av posisjonsystemet, bare her brukes seksten sifre; nemlig 0-9 og a-f som til sammen har 0-15 verdier. Verdien i titallsystemet til et tall i hex starter fra høyre (enerposisjonen), der tallet er lik <b>(0-15) × 16**0</b>, deretter fortsetter den til venstre med stigende potens: <b>(0-15) × 16<sup>1</sup></b><b>, (0-15) × 16<sup>2</sup></b>, osv. Eksempelvis er a95 i hex lik <b>5 × 16<sup>0</sup> + 9 × 16<sup>1</sup> + 10 × 16<sup>2</sup> = 2560 + 144 + 5 = 2709</b>.</p>
             <table class="table">
                 <thead>
+                <tr>
                     <th class="th1">Sekstentallsystemet</th>
                     <th>f</th>
                     <th>4</th>
                     <th>a</th>
                     <th>9</th>
                     <th><b>38<sub>16</sub></b></th>
+                </tr>
                 </thead>
         
                 <tbody>
@@ -562,12 +581,12 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
 <div id="lenkekort"> <!--Hit man kommer hvis man trykker på "Fra bytes til tekst og farger" i menyen på toppen-->
             <h1>Fra bytes til tekst og farger</h1>
             <div class="korthoved">
-                <div class="kortbarn"><div class="kortbilde"id="Unicode-bilde"></div>
+                <div class="kortbarn" id="kort1"><div class="kortbilde" id="Unicode-bilde"></div>
                 <h2>Bytes til Tekst</h2>
                 <p>Som forklart tidligere består en byte av 8 bits, den koder for tall mellom 0 til og med 255 i titallsystemet, der hvert tall kan representere et ord eller et symbol i tekst. Til alle verdens levende og utdødde ord, symboler og glyfer(stiler) holder ikke bare 266 enheter, derfor ble unicode oppfunnet som gir muligheten til å bruke mye mer enn 256 tegn. Med unicode kan tekst være på størrelse opp til 4 bytes = 32 bits og milliarder av kombinasjoner.</p></div>
-                <div class="kortbarn"><div class="kortbilde"id="RGB-farge"></div>
+                <div class="kortbarn"><div class="kortbilde" id="RGB-farge"></div>
                 <h2>Bytes til RGB</h2><p>Representasjon av farger gjennom tall kan gjøres på forskjellige måter, men en av de grunnleggende måtene er å bruke RGB-modellen. Her baserer fargen seg på en kombinasjon av rød, grønn og blå gjennom å angi hver av de tre fargene en verdi mellom 0-255. RGB er en additiv fargemodell, det vil si at vi får forskjellige farger avhengig av hvilke mengder rød, grønn og blå vi legger sammen. Jo høyere verdi den røde fargen har, jo mer påvirker den hvor sterk rødfarge fargekombinasjonen får, f.eks er RGB(255,0,0) helt sterk rød. Hver av de tre grunnfargene RGB består av en byte med verdi 0-255 hver, derfor er størrelsen til en farge tre bytes.</p></div>
-                <div class="kortbarn"><div class="kortbilde"id="Hex-farge"></div>
+                <div class="kortbarn"><div class="kortbilde" id="Hex-farge"></div>
                 <h2>Bytes til Hex-farger</h2><p>Farger kan også representeres gjennom sekstenstallsystemet. Ettersom to siffer tilsvarer 1 byte og <b>15 x 16<sup>1</sup> + 15 x 16<sup>0</sup> = 255 </b>kan man representere enten rød, grønn eller blå slik som med RGB. Her brukes de to sifrene <b>(0-15) x 16<sup>1</sup> + (0-15) x 16<sup>0</sup> </b>tre ganger for å lage en ønsket fargekombinasjon. For å angi hex-farge på en nettside bruker man en emneknagg først «#», deretter koden for styrken til rød; 00-ff, så grønn; 00-ff og blå; 00-ff etter hverandre uten tegn i mellom. Da får du en kombinasjon av de tre fargene. Eksempelvis her: <b>#0021f1</b> koder for rød; <b>0</b>, grønn <b>33</b> og blå <b>241</b> i titallsystemet.</p></div>
             </div>
 </div>           
@@ -599,10 +618,10 @@ I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0
 
 
 
-</section>
+
 </body>
 
 <!--Sammendrag: Jeg har jobbet med dette prosjektet i ca. 20 timer, som er mye mer enn jeg planla å bruke, men jeg hadde det gøy. Jeg orker dermed ikke å føre kildene mine på korrekt vis, ettersom du sa det var greit å bare legge til lenke og hvem som eier/har lagd bildet. Håper du forstår, og at selvom koden er veldig lang, og kanskje overkomplisert, har jeg ikke kopiert fra nettet, bare mottat tips på enkeltkoder og design. Jeg er fornøyd, og har lært mye, blant annet viktigheten av å planlegge seksjoner av nettsiden før jeg begynner å kode.-->
 
-<!--Det jeg vil endre på, men ikke får til: i "Bytes og Bits"-griden ved @media (max-width:660px) blir de to første elementene(divene) veldig store, og jeg får ikke endret det.-->
+<!--Det jeg vil endre på, men ikke får til: i "Bytes og Bits"-griden ved @media (max-width:660px) blir de to første elementene(divene) veldig store, og jeg får ikke endret det. I tillegg går teksten utenfor skjermen når skjermen er på størrelse under 400/500px, det er pga. teksten er for stor, så jeg prøvde å endre på det på mange måter, til og med "word-break", men til ingen nytte.-->
 </html>
