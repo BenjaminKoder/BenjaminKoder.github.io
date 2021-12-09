@@ -1,0 +1,46 @@
+* {
+    margin:0;
+    padding:0;
+}
+#game {
+    width:1000px;
+    height:400px;
+    border: 1px solid rgb(0,0,0);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%)
+}
+#character {
+    width:80px;
+    height:100px;
+    background-image:url(./bilder/Mario.jfif);
+    background-size: cover;
+    position:relative;
+    top:300px;
+}
+.animate {
+    animation: jump 500ms;
+}
+
+
+#block {
+    width:40px;
+    height:40px;
+    background-image:url(./bilder/Obstacle.jpg);
+    background-size: cover;
+    position:relative;
+    top:260px;
+    left:960px;
+    animation: block 1s infinite linear;
+}
+@keyframes jump {
+    0%{top: 300px;}
+    30%{top:200px;}
+    70%{top:200px;}
+    100%{top:300px;}
+}
+@keyframes block {
+    0%{left:960px;}
+    100%{left:-40px;}
+}
