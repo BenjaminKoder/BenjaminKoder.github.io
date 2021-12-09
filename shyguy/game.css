@@ -22,7 +22,7 @@ body {
     position:relative;
     top:275px;
 }
-#character img, #block img {
+#character img, #block img, #bird img {
     height:100%;
     width:100%;
 }
@@ -46,4 +46,16 @@ body {
 @keyframes block {
     0%{left:960px;}
     100%{left:-40px;}
+}
+#bird {
+    width:130px;
+    height:50px;
+    position:relative;
+    bottom:80px;
+    left:900px;
+    animation: birdfly 10s infinite linear;
+}
+@keyframes birdfly {
+    0%{left:960px;}
+    100%{left:0px;}
 }

@@ -7,7 +7,7 @@ body {
 }
 #game {
     width:1000px;
-    background-image: url(./bilder/mariobackground2.jpg);
+    background-image: url(bilder/mariobackground2.jpg);
     background-size: cover; 
     height:400px;
     border: 1px solid rgb(0,0,0);
