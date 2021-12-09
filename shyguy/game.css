@@ -59,3 +59,13 @@ body {
     0%{left:960px;}
     100%{left:0px;}
 }
+#overskrift {
+    position:absolute;
+    top:120px;
+    left: 40%;
+    background-color: rgba(0,120,230,0.5);
+    padding:5px;
+    border-radius: 20px;
+    color:rgb(255, 217, 0);
+    font-family: 'Poppins', sans-serif;;
+}
