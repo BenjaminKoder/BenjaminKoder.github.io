@@ -22,7 +22,7 @@ body {
     position:relative;
     top:275px;
 }
-#character img, #block img, #bird img,#wizard img, #fireball img {
+#character img, #block img, #bird img, #wizard img, #fireball img {
     height:100%;
     width:100%;
 }
@@ -35,13 +35,18 @@ body {
     position:relative;
     top:235px;
     left:960px;
-    animation: block 1s infinite linear;
+    animation: block 1.1s infinite linear;
 }
 @keyframes jump {
-    0%{top: 275px;}
-    30%{top:200px;}
-    70%{top:200px;}
-    100%{top:275px;}
+    0%{top: 200px;
+        left:20px;} 
+    30%{left:20px;
+        top:200px;}
+    70%{left:20px;
+        top:200px;}
+    90%{top:275px;}
+    100%{left:0px;
+        top:275px;}
 }
 @keyframes block {
     0%{left:960px;}
@@ -53,11 +58,17 @@ body {
     position:relative;
     bottom:80px;
     left:900px;
-    animation: birdfly 10s infinite linear;
+    animation: birdfly 20s infinite linear;
 }
 @keyframes birdfly {
-    0%{left:960px;}
-    100%{left:0px;}
+    0%{left:900px;
+    top:0px;}
+    25%{top:-50px;left:720px;}
+    50%{top:-50px;
+    left:480px;}
+    75%{top:-50px;left:240px;}
+    100%{top:0px;
+    left:0px;}
 }
 #overskrift {
     position:absolute;
