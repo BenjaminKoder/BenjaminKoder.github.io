@@ -1,0 +1,45 @@
+body {
+    font-size: 150%;
+}
+h1 {
+    font-size: 200%;
+    text-align: center;
+}
+
+ol {
+    left:10px;
+    list-style-type: upper-roman;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    margin: auto;
+    padding:30px;
+}
+li {
+    padding:5px;
+    background-color: rgb(219, 219, 185);
+    margin:10px auto;
+    color:black;
+    border-radius: 15px;
+    border:black 2px solid;
+    width:50%;
+}
+ol :nth-child(even){
+    color:rgb(110, 66, 133);
+}
+ol :nth-child(odd) {
+    color:hsl(60,100%,29%);
+}
+#Handleliste ul li {
+    color:rgb(110, 66, 133);
+}
+
+
+#Handleliste {
+    border: 1px solid rgb(190, 66, 133);
+    text-align: center;
+    width:35%;
+    margin: auto;
+    padding:0px;
+    border-radius: 50px;
+    background-color:lightgoldenrodyellow;
+}

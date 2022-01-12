@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Responsiv grid-time</title>
+        <meta charset="utf-8">
+    <style>
+        #øverstvenstre {grid-area:øv;}
+        #øversthøyre {grid-area:øh;}
+        #nederstvenstre {grid-area:nv;}
+        #nederstmidten {grid-area:nm;}
+        #nedersthøyre { grid-area:nh;}
+
+        #hoved {
+            background-image: repeating-linear-gradient(
+        45deg, #4ccafc,
+        #0011ff 20px,
+        #ffffff 20px,
+        #ffffff 40px);
+            border:0.5px solid rgb(20, 50, 70);
+            width:100%;
+            height:550px;
+            gap:5px;
+            border-radius:12px;
+            
+            display:grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: minmax(100px, auto);
+            /* grid-template-rows: repeat(3, 1fr); */
+            grid-template-areas: "øv øv øv øh"
+            "nv nm nm nh" "nv nm nm nh";
+        }
+        @media (max-width: 700px) {
+    #hoved {
+        grid-template-areas:
+          "øv øv øv øh"
+          "nv nm nh nh"
+          "nv nm nh nh";
+    }
+}
+
+        #hoved > div {
+            border:2px solid black;
+            border-radius: 10px;
+            background-color: rgb(67, 125, 155);
+        }
+        
+        #hoved >div:hover {
+            background-color: rgb(126, 179, 206);
+        }
+        #hoved >div:active {
+            background-color: rgba(130,240,250, 0);
+            border: rgba(130,240,250, 0) solid 2px;
+            color:rgba(130,240,250, 0)
+        }
+
+        
+
+    </style>
+    </head>
+    <body>
+        <div id="hoved">
+            <div id="øverstvenstre">øverstvenstre</div>
+            <div id="øversthøyre">øversthøyre</div>
+            <div id="nederstvenstre">nederstvenstre</div>
+            <div id="nederstmidten">nederstmidten</div>
+            <div id="nedersthøyre">nedersthøyre</div>
+
+        </div>
+        
+
+    </body>
+</html>

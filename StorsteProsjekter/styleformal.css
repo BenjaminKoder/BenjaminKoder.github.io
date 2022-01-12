@@ -1,0 +1,115 @@
+img {
+    width:100%;
+    height:100%;
+    float:center;
+
+}
+
+body {
+    background-color:rgb(135, 147, 160);
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 150%;
+    text-align:center;
+
+    /*Bakgrunnsbilde*/
+    background-image: url(Mountain.gif); 
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+
+} 
+
+
+div {
+    margin: 30px auto;
+    width:70%;
+    border:3px solid black;
+    padding: 20px;
+    background-color: rgba(255,255,255, 0.8);
+}
+#straw:hover
+{
+ border-radius: 200px;
+ border-style:groove;
+ border-color: rgb(255, 209, 3);
+ border:20px outset greenyellow;
+ cursor: crosshair;
+
+}
+#time {
+    background-image:url(Discreet-bakgrunn.jpg);
+    background-size:100% 100%;
+
+}
+
+nav {
+    background-color: #aaaaaa; 
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-size:120%;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  color: green;
+  display: inline-block;
+  font-size: 16px;
+  border:3px solid black;
+  border-style: groove;
+  border-radius:200px;
+}
+nav:hover {
+    background-color: lighten(green, 5%);
+    cursor: pointer;
+    cursor: hand;
+}
+
+.button {
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    color: white;
+    text-align:center;
+    line-height:50px;
+    border-radius: 30px;
+    }
+    button:hover {
+        background-color: lighten(green, 5%);
+        cursor: crosshair;
+    }
+    /*
+    div > p {
+        background-color: hsl(45,75%,50%);
+        color: rgb(225, 0, 255);
+        color: rgb(230,100,170);
+        color: rgb(0,255,10 );
+        color: rgb(100,0,255);
+        color: #99ff99;
+        color: hsl(180,100%, 50%);
+    }
+*/
+a {
+    color: hsl(250,100%,35%);
+}
+
+a:visited {
+    color:rgb(35, 0, 200);
+    text-decoration-color:blueviolet;
+}
+
+a:hover {
+    cursor:grab;
+    text-decoration-color: hsl(280,100%,100%);
+}
+
+a:active {
+    cursor:grabbing;
+    
+}
+
+a:focus {
+    color:rgb(35, 0, 200);
+    cursor:grabbing;
+}

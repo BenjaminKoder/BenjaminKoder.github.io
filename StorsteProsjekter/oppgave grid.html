@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Responsiv grid-timenb </title>
+        <meta charset="utf-8">
+    <style>
+        #a1 {grid-area:a1;}
+        #a2 {grid-area:a2;}
+        #a3 {grid-area:a3;}
+        #a4 {grid-area:a4;
+        background-image: url(library.jpg);
+        background-size:cover;
+        background-repeat: no-repeat;}
+        #a5 { grid-area:a5;}
+        #a6 { grid-area:a6;}
+        #a7 { grid-area:a7;}
+        #a8 { grid-area:a8;}
+        #a9 { grid-area:a9;}
+
+        #hoved {
+            background-color: rgb(147, 189, 211);
+            border:0.5px solid rgb(20, 50, 70);
+            width:80%;
+            margin: auto;
+            height:500px;
+            gap: 50px;
+            border-radius:12px;
+            
+            display:grid;
+            grid-template-columns: repeat(5, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-template-areas: "a1 a2 a3 a4 a4"
+            "a1 a5 a5 a6 a7"
+            "a8 a5 a5 a9 a7";
+            padding:20px;
+        }
+
+        #hoved > div {
+            border:2px solid black;
+            border-radius: 10px;
+            background-color: rgb(67, 125, 155);
+            text-align:center;
+        }
+        
+        #hoved >div:hover {
+            background-color: rgb(79, 141, 172);
+        }
+        #hoved >div:active {
+            background-color: rgba(130,240,250, 0);
+            border: rgba(130,240,250, 0) solid 2px;
+            color:rgba(130,240,250, 0)
+        }
+
+        
+
+    </style>
+    </head>
+    <body>
+        <div id="hoved">
+            <div id="a1">1</div>
+            <div id="a2">2</div>
+            <div id="a3">3</div>
+            <div id="a4">4</div>
+            <div id="a5"></div>
+            <div id="a6">6</div>
+            <div id="a7">7</div>
+            <div id="a8">8</div>
+            <div id="a9">9</div>
+
+        </div>
+        
+
+    </body>
+</html>

@@ -1,0 +1,71 @@
+<html>
+    <head>
+        <title>Tic Tac Toe</title>
+        <meta charset="utf-8">
+        <style>
+body {
+    font-size:30px;
+    background: rgb(208, 255, 150);
+}
+
+#rutenett {
+    width: 500px;
+    height:500px;
+    margin: auto;
+    background-color: indianred;
+
+    display:grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5,1fr);
+    grid-template-areas: "t t t t t"
+    "v v h h h"
+    "v v h h h"
+    "v v h h h"
+    "b b b b b";
+    
+
+    
+
+}
+
+#rutenett >div {
+    border: 1px solid #000;
+    text-align: center;
+    border-radius: 10px;
+    
+
+}
+
+.topp { grid-area:t; 
+    background-color: rgb(200, 255, 0);}
+.venstre { grid-area:v; 
+    background-color: rgb(180, 255, 0);}
+.høyre { grid-area:h; 
+    background-color: rgb(180, 255, 0);}
+.bunn { grid-area:b;
+    background-color: lawngreen; }
+
+#rutenett >div:hover {
+    background-color: rgb(110, 110, 110);
+    cursor:pointer;
+    
+}
+#rutenett > div:active {
+    color: rgb(255,0,0);
+    font-weight: bold;
+    font-size: 110%;
+    background-color: khaki;
+    
+}
+        </style>
+    </head>
+    <body>
+        <div id="rutenett">
+            <div class="topp"> grid</div>
+            <div class="venstre">row=down</div>
+            <div class="høyre"></div>
+            <div class="bunn"></div>
+
+        </div>
+    </body>
+</html>

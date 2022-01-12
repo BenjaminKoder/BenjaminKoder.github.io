@@ -1,0 +1,79 @@
+body {
+    font-size: 110%;
+    font-family:'Slabo 27px', serif;
+    background-image: url(Crowd.jpeg);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    text-align: center;
+
+}
+
+img {
+    float:center;
+    border-radius: 200px;
+    border-color: black;
+    border-style: groove;
+    border: outset 20px rgb(224, 224, 224);
+    width:1000px;
+    height:667px;
+
+}
+
+#pic1:hover {
+
+ border:20px outset greenyellow;
+ 
+}
+
+#pic2:hover {
+    border:20px outset rgb(255, 187, 0);
+}
+
+div {
+    margin: 20px;
+    padding: 40px;
+    border:3px solid black;
+    border-radius:200px;
+    background: repeating-linear-gradient(
+            45deg, rgba(255, 255, 255, 0.1),
+            rgba(211, 211, 211, 0.1) 20px,
+            rgba(120, 121, 120, 0.1) 20px,
+            rgba(0, 0, 0, 0.1) 40px);
+    background-color:rgba(255,255,255,0.8);
+
+}
+/*
+#div1 {
+    padding:10px;
+    width:500px;
+    height:500px;
+    position:absolute;
+    left:70px;
+    top:300px;
+}
+
+#div2 {
+    padding:10px;
+    width:500px;
+    height:500px;
+    position:absolute;
+    right:70px;
+    top:300px;
+}
+
+#div3 {
+    padding:10px;
+    width:1100px;
+    height:100px;
+    position:absolute;
+    margin:20px;
+    top:900px;
+}
+*/
+
+.sitat::first-letter {
+    font-size: 2em;
+    font-family: 'Times New Roman', Times, serif;
+}

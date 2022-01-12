@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kalkulator nettside
+    </title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="../Nettsider/Saga.css">
+    <style>
+        body {
+            background-image: none;
+            background-color:hsl(180,90%, 90%)
+        }
+        nav {
+            text-align: start;
+        }
+    </style>
+</head>
+
+
+<body>    
+    <h1>
+    Alfabet Kalkis
+    </h1>
+
+<div>
+<script>
+
+
+
+let Alfabet = "ab cde fgh ijklmnopq rst uvwx  yz";
+let t=Math.random()*34
+t=Math.floor(t)
+r=""
+
+for (let i=0; i<30; i++) {
+    let t=Math.random()*30
+    t=Math.floor(t)
+    r=r+Alfabet[t]
+}
+
+document.write("Here is a random sentence: ")
+let p=r
+document.write(" "+ p);
+
+let a = 12;
+
+while (a != 24) {
+  console.log(a * 2);   
+  a = a + 3 
+}
+
+let tall=Math.random()*3
+tall=Math.floor(tall)
+
+if (tall===0){
+    document.write(" Ok");
+}
+else if (tall===1) {
+    document.write(" HallaHais!");
+} else if (tall===2) {
+    document.write(" Halla")
+}
+
+
+
+function siHeitil(navn) {
+  document.write("Hei, " + navn + "!");
+}
+function siHeitil(navn) {
+  document.write(`Hei ${navn}!`);
+}
+</script>
+<br>
+<script>
+    siHeitil("Benjamin");
+
+    function arealRektangel(lengde, bredde) {
+  let areal = lengde * bredde;
+  console.log("Arealet av rektanglet er " + areal);
+    }
+    </script><nav><br><script>
+  document.write("(\\ (\\");
+  </script><br>
+  <script>
+  document.write("=^.^=");
+  </script><br><script>
+  document.write("o_(\")(\")");
+
+  function sjekkMyndig(alder) {
+  if (alder >= 18) {
+    return "myndig";
+  } else {
+    return "ikke myndig";
+  } }
+
+  function terning() {
+  return Math.floor(Math.random() * 6) + 1;
+}
+console.log(terning());
+
+
+</script>
+</nav>
+</div>
+</body>
+</html>

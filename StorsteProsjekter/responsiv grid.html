@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title>Responsiv grid</title>
+        <meta charset="utf-8">
+    <style>
+#hoved {
+  display: grid;
+  gap: 5px;
+  background-color: #c6c6c6;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));  
+}
+#hoved >div {
+    background-color: black;
+    height: 200px;
+}
+.bildediv {
+    background-image: url(Road.jpg);
+}
+    </style>
+    </head>
+    <body>
+        <div id="hoved">
+            <div>
+                <img src="cute lion.jpg" width="100%" height="100%">
+            </div>
+            <div class="bildediv"></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
+    </body>
+</html>

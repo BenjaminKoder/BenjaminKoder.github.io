@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <meta charset="utf-8">
+        <link rel="Stylesheet" href="stylecrazy.css"></a>
+        <title>Tabell fjell</title>
+        <style>
+            #table {
+                text-align: center;
+                margin:auto;
+                border:black solid 3px;
+                border-collapse:collapse;
+                background: repeating-linear-gradient(
+            45deg, rgb(255, 255, 255) 5px,
+            rgb(211, 211, 211) 5px,
+            rgb(255, 255, 255) 5px,
+            rgb(50, 207, 255) 30px);
+            font-family: 'Times New Roman', Times, serif;
+            border-bottom:khaki solid 2px;
+                
+            }
+
+            body {
+                background-image: url(Mountain.gif);
+            }
+
+            
+            td:hover {
+                background-color: #ffffff;
+opacity: 1;
+background-image: radial-gradient(circle at center center, #6af4ff, #ffffff), repeating-radial-gradient(circle at center center, #6af4ff, #6af4ff, 18px, transparent 36px, transparent 18px);
+background-blend-mode: multiply;
+            }
+
+            .td1:hover {
+                background-color: #ffffff;
+opacity: 1;
+background-image: radial-gradient(circle at center center, #87ff7c, #ffffff), repeating-radial-gradient(circle at center center, #87ff7c, #87ff7c, 18px, transparent 36px, transparent 18px);
+background-blend-mode: multiply;
+            }
+
+        
+
+            th {
+                border:black solid 3px;
+                padding: 10px;
+                background: repeating-linear-gradient(
+            45deg, rgb(255, 255, 255) 5px,
+            rgb(211, 211, 211) 5px,
+            rgb(255, 255, 255) 5px,
+            rgb(255, 234, 50) 30px);
+            }
+
+            td {
+                border: black solid 2px;
+                padding:10px;
+            }
+
+            .td1{
+                background: repeating-linear-gradient(
+            45deg, rgb(255, 255, 255) 5px,
+            rgb(211, 211, 211) 5px,
+            rgb(255, 255, 255) 5px,
+            rgb(57, 255, 50) 30px);
+            }
+
+            #navn {
+                background: repeating-linear-gradient(
+            45deg, rgb(255, 255, 255) 5px,
+            rgb(211, 211, 211) 5px,
+            rgb(255, 255, 255) 5px,
+            rgb(211, 255, 50) 30px);
+            }
+
+            div:nth-child(odd) {
+                background-color: rgba(255,255,255,0.43);
+            }
+
+            div:nth-child(even) {
+                background-color: rgba(52, 208, 255, 0.13);
+            }
+
+            #div1 {
+                padding:5px;
+                width:100px;
+                margin:auto;
+                background: rgba(104, 70, 253, 0.43);
+                color:black;
+            }
+
+            #div1:hover {
+                background:rgba(255, 0, 0, 0.43)
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <script>
+            var bleep = new Audio();
+            bleep.src="button-3.mp3";
+        </script>
+
+
+<div id="overskrifter">
+    <h1>Oversikt over et utvalg høye fjell i Norge</h1>
+    <h2>Fra Jotunheimen</h2>
+    <div id="div1">
+    <a href="https://snl.no/Norges_h%C3%B8yeste_fjell" onclick="bleep.play()">Kilde: SNL</a>
+    </div>
+
+</div>
+<div id="tableller">
+    <table id="table">
+        <thead>
+            <th id="navn">Navn</th>
+            <th>Høyde (moh.)</th>
+            <th>Navnets kulhet (0-10)</th>
+        </thead>
+
+        <tbody>
+            <tr>
+                <td class="td1">Galdhøpiggen</td>
+                <td>2469</td>
+                <td>6/10</td>
+            </tr>
+            <tr>
+                <td class="td1">Skardstind</td>
+                <td>2374</td>
+                <td>4/10</td>
+            </tr>
+            <tr>
+                <td class="td1">Trollsteinsegge</td>
+                <td >2300</td>
+                <td>10/10</td>
+            </tr>
+            <tr>
+                <td class="td1">Glittertinden</td>
+                <td>2274</td>
+                <td>7/10</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

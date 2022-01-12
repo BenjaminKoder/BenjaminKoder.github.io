@@ -1,0 +1,35 @@
+body {
+    font-family: 'Times New Roman', Times, serif;
+    text-align:center;
+    background-color: rgb(116, 255, 209);
+    background: repeating-linear-gradient(
+        45deg, #4ccafc,
+        #0011ff 20px,
+        #ffffff 20px,
+        #ffffff 40px);
+}
+
+div {
+    width: 80%;
+    margin: 20px auto;
+    padding:20px;
+    border: 5px solid rgb(0,0,0);
+    border-style:groove;
+    border-radius:  200px;
+    background-color: rgba(255,255,255, 0.8);
+}
+
+#aunivers > h1 {
+    color: rgb(150, 0, 200);
+}
+
+#snl > h2{
+    color:#ff00da;
+    background-color: coral;
+}
+
+.farget_tekst {
+    color:hsl(200,0%,50%)
+}
+
+/*. brukes for class, # brukes for id.*/

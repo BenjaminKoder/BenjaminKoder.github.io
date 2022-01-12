@@ -1,0 +1,24 @@
+.parent {
+    padding:10px;
+
+}
+
+.child {
+    padding:10px;
+    margin:10px;
+    border:solid 2px black;
+    display:flex; /*gir flexbox*/
+    flex-wrap: wrap; /*lar oss bryte rader/Kolloner*/
+    flex-grow: 1; /*har fast størrelse i forhold til hverandre basert på tallets verdi*/
+    flex-basis:2; /*angir en alltid fast bredd */
+    flex-shrink:2; /*spesifiser hvordan elementene skal krympe*/
+    order:1; /*bestemmer elementets rekkefølge*/
+    align-self:auto; /*overtyrer align-items*/
+
+
+
+}
+
+#class1 {
+    flex-grow:4;
+}

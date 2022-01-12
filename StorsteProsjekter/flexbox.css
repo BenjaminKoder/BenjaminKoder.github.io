@@ -1,0 +1,49 @@
+.child {
+    border:2px solid rgb(100,100,100);
+    width:200px;
+    height: 200px;
+    border-radius: 0px;
+    margin: 20px;
+    padding: 20px;
+}
+.parent {
+    display: flex; /* lager fleksen*/
+    flex-wrap:wrap; /* gir fleksibilitet*/
+    flex-direction: column; /*under hverandre*/
+    flex-direction: row; /*på siden av hverandre*/
+
+}
+div {
+    margin:20px;
+    padding:10px;
+}
+
+.header{
+    display:flex;
+    justify-content: space-between;
+}
+
+h1 {
+    border:2px solid hsl(0,100%,20%);
+    padding:20px;
+    border-radius: 10px;
+}
+
+#child1 {
+    background-color: hsl(0,100%,50%);
+}
+#child2 {
+    background-color: hsl(60,100%,50%);
+}
+#child3 {
+    background-color: hsl(120,100%,50%);
+}
+#child4 {
+    background-color: hsl(180,100%,50%);
+}
+#child5 {
+    background-color: hsl(240,100%,50%);
+}
+#child6 {
+    background-color: hsl(300,100%,50%);
+}

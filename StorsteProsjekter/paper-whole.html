@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="no">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing: border-box; /* padding og border er includert i elementets størrelse*/
+        }
+        section{
+            position:relative;
+            width:100%;
+            height:100vh; /* 100% av viewport (skjermen) sin høyde*/
+            background-color:blue;
+        }
+        .picture {
+            position:absolute;
+            width:100%;
+            height:100%;
+            background: url(football\ on\ fire.jpg);
+            background-size:cover;
+            background-position: center;
+        }
+        .paper {
+            position:absolute;
+            width:100%;
+            height:100%;
+            background: url(./bildemappe_kap_2/white-ripped-paper-black-background.jpg);
+            background-size:cover;
+            background-position: center;
+            mix-blend-mode: lighten;
+            filter:brightness(1.5);
+        }
+        
+
+    </style>
+    </head>
+    <body>
+        <section>
+            <div class="picture"></div>
+            <div class="paper"> <p></p></div>
+        </section>
+        
+
+    </body>
+</html>

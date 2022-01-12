@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tallsystemer</title>
+    <link rel = "icon" href = "./Bilder/binary-code-blue.jpg" type = "image/x-icon">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;600;700&display=swap" rel="stylesheet"> <!-- "Poppins" Google font-->
+<!--Sammendrag ligger på bunnen av html-dokumentet-->
+    <style>
+    * {
+        margin:0;
+        padding:0;
+        font-family: 'Poppins', sans-serif;
+        }
+    html {
+        scroll-behavior: smooth;
+        color:#EEE;
+    }
+    a {
+        color:#EEE;
+        text-decoration: none;
+        cursor:pointer;
+    }
+    h1 {
+        color:#00f7ff;   
+        font-size: 345%;
+        text-align: center;
+        margin:15px;
+    }
+    .topp {
+    min-height: 100vh; /*topp'en bruker 100% av høyden til skjermen*/
+    width:100%;
+
+    background-image: linear-gradient(rgba(0,8,65,0.5), rgba(0,8,65,1)), url(./Bilder/0and1.gif);
+    background-position: center;
+    background-size: cover; 
+    
+    position: relative;
+    }
+    
+    .meny {
+    flex:1; /* div'er i meny fordeler width likt*/
+    text-align: center;
+    display:flex;
+    padding: 3% 6%;
+    justify-content: center;
+    }
+    .meny ul li {
+    list-style: none;
+    display: inline-block; /*holder seg på linje som boks*/
+    padding:8px 12px;
+    position:relative;
+    }
+    .meny ul li a {
+    font-size: 18px;
+    }
+    .meny ul li::after { /*lager rød linje under*/
+    content:"";
+    width:100%;
+    height:0.2px;
+    background-color:#EEE;
+    display:block; /*linjen blir en "boks"-typ*/
+    border-radius: 50px;
+    transition: 0.5s;
+    }
+    .meny ul li:hover::after { 
+    width:100%;
+    height: 4px;
+    background-color: #00ADB5;
+    box-shadow: 0 0 0 1px #00f7ff;
+    }
+    .tekst {
+    width:90%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    text-align:center;
+    }
+    .tekst p {
+    margin:10px 0 40px;
+    font-size: 14px;
+    }
+    .knapp {
+    display: inline-block;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 12px 34px;
+    font-size:13px;
+    background:transparent;
+    position:relative;
+    }
+    .knapp:hover {
+    border:1px solid #00ADB5;
+    background-color:#00ADB5;
+    transition:0.5s;
+    box-shadow: 0 0 10px #00ADB5, 0 0 40px #00ADB5, 0 0 80px #00ADB5;
+    }
+    @media (max-width:700px) /*telefon-skjerm*/{
+    .tekst h1 {
+        font-size:300%;
+    }
+    #midtdel h1 {
+        font-size:230%;
+    }
+    .tekst p {
+        font-size:13px;
+    }
+    .meny {
+        flex-wrap: wrap;
+    }    
+}
+
+#midtdel {
+    width:100%;
+
+    background:linear-gradient(#000841, #000881); /*originalt 00087b, kontrast er #00f7ff*/
+
+    position: relative;
+    }
+#introduksjon {
+    padding:50px 6%;
+}
+.p-bakgrunn {
+    background-color: #000891;
+}
+
+
+#bildedivhoved {
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap:7px;
+    color:transparent;
+}
+#bildedivhoved > div {
+    border:#fff solid 1px;
+    height:250px;
+    border-radius:50px;
+}
+#bildediva {
+    background-image: url(./Bilder/Rome.png);
+    background-size: cover;
+}
+#bildedivb {
+    background-image: url(./Bilder/muisca.png);
+    background-size: cover;
+}
+#bildedivc {
+    background-image: url(./Bilder/aztec.jpg);
+    background-size: cover;
+}
+#bildediva p {
+    position:relative;
+    top:100px;
+    width:90%;
+    padding:5px;
+    margin:10px;
+}
+#bildediva:hover {
+    background-image:linear-gradient(rgba(0,0,30,0.4), rgba(0,0,30,0.9)), url(./Bilder/Rome.png);
+    color:#EEE;
+    transition: 0.5s;
+    cursor:pointer;
+}
+#bildedivb:hover {
+    background-image: url(./Bilder/aztec-numbers.png);
+    background-size: cover;
+    color:#EEE;
+    transition: 0.5s;
+    cursor:pointer;
+}
+#bildedivc:hover {
+    background-image: url(./Bilder/Numeracion_Muisca.jpg);
+    background-size:contain;
+    color:#EEE;
+    transition: 0.5s;
+    cursor:pointer;
+}
+.bildetekst {
+    border-bottom: rgba(238, 238, 238,0.3) solid 1px;
+}
+
+
+#byteshoved {
+    margin:auto;
+    width:85%;
+    height:100%;
+
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2,1fr);
+    grid-template-areas: 
+    "tt tt tb"
+    "bb bt bt";
+    gap:20px;
+}
+
+#transistor-tekst {grid-area:tt;}
+#transistor-bilde {grid-area:tb;}
+#bits-tekst {grid-area:bt;}
+#bits-bilde {grid-area:bb;}
+#byteshoved img {
+    width:100%;
+    height: 100%;
+}
+
+@media (max-width:660px) {
+    #byteshoved {
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-areas: 
+        "tt"
+        "tb"
+        "bt"
+        "bb";
+    }
+}
+
+
+
+
+.tekstogtabell {
+    margin:0% 4%;
+}
+.lenke {
+    border: rgba(238, 238, 238, 0.6) solid 1px;
+    border-radius: 5px;
+}
+.lenke:hover {
+    background-color: #161ec4;
+}
+.table {
+    border-collapse: collapse;
+    margin:15px auto;
+    background-color: #000891;
+    width:100%;
+}
+th, td {
+    border: #EEE solid 1px;
+    padding:10px;
+    font-weight:normal;
+}
+.th1, .td1 {
+    background-color: #0008a1;
+    font-weight: bold;
+    text-align: center;
+}
+@media (max-width:1000px) {
+    table, thead, tbody, th, td, tr { 
+		display: block; /*oppløser tabellen (fordi den er vrien å gjøre fra vannrett til loddrett uten å oppløse, samtidig som at det er lærerikt å prøve andre teknikker)*/
+	}
+	
+	 thead tr { 
+		display:none; /*Tabellen er oppløst*/
+     }
+	
+	td { 
+		/* td fungerer som rad */
+		border: 1px solid #eee; 
+		position: relative;
+		padding-left: 50%; /*likt som i en vanlig tabell holder den andre kolonnen seg i midten*/
+	}
+	
+	td:before { 
+		position: absolute; /*må plassere det som kommer før td; nemlig contentet vi skal angi senere*/
+		top: 10px; /*plassere riktig høyde i forhold til titallsystem-tabellen*/
+		left: 6px; /*plassere riktig bredde mot høyre*/
+		
+	}
+    .table {
+    width:80%;
+    }
+	
+	/*
+	Sett inn td-elementene (Verdiene på venstresiden)
+	*/
+	td:nth-of-type(1):before { content: "Totallsystemet"; }
+	td:nth-of-type(2):before { content: "1"; }
+	td:nth-of-type(3):before { content: "0"; }
+	td:nth-of-type(4):before { content: "0"; }
+	td:nth-of-type(5):before { content: "1"; }
+	td:nth-of-type(6):before { content: "0"; }
+	td:nth-of-type(7):before { content: "1"; }
+	td:nth-of-type(8):before { content: "0"; }
+	td:nth-of-type(9):before { content: "1"; }
+	td:nth-of-type(10):before { content: "10010101";
+font-weight: bold; }
+    .td2:nth-of-type(1):before { content: "Titallsystemet"; }
+	.td2:nth-of-type(2):before { content: "5"; }
+	.td2:nth-of-type(3):before { content: "9"; }
+	.td2:nth-of-type(4):before { content: "4"; }
+	.td2:nth-of-type(5):before { content: "6"; }
+	.td2:nth-of-type(6):before { content: "7"; }
+	.td2:nth-of-type(7):before { content: "8"; }
+	.td2:nth-of-type(8):before { content: "594,678";
+font-weight: bold; }
+    .td3:nth-of-type(1):before { content: "Sekstentallsystemet"; }
+	.td3:nth-of-type(2):before { content: "f"; }
+	.td3:nth-of-type(3):before { content: "4"; }
+	.td3:nth-of-type(4):before { content: "a"; }
+	.td3:nth-of-type(5):before { content: "9"; }
+	.td3:nth-of-type(6):before { content: "38"; 
+    font-weight: bold; }
+}
+/*kort:*/
+.korthoved {
+            display:flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            color:#000881;
+        }
+        .kortbarn {
+            background-color:#fff;
+            border-radius: 20px;
+            width:350px;
+            height: 690px;
+            margin:10px;
+            background-color: #EEE;
+        }
+        .kortbarn p, .kortbarn h2 {
+            margin:10px;
+        }
+        .kortbarn h2 {
+            margin:20px;
+        }
+        .kortbilde {
+            height: 200px;
+            background-size: cover;
+            border-radius: 15px 15px 0 0;
+        }
+        #Unicode-bilde {
+            background-image: url(./Bilder/Fra-hex-til-tekst.png);
+        }
+        #RGB-farge {
+            background-image: url(./Bilder/RGB-farger.png);
+            width:58%;
+            margin:auto;
+        }
+        #Hex-farge {
+            background-image: url(./Bilder/hex-farge.png);
+            width:57%;
+            margin:auto;
+            border-radius: 100% 100% 75% 75%;
+        }
+        .kortbarn:hover {
+            box-shadow: 0 0 0 10px #0008a1;
+            cursor:pointer;
+            background-color: #0008a1;
+            color:#EEE;
+            transform:scale(1.05); /*gjør kortet 3% større*/
+            transition:1s;
+        }
+footer {
+    height:30vh;
+    background-color: #2f2f7f;
+    display:grid;
+    grid-template-columns: 25% 75%;
+    grid-template-rows: 100%;
+    justify-content: left;
+
+    
+}
+#takk {
+    width:fit-content;
+    background-color: #1d1d86;
+    padding:10px;
+}
+#kildeliste ul {
+    display:flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    height:30vh;
+    width:fit-content;
+    padding:0 20px;
+    
+
+}
+#kildeliste li {
+    width:fit-content;
+    padding:0 25px;
+    list-style-type: none;
+}
+@media (max-width:1000px) {
+    footer {
+        height:40vh;
+    }
+    #kildeliste ul {
+        height:40vh;
+    }
+}
+@media (max-width:800px) {
+    footer {
+        height:50vh;
+    }
+    #kildeliste ul {
+        height:50vh;
+    }
+}
+@media (max-width:710px) {
+    footer {
+        height:75vh;
+    }
+    #kildeliste ul {
+        height:75vh;
+    }
+}
+#kildeliste li a::after {
+    content:"";
+    display: block;
+    width:0%;
+    height:2px;
+    background-color: #00f7ff;
+    margin:auto;
+    border-radius: 1px;
+    transition: 0.5s;
+}
+#kildeliste li a:hover::after {
+    width:100%;
+}
+
+
+
+
+
+    
+    </style>
+</head>
+<body>
+<section class="topp">
+
+    <div class="meny">
+        <ul>
+            <li><a href="#introduksjon">HVA ER ET TALLSYSTEM?</a></li>
+            <li><a href="#lenkebyteshoved">BYTES OG BITS</a></li>
+            <li><a href="#lenketallsystemene">2- 10- OG 16-TALLSYSTEMENE</a></li>
+            <li><a href="#lenkekort">FRA BYTES TIL TEKST OG FARGER</a></li>
+        </ul>
+    </div>
+
+<div class="tekst">
+    <h1>Tallsystemer</h1>
+    <p>Hva er et tallsystem? <br>Hvilke tallsystemer bruker vi? <!-- to, 10 og 16-tallssystem --> <br> Hvordan kan de tas i bruk?</p>
+    <a href="#introduksjon" class="knapp">LES VIDERE</a>
+</div> 
+</section>
+<section id="midtdel">
+    <div id="introduksjon">
+        <h1> Hva er et tallsystem?</h1>
+        <p class="p-bakgrunn">
+Et tallsystem er kort forklart et system representert av tall. Gjennom historien har det eksistert utallige mange forskjellige tallsystem med forskjellige tallbaser, som for eksempel <i>Romersk</i>,<i> Muisca </i>og <i>Aztec</i> som <i class="bildetekst">vist i figurene under.</i> </p>
+<br>
+<div id="bildedivhoved">
+    <div id="bildediva">1 <p>Romerske tall baserer seg på I, V, X, L, C, D og M som er lik 1, 5, 10, 50, 100, 500 og 1,000 i titallsystemet</p></div>
+    <div id="bildedivb">2</div>
+    <div id="bildedivc">3</div>
+</div>
+<br><br>
+<p class="p-bakgrunn">
+I dag bruker de aller fleste til daglig og til matematisk bruk titallsystemet; 0, 1, 2, 3, 4, 5, 6, 7, 8, 9. På denne nettsiden holder vi fokus på de tallsystemene som er aktuelle for datamaskiner; nemlig to-, ti- og sekstentallsystemet.
+        </p>
+    </div> <!--Lukker #introduksjon-->
+
+<div id="lenkebyteshoved"> <!--Hit man kommer hvis man trykker på "Bytes og Bits" i menyen på toppen-->
+    <h1>Bytes og Bits</h1>
+    <div id="byteshoved">
+        <div id="transistor-tekst"><p class="p-bakgrunn">En datamaskin er en stor regnemaskin som baserer seg på totallsystemet, også kalt det binære tallsystemet, bestående av 0 og 1. Datamaskinens prosessor består av milliarder av transistorer, disse transistorene representerer enten tallet 0 eller 1. Når transistoren er av, representerer den 0, og når den er på, representerer den 1. Dette vil bli satt i en sammenheng snart.</p>
+        </div>
+        <div id="transistor-bilde"><img src="./Bilder/processor-chip-2-600x381.png" alt="processor-chip with 0s and 1s"></div>
+        <div id="bits-bilde"><img src="./Bilder/BytesBit.png" alt="1 byte, 8 bits"></div>
+        <div id="bits-tekst"><p class="p-bakgrunn">Du har kanskje hørt om byte før? Det er en enhet med informasjon som er grunnleggende i datalagring og prosessering. En byte består av 8 bits som representerer enten 0 eller 1, det er bytes som inneholder informasjonen til hvordan tekst, bilder, farger, video og lyd skal høres og se ut som på datamaskinen din. </p></div>
+    </div>
+</div>
+<div id="lenketallsystemene"> <!--Hit man kommer hvis man trykker på "2- 10- og 16-tallsystemene" i menyen på toppen-->
+    <h1 style="margin-top:5%;">Totallsystemet</h1>
+        <div class="tekstogtabell"><p class="p-bakgrunn">En byte består som sagt av 8 bits, eksempelvis 1001 0101. Denne koden gjøres om fra totallsystemet til titallsystemet i prosessoren i datamaskinen som tar i bruk følgende regnemetode; Bit’en helt til høyre koder for enten <b>0 eller 1 × 2<sup>0</sup></b>, den til venstre for den koder for enten <b>0 eller 1 × 2<sup>1</sup></b>, så neste <b>0 eller 1 × 2<sup>2</sup></b>, osv. til <b>0 eller 1 × 2<sup>7</sup></b> helt til venstre i byten. Datamaskinen adderer alle bit’ene sammen og får et tall i titallsystemet mellom 0-255 ettersom 2<sup>0</sup> + 2<sup>1</sup> + 2<sup>2</sup> + 2<sup>3</sup> + 2<sup>4</sup> + 2<sup>5</sup> + 2<sup>6</sup> + 2<sup>7</sup> = 255. Det betyr at i en byte kan man kode for hele 256 verdier, hvordan dette omgjøres til tekst og farger gås kort gjennom i <a href="#lenkekort" class="lenke">siste del av nettsiden</a>. Tabellen under er et eksempel på en byte 10010101 i totallsystemet omgjort til titallsystemet.</p><!--tabell:-->
+            <table class="table">
+            <thead>
+                <th class="th1">Totallsystemet</th>
+                <th>1</th>
+                <th>0</th>
+                <th>0</th>
+                <th>1</th>
+                <th>0</th>
+                <th>1</th>
+                <th>0</th>
+                <th>1</th>
+                <th><b>10010101<sub>2</sub></b></th>
+            </thead>
+    
+            <tbody>
+                <tr>
+                    <td class="td1">Titallsystemet</td>
+                    <td>1 × 2<sup>7</sup> = <b>128</b></td>
+                    <td>0 × 2<sup>6</sup> = 0</td>
+                    <td>0 × 2<sup>5</sup> = 0</td>
+                    <td>1 × 2<sup>4</sup> = <b>16</b></td>
+                    <td>0 × 2<sup>3</sup> = 0 </td>
+                    <td>1 × 2<sup>2</sup> = <b>4</b></td>
+                    <td>0 × 2<sup>1</sup> = <b>2</b></td>
+                    <td>1 × 2<sup>0</sup> = 0</td>
+                    <td><b>150<sub>10</sub></b></td>
+                </tr>
+            </tbody>
+        </table></div>
+    <h1>Titallsystemet</h1>
+        <div class="tekstogtabell"><p class="p-bakgrunn">Titallsystemet kjenner du sannsynligvis godt til fra før, det bruker tallene 0-9 og deretter et posisjonsystem sammensatt av kombinasjoner av 0-9. Posisjonsystemet kan defineres av tierpotenser slik: Likt totallsystemet er sifferet helt til høyre før desimaltegnet, altså enerposisjonen, lik <b>seg selv × 10<sup>0</sup></b>, for da får vi <b>tallet × 10<sup>0</sup> = 1</b>. Regnemetoden er lik i de neste sifrene mot venstre i uendeligheten, og man plusser sammen verdiene for å få hva det fulle tallet blir. For eksempel er 594 i titallsystemet lik <b>4 × 10<sup>0</sup> + 9 × 10<sup>1</sup> + 5 × 10<sup>2</sup> = 4 + 90 + 500 = 594</b>. Dette gjelder også for desimaltall, der potensen til 10 er en negativ verdi per desimal unna null, f.eks <b>0.001 = 1 x 10<sup>-3</sup></b>. Tabellen under er en forklaring av titallsystemet ved bruk av tallet 594,678</p>
+            <table class="table">
+                <thead>
+                    <th class="th1">Titallsystemet</th>
+                    <th>5</th>
+                    <th>9</th>
+                    <th>4</th>
+                    <th>6</th>
+                    <th>7</th>
+                    <th>8</th>
+                    <th><b>594,678<sub>10</sub></b></th>
+                </thead>
+        
+                <tbody>
+                    <tr>
+                        <td class="td2 td1">Titallsystemet forklart</td>
+                        <td class="td2">5 × 10<sup>5</sup></td>
+                        <td class="td2">9 × 10<sup>4</sup></td>
+                        <td class="td2">4 × 10<sup>3</sup></td>
+                        <td class="td2">6 × 10<sup>2</sup></td>
+                        <td class="td2">7 × 10<sup>1</sup></td>
+                        <td class="td2">8 × 10<sup>0</sup></td>
+                        <td class="td2"><b>594,678<sub>10</sub></b></td>
+                    </tr>
+                </tbody>
+            </table></div>
+    <h1>Sekstentallsystemet</h1>
+        <div class="tekstogtabell"><p class="p-bakgrunn">Sekstentallsystemet, også kjent som det heksadesimale tallsystemet eller bare hex opererer på mange måter likt som to- og titallsystemet og brukes ofte til å representere farger. Likt to- og titallsystemet benytter hex seg av posisjonsystemet, bare her brukes seksten sifre; nemlig 0-9 og a-f som til sammen har 0-15 verdier. Verdien i titallsystemet til et tall i hex starter fra høyre (enerposisjonen), der tallet er lik <b>(0-15) × 16**0</b>, deretter fortsetter den til venstre med stigende potens: <b>(0-15) × 16<sup>1</sup></b><b>, (0-15) × 16<sup>2</sup></b>, osv. Eksempelvis er a95 i hex lik <b>5 × 16<sup>0</sup> + 9 × 16<sup>1</sup> + 10 × 16<sup>2</sup> = 2560 + 144 + 5 = 2709</b>.</p>
+            <table class="table">
+                <thead>
+                    <th class="th1">Sekstentallsystemet</th>
+                    <th>f</th>
+                    <th>4</th>
+                    <th>a</th>
+                    <th>9</th>
+                    <th><b>38<sub>16</sub></b></th>
+                </thead>
+        
+                <tbody>
+                    <tr>
+                        <td class="td3 td1">Titallsystemet</td>
+                        <td class="td3">15 × 16<sup>3</sup> = 61,440</td>
+                        <td class="td3">4 × 16<sup>2</sup> = 1,024</td>
+                        <td class="td3">10 × 16<sup>1</sup> = 160</td>
+                        <td class="td3">9 × 16<sup>0</sup> = 9</td>
+                        <td class="td3"><b>62,633<sub>10</sub></b></td>
+                    </tr>
+                </tbody>
+            </table></div>
+</div>
+            <br><br>
+            <!--kort:-->
+<div id="lenkekort"> <!--Hit man kommer hvis man trykker på "Fra bytes til tekst og farger" i menyen på toppen-->
+            <h1>Fra bytes til tekst og farger</h1>
+            <div class="korthoved">
+                <div class="kortbarn"><div class="kortbilde"id="Unicode-bilde"></div>
+                <h2>Bytes til Tekst</h2>
+                <p>Som forklart tidligere består en byte av 8 bits, den koder for tall mellom 0 til og med 255 i titallsystemet, der hvert tall kan representere et ord eller et symbol i tekst. Til alle verdens levende og utdødde ord, symboler og glyfer(stiler) holder ikke bare 266 enheter, derfor ble unicode oppfunnet som gir muligheten til å bruke mye mer enn 256 tegn. Med unicode kan tekst være på størrelse opp til 4 bytes = 32 bits og milliarder av kombinasjoner.</p></div>
+                <div class="kortbarn"><div class="kortbilde"id="RGB-farge"></div>
+                <h2>Bytes til RGB</h2><p>Representasjon av farger gjennom tall kan gjøres på forskjellige måter, men en av de grunnleggende måtene er å bruke RGB-modellen. Her baserer fargen seg på en kombinasjon av rød, grønn og blå gjennom å angi hver av de tre fargene en verdi mellom 0-255. RGB er en additiv fargemodell, det vil si at vi får forskjellige farger avhengig av hvilke mengder rød, grønn og blå vi legger sammen. Jo høyere verdi den røde fargen har, jo mer påvirker den hvor sterk rødfarge fargekombinasjonen får, f.eks er RGB(255,0,0) helt sterk rød. Hver av de tre grunnfargene RGB består av en byte med verdi 0-255 hver, derfor er størrelsen til en farge tre bytes.</p></div>
+                <div class="kortbarn"><div class="kortbilde"id="Hex-farge"></div>
+                <h2>Bytes til Hex-farger</h2><p>Farger kan også representeres gjennom sekstenstallsystemet. Ettersom to siffer tilsvarer 1 byte og <b>15 x 16<sup>1</sup> + 15 x 16<sup>0</sup> = 255 </b>kan man representere enten rød, grønn eller blå slik som med RGB. Her brukes de to sifrene <b>(0-15) x 16<sup>1</sup> + (0-15) x 16<sup>0</sup> </b>tre ganger for å lage en ønsket fargekombinasjon. For å angi hex-farge på en nettside bruker man en emneknagg først «#», deretter koden for styrken til rød; 00-ff, så grønn; 00-ff og blå; 00-ff etter hverandre uten tegn i mellom. Da får du en kombinasjon av de tre fargene. Eksempelvis her: <b>#0021f1</b> koder for rød; <b>0</b>, grønn <b>33</b> og blå <b>241</b> i titallsystemet.</p></div>
+            </div>
+</div>           
+            <br><br><br>
+</section>
+<footer>
+    <div id="takk">Takk for at du besøkte nettsiden min! Til høyre ligger kildelisten - Benjamin</div>
+    <div id="kildeliste">
+        <ul>
+            <li><h2>Inspirasjon:</h2></li>
+            <li><a href="https://www.youtube.com/watch?v=oYRda7UtuhA&t=1659s" target="_blank">Av Easy Tutorials</a></li>
+            <li><a href="https://colorhunt.co/palette/222831393e4600adb5eeeeee" target="_blank">Colorhunt</a></li>
+            <li><a href= "https://css-tricks.com/responsive-data-tables/" target="_blank">CSS-tricks</a></li>
+            <li><h2>Bilder:</h2></li>
+            <li><a href="https://civilization-v-customisation.fandom.com/wiki/The_Muisca_(Nemequene)" target="_blank">Civilization-v-customisation</a></li>
+            <li><a href="https://giphy.com/gifs/one-numbers-binary-code-QpVUMRUJGokfqXyfa1" target="_blank">Av Matthew Butler</a></li>
+            <li><a href="https://pixabay.com/no/vectors/julius-c%c3%a6sar-attentat-maleri-roma-4877717/" target="_blank">Av GDJ Pixabay</a></li>
+            <li><a href="https://static.wikia.nocookie.net/civilization-v-customisation/images/1/16/NemequeneD.png/revision/latest/scale-to-width-down/330?cb=20150502191218" target="_blank">Civilization-v-customisation</a></li>
+            <li><a href="https://en.wikipedia.org/wiki/Muisca_numerals" target="_blank">Av Jarrod Baniqued</a></li>
+            <li><a href="https://www.tes.com/teaching-resource/aztec-numbers-6428749" target="_blank">Av RachelB</a></li>
+            <li><a href="https://binarymove.com/2017/02/27/how-cpu-works/" target="_blank">Av Pavlo</a></li>
+            <li><a href="https://learnworthy.net/the-amazing-history-of-the-data-byte/" target="_blank">Av Alicia Newman</a></li>
+            <li><a href="https://science.jrank.org/computer-science/Unicode.html" target="_blank">Science.jrank</a></li>
+            <li><a href="https://commons.wikimedia.org/wiki/File:Aditiivne_syntees_hex_koodid.png" target="_blank">Wikimedia Commons</a></li>
+        </ul>
+    </div>
+</footer>            
+    
+
+
+
+</section>
+</body>
+
+<!--Sammendrag: Jeg har jobbet med dette prosjektet i ca. 20 timer, som er mye mer enn jeg planla å bruke, men jeg hadde det gøy. Jeg orker dermed ikke å føre kildene mine på korrekt vis, ettersom du sa det var greit å bare legge til lenke og hvem som eier/har lagd bildet. Håper du forstår, og at selvom koden er veldig lang, og kanskje overkomplisert, har jeg ikke kopiert fra nettet, bare mottat tips på enkeltkoder og design. Jeg er fornøyd, og har lært mye, blant annet viktigheten av å planlegge seksjoner av nettsiden før jeg begynner å kode.-->
+
+<!--Det jeg vil endre på, men ikke får til: i "Bytes og Bits"-griden ved @media (max-width:660px) blir de to første elementene(divene) veldig store, og jeg får ikke endret det.-->
+</html>
