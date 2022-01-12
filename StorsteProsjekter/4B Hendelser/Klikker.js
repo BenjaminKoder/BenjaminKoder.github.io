@@ -37,7 +37,7 @@ function skrivAntalldobbel() {
 }
 
 function skrivAntallpower() {
-    if (antallTrykk>99) {
+    if (antallTrykk>=100) {
     antallTrykk=antallTrykk-100;
     knappEl.removeEventListener("click", skrivAntall)
     knappEl.addEventListener("click", skrivAntallpluss);
@@ -57,7 +57,7 @@ function skrivAntallpluss() {
 
 function Jackpotfunksjon() {
     if (antallTrykk>=100 ) {
-        antallTrykk=antallTrykk+(Math.round(Math.random()*4.6-2))*100;
+        antallTrykk=antallTrykk+(Math.round(Math.random()*450-100));
         overskriftEl.innerHTML="Score: "+antallTrykk;
         bodyEl.style.backgroundImage="url(.//images/Jackpot.jpg)";
     }
