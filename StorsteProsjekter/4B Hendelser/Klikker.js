@@ -37,7 +37,7 @@ function skrivAntalldobbel() {
 }
 
 function skrivAntallpower() {
-    if (antallTrykk<100) {
+    if (antallTrykk>=100) {
     antallTrykk=antallTrykk-100;
     knappEl.removeEventListener("click", skrivAntall)
     knappEl.addEventListener("click", skrivAntallpluss);
