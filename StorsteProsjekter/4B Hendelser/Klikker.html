@@ -17,14 +17,15 @@
 }
 #hoved {
   width: 60%;                  
-  margin: 50px auto;          
+  margin: 50px;          
   padding: 40px;	             
   background-color: white; 	 
-  border: 1px solid #cccccc;
+  border: 1px solid #868686;
 }
 h1 {
   font-family: Arial, sans-serif;
   user-select: none;        
+  width:fit-content;
 }
 p {
     font-size:20px;
@@ -42,6 +43,12 @@ p {
   min-width: 320px;
   text-align: center;
 }
+/* @media (max-width:500px) {
+    #smaller {
+        flex-direction: column;
+        justify-content: left;
+    }
+} */
 #knapp {
     width:100px;
     height:100px;
@@ -72,10 +79,17 @@ p {
 #knapppower {
     width:150px;
     height:100px;
-    background-color: yellow;
     margin:auto;
     background-image: url(.//images/UPGRADE.jfif);
     background-size: cover;
+    color:#000;
+}
+#red {
+    width:150px;
+    height:100px;
+    margin:auto;
+    background-image: url(./images/RedX.png);
+    background-size:contain;
     color:#000;
 }
 #Jackpot {
@@ -90,11 +104,26 @@ p {
 #Jackpot p {
     font-size: 18px;
 }
+img {
+    width:30%;
+    height:100%;
+    position: absolute;
+    right:0;
+    top:0;
+    user-select: none;    
+}
+#crown {
+    width:180px;
+    height:140px;
+    right:103.5px;
+    top:-60px;
+}
     </style>
 </head>
 <body>
     <div id="hoved">
-        <h1>Score: 0</h1>
+        <h1 id="kroner">Kroner: 0</h1>
+        <h1 id="level">Level: 1</h1>
     <div id="smaller">  
         <div id="knapp">
             <p>1+</p>
@@ -109,9 +138,12 @@ p {
             <p>2+, pris 100</p>
         </div>
         <div id="Jackpot">
-            <p>Mellom -200 og 300+, pris 100</p>
+            <p>Mellom -100 og 125+, pris 100</p>
         </div>
     </div>
+    </div>
+    <div id="image">
+        <img src="images/Baby.png" alt="baby">
     </div>
     
     <script src="Klikker.js"></script>
