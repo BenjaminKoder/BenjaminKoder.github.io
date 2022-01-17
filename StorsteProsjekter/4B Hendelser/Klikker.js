@@ -53,8 +53,7 @@ function skrivAntall() {
     else if (press==600) {
         level++;
         levelEl.innerHTML="Level: "+level;
-        imageEl.innerHTML=imageEl.innerHTML+"<img src='images/Crown.png' id='crown' alt='Crown'>"
-        hovedEl.innerHTML=hovedEl.innerHTML+"<p>GRATTIS! DU HAR VUNNET DETTE FANTASTISKE KLIKKESPILLET</p>"
+        imageEl.innerHTML=imageEl.innerHTML+"<img src='images/Crown.png' id='crown' alt='Crown'><p>GRATTIS! DU HAR VUNNET DETTE FANTASTISKE KLIKKESPILLET</p>"
     }
 }
 
@@ -131,8 +130,7 @@ function skrivAntallpluss() {
     else if (press==600) {
         level++;
         levelEl.innerHTML="Level: "+level;
-        imageEl.innerHTML=imageEl.innerHTML+"<img src='images/Crown.png' id='crown' alt='Crown'>"
-        hovedEl.innerHTML=hovedEl.innerHTML+"<p>GRATTIS! DU HAR VUNNET DETTE FANTASTISKE KLIKKESPILLET</p>"
+        imageEl.innerHTML=imageEl.innerHTML+"<img src='images/Crown.png' id='crown' alt='Crown'><p>GRATTIS! DU HAR VUNNET DETTE FANTASTISKE KLIKKESPILLET</p>"
     }
 }
 function skrivAntallpluss2() {
@@ -165,8 +163,7 @@ function skrivAntallpluss2() {
     else if (press==600) {
         level++;
         levelEl.innerHTML="Level: "+level;
-        imageEl.innerHTML=imageEl.innerHTML+"<img src='images/Crown.png' id='crown' alt='Crown'>"
-        hovedEl.innerHTML=hovedEl.innerHTML+"<p>GRATTIS! DU HAR VUNNET DETTE FANTASTISKE KLIKKESPILLET</p>"
+        imageEl.innerHTML=imageEl.innerHTML+"<img src='images/Crown.png' id='crown' alt='Crown'><p>GRATTIS! DU HAR VUNNET DETTE FANTASTISKE KLIKKESPILLET</p>"
     }
 }
 
