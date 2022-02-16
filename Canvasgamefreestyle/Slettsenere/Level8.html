@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geometry Dash Ish</title>
+    <link rel="icon" href="./Canvasgame.img/Icon.png"
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            user-select:none;
+            font-size: 30px;
+        }
+        body {
+            height:100vh;
+            width:100vw;
+            overflow: hidden;
+            word-break:keep-all;
+        }
+        #canvas {
+            border: 1px solid #000;
+        }
+        h1 {
+            z-index:2;
+            font-family: 'Press Start 2P', cursive;
+            position: absolute;
+            top: 60px;
+            right:58%;
+            transform: translate(50%, -50%);
+            width:fit-content;
+            background-image: linear-gradient(to right, #b10000, #bf0000, #ce0000, #dc0000, #eb0000, #eb0000, #eb0000, #eb0000, #dc0000, #ce0000, #bf0000, #b10000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-size: 32px;
+        }
+        #antallforsøk,#tidtaker,#highscore, #tittel {
+            z-index:2;
+            position: absolute;
+            margin:40px;
+            font-family: 'Bebas Neue', cursive;
+            background-image: linear-gradient(to right, #b10000, #bf0000, #ce0000, #dc0000, #eb0000, #eb0000, #eb0000, #eb0000, #dc0000, #ce0000, #bf0000, #b10000);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        #antallforsøk {
+            top:0;
+            left:0;
+        }
+        #tidtaker {
+            top:0;
+            right:0;
+        }
+        #highscore {
+            top:50px;
+            right:0;
+        }
+        #tittel {
+            bottom:0;
+            left:0;
+        }
+        #nestelevel {
+            z-index:2;
+            position: absolute;
+            margin:30px;
+            padding:15px;
+            border:1px solid #eb0000;
+            border-radius:10px;
+            color:#eb0000;
+            font-family: 'Bebas Neue', cursive;
+            background-color: #eb00002c;
+            
+            top:50px;
+            text-decoration:none;
+        }
+        #nestelevel:hover, #menyknapp:hover {
+            font-size: 29px;
+            box-shadow:0 0 10px 0 #f00;
+            background-image: linear-gradient(to right, #b10000, #bf0000, #ce0000, #dc0000, #eb0000, #eb0000, #eb0000, #eb0000, #dc0000, #ce0000, #bf0000, #b10000);
+            color:#fff;
+            transition:0.2s ease-in-out;
+            cursor:pointer;
+        }
+        #menyknapp {
+            cursor:pointer;
+            top:0px;
+            right:225px;
+            z-index:3;
+            position: absolute;
+            
+            margin:20px;
+            padding:15px;
+            padding-left: 21px;
+            border:1px solid #eb0000;
+            border-radius:10px;
+            color:#eb0000;
+            font-family: 'Bebas Neue', cursive;
+            background-color: #eb00002c;
+            
+        }
+        #menyknapp p {
+            font-size: 38px;
+            letter-spacing: 6px;
+        }
+        #meny {
+            position:absolute;
+            top:50%;
+            right:50%;
+            transform: translate(50%,-50%);
+            z-index:2;
+            width:70%;
+            border-radius:20px;
+            background-color: #eb000062;
+            
+
+
+            display:none;
+            flex-wrap: wrap;
+        }
+        #meny.active {
+            display:flex;
+        }
+        .leveler {
+            font-size: 22px;
+            user-select:none;
+            text-decoration:none;
+            color:#fff;
+            border-radius:20px;
+            padding:20px 0px;
+            width:159px;
+            height:60px;
+            margin:10px;
+            display:flex;
+            justify-content: center;
+            font-family: 'Bebas Neue', cursive;
+            z-index: 2;
+        }
+        #Level1 {
+            background-color:#e6194B;
+        }
+        #Level2 {
+            background-color:#3cb44b;
+        }
+        #Level3 {
+            background-color:#ffe119;
+        }
+        #Level4 {
+            background-color:#4363d8;
+        }
+        #Level5 {
+            background-color:#f58231;
+        }
+        #Level6 {
+            background-color:#911eb4;
+        }
+        #Level7 {
+            background-color:#46f0f0;
+            color:#000;
+        }
+        #Level8 {
+            background-color:#f032e6;
+        }
+        #Level9 {
+            background-color:#bcf60c;
+        }
+        #Level10 {
+            background-color:#fabebe;
+            color:#000;
+        }
+        #Level11 {
+            background-color:#008080;
+        }
+        #Level12 {
+            background-color:#e6beff;
+            color:#000;
+        }
+        #Level13 {
+            background-color:#9a6324;
+        }
+        #Level14 {
+            background-color:#fffac8;
+            color:#000;
+        }
+        #Level15 {
+            background-color:#800000;
+        }
+        #Level16 {
+            background-color:#aaffc3;
+            color:#000;
+        }
+        #Level17 {
+            background-color:#808000;
+        }
+        #Level18 {
+            background-color:#ffd8b1;
+            color:#000;
+        }
+        #Level19 {
+            background-color:#000075;
+        }
+        #Level20 {
+            background:linear-gradient(to right, #bf935f,#fcf6ba, #b38728,#fbf5b7,#aa771c);
+            color:#e00003;
+        }
+        .leveler:hover {
+            background-color: #bf0000 !important;
+            color:#fff !important;
+            font-size: 25px;
+            transition: 0.2s;
+        }
+        #Level20:hover {
+            color:#000 !important;
+        }
+        
+    </style>
+</head>
+<body>
+    <canvas id="canvas"></canvas>
+    <p id="antallforsøk">Forsøk: 1</p>
+    <p id="tidtaker">Tid: </p>
+    <p id="highscore">Rekord: </p>
+    <div id="levelparent">
+        
+    </div>
+
+    <div id="menyknapp"><p>Meny</p></div>
+    <div id="meny">
+        <a class='leveler' id="Level1" href='./Level1.html'>Level 1</a>
+        <a class='leveler' id="Level2" href='./Level2.html'>Level 2</a>
+        <a class='leveler' id="Level3" href='./Level3.html'>Level 3</a>
+        <a class='leveler' id="Level4" href='./Level4.html'>Level 4</a>
+        <a class='leveler' id="Level5" href='./Level5.html'>Level 5</a>
+        <a class='leveler' id="Level6" href='./Level6.html'>Level 6</a>
+        <a class='leveler' id="Level7" href='./Level7.html'>Level 7</a>
+        <a class='leveler' id="Level8" href='./Level8.html'>Level 8</a>
+        <a class='leveler' id="Level9" href='./Level9.html'>Level 9</a>
+        <a class='leveler' id="Level10" href='./Level10.html'>Level 10</a>
+        <a class='leveler' id="Level11" href='./Level11.html'>Level 11</a>
+        <a class='leveler' id="Level12" href='./Level12.html'>Level 12</a>
+        <a class='leveler' id="Level13" href='./Level13.html'>Level 13</a>
+        <a class='leveler' id="Level14" href='./Level14.html'>Level 14</a>
+        <a class='leveler' id="Level15" href='./Level15.html'>Level 15</a>
+        <a class='leveler' id="Level16" href='./Level16.html'>Level 16</a>
+        <a class='leveler' id="Level17" href='./Level17.html'>Level 17</a>
+        <a class='leveler' id="Level18" href='./Level18.html'>Level 18</a>
+        <a class='leveler' id="Level19" href='./Level19.html'>Level 19</a>
+        <a class='leveler' id="Level20" href='./Level20.html'>Level 20</a>
+    </div>
+    <p id="tittel">Level 8</p>
+
+    <h1>GEOMETRY DASH ish</h1>
+    
+
+    <script src="Level8.js" type="module"></script>
+</body>
+</html>
