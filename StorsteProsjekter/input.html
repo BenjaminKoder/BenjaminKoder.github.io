@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Input</title>
+    <style>
+        input, textarea, select {
+  display: block;
+  margin-top: 2px;
+  margin-bottom: 10px;
+}
+    .hoved {
+        width:fit-content;
+        margin:20px;
+        border: 1px solid #000;
+        background-color: #eeeeee;
+        padding:20px;
+        color:#000;
+    }
+    .hoved h1 {
+        font-size: 24px;
+    }
+    </style>
+</head>
+<body>
+<div class="hoved">
+    <label for="tittel">Tittel</label>
+    <input type="text" id="tittel">
+    <textarea id="beskrivelse" placeholder="Skriv en kort beskrivelse av filmen"></textarea>
+    <label for="arstall">Årstall</label>
+    <input type="number" id="arstall" placeholder="1899">
+
+    <label for="aldersgrense">aldersgrense</label>
+    <select id="aldersgrense">
+        <option value="alle">Tillat for alle</option>
+        <option value="syv">7 år</option>
+        <option value="elleve">11 år</option>
+        <option value="fjorten">14 år</option>
+        <option value="atten">18 år</option>
+    </select>
+    <button>Registrer</button>
+</div>
+
+<div class="hoved">
+    <h1> En enkel kalkulator </h1>
+  
+    <label for="tall1">Tall 1</label>
+    <input type="number" id="tall1">
+  
+    <label for="tall2">Tall 2</label>
+    <input type="number" id="tall2">
+  
+    <button id="knapp">Kalkuler</button>
+  
+    <p id="sum"></p>
+    <p id="subtraksjon"></p>
+    <p id="multiplikasjon"></p>
+    <p id="divisjon"></p>
+</div>
+
+
+    <script src="input.js"></script>
+</body>
+</html>

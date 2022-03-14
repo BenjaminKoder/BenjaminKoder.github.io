@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="no">
+<head> 
+  <title> Oppgave 1 </title>
+  <meta charset="utf-8">
+  <style>
+    body {
+      background-color: #f5f5f5;
+      font-family: Arial, sans-serif; 
+      display: grid;
+      justify-items: center;
+    }
+    #hoved {        
+      padding: 40px;	             
+      background-color: white; 	 
+      border: 1px solid #cccccc; 
+      display: grid;
+      grid-template-columns: 250px 250px;
+      grid-template-rows: 250px 250px;
+      gap: 10px;
+    }
+    #hoved > div {
+      border: 1px solid #7A9A99;
+      padding: 40px;
+    }
+    #boks1 {
+      background-color: #E2F1E8;
+    }
+    #boks2 {
+      background-color: #F4F4C2;
+    }
+    #boks3 {
+      background-color: #F1E0BB;
+    }
+    #boks4 {
+      background-color: #C5EBFA;
+    }
+  </style>
+</head>
+<body>
+
+<div id="hoved">
+  <div id="boks1"></div>
+  <div id="boks2"></div>
+  <div id="boks3"></div>
+  <div id="boks4"></div>
+</div>
+<script>
+  let boks1El = document.querySelector("#boks1");
+  let boks2El = document.querySelector("#boks2");
+  let boks3El = document.querySelector("#boks3");
+  boks1El.addEventListener("click",byttskriftboks1);
+  boks2El.addEventListener("dblclick",byttskriftboks2);
+  boks3El.addEventListener("mouseover",byttskriftboks3);
+  boks3El.addEventListener("mouseout",byttskriftboks4);
+
+  function byttskriftboks1() {
+    boks1El.innerHTML="<p>Du klikket på meg</p>"
+  }
+  function byttskriftboks2() {
+    boks2El.innerHTML="<p>Du dobbeltklikket på meg</p>"
+  }
+  function byttskriftboks3() {
+    boks3El.innerHTML="<p>Du er over meg</p>"
+  }
+  function byttskriftboks4() {
+    boks3El.innerHTML="<p>Du er utenfor meg</p>"
+  }
+</script>>
+
+</body>
+</html>

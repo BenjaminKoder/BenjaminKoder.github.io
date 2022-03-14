@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monty Hall</title>
+    <script src="MontyHall.js" defer></script>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: #ddd;
+        }
+        #hoved {
+            min-width:400px;
+            max-width:60%;
+            margin:10px auto;
+            border:1px solid #000;
+            background-color: #fff;
+            padding:20px;
+            text-align: center;
+        }
+        #hoved img {
+            width:30%;
+            outline:1px solid #aaa;
+            border-radius: 20px;
+            height:200px;
+        }
+        #hoved img:hover {
+            cursor:pointer;
+        }
+        #hoved p, #hoved h1 {
+            margin:10px;
+        }
+
+        .Chosen {
+            /* border:3px solid #00f; */
+            box-shadow: 0 0 20px 0 #000;
+        }
+        #buttons {
+            display: none;
+            visibility: hidden;
+        }
+        #active {
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            visibility:visible;
+            min-width:400px;
+            max-width:60%;
+            height:150px;
+            background-color: #fff;
+            border:#000 1px solid;
+            margin:10px auto;
+        }
+        button {
+            padding:20px;
+            font-size: 20px;
+            margin:20px;
+            cursor: pointer;
+        }
+        
+        #refreshimg {
+            height:60px;
+            width:60px;
+            margin: 0 10px;
+            display:none;
+            visibility: hidden;
+        }
+        .show {
+            display:flex !important;
+            visibility: visible !important;
+        }
+        #refreshimg:hover {
+             cursor: pointer;
+             filter: saturate(10);
+        }
+
+        #rainbow {
+            animation: rainbowAnimation 5s linear;
+		    animation-iteration-count: infinite;
+        }
+        @keyframes rainbowAnimation {
+            100%,0%{
+			background-color: rgb(255,0,0);
+		}
+		8%{
+			background-color: rgb(255,127,0);
+		}
+		16%{
+			background-color: rgb(255,255,0);
+		}
+		25%{
+			background-color: rgb(127,255,0);
+		}
+		33%{
+			background-color: rgb(0,255,0);
+		}
+		41%{
+			background-color: rgb(0,255,127);
+		}
+		50%{
+			background-color: rgb(0,255,255);
+		}
+		58%{
+			background-color: rgb(0,127,255);
+		}
+		66%{
+			background-color: rgb(0,0,255);
+		}
+		75%{
+			background-color: rgb(127,0,255);
+		}
+		83%{
+			background-color: rgb(255,0,255);
+		}
+		91%{
+			background-color: rgb(255,0,127);
+		}
+        }
+    </style>
+</head>
+<body>
+    <div id="hoved">
+        <h1>Monty Hall</h1>
+        <p>Klikk en av dørene!</p>
+        <img src="./Images/door.png" alt="dør" class="dor">
+        <img src="./Images/door.png" alt="dør" class="dor">
+        <img src="./Images/door.png" alt="dør" class="dor">
+    </div>
+    <div id="buttons">
+        <button>Åpne Døren</button>
+        <button>Bytt Døren</button>
+        <img src="Images/refresh.png" id="refreshimg" alt="refresh-button">
+    </div>
+</body>
+</html>
