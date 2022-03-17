@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pilsulator</title>
+    <link rel="stylesheet" href="PilsKalkulator.css">
+    <link rel="icon" href="./Bilder/Drikke4.png">
+    <script src="PilsKalkulator.js" defer></script>
+
+    <!-- fonts: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- fonts: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+</head>
+<body>
+    <h1 id="tittel">P<img src="./Bilder/ØlSomI.png" alt="I">LSULATOR</h1>
+    <div class="outline">
+        <p class="overskrift">DRIKKEN DIN</p>
+        <div class="hoved">
+            <div id="knapper">
+                <button id="plussDrikke">+</button>
+                <button id="nullstill">Nullstill</button>
+            </div>
+            <div id="drikkeEnheter">
+                <div class="drikkeenhet">
+                    <img src="./Bilder/ØlFlat.png" alt="drikke" class="drikkebilde">
+                    <div>
+                        <label for="antall1">Antall (stk)</label>
+                        <input id="antall1" type="number" placeholder="0" min="0">
+                    </div>
+                    <div>
+                        <label for="mengde1">Mengde (dl)</label>
+                        <input id="mengde1" type="number" placeholder="0" min="0" value="3.3">
+                    </div>
+                    <div>
+                        <label for="prosent1">Prosent (%)</label>
+                        <input id="prosent1" type="number" placeholder="0" min="0" value="4.5">
+                    </div>
+                </div>
+                <div class="drikkeenhet">
+                    <img src="./Bilder/VinFlat.png" alt="drikke" class="drikkebilde">
+                    <div>
+                        <label for="antall2">Antall (stk)</label>
+                        <input id="antall2" type="number" placeholder="0" min="0">
+                    </div>
+                    <div>
+                        <label for="mengde2">Mengde (dl)</label>
+                        <input id="mengde2" type="number" placeholder="0" min="0" value="10">
+                    </div>
+                    <div>
+                        <label for="prosent2">Prosent (%)</label>
+                        <input id="prosent2" type="number" placeholder="0" min="0" value="20">
+                    </div>
+                </div>
+                <div class="drikkeenhet">
+                    <img src="./Bilder/BrennevinFlat.png" alt="drikke" class="drikkebilde">
+                    <div>
+                        <label for="antall3">Antall (stk)</label>
+                        <input id="antall3" type="number" placeholder="0" min="0">
+                    </div>
+                    <div>
+                        <label for="mengde3">Mengde (dl)</label>
+                        <input id="mengde3" type="number" placeholder="0" min="0" value="7.5">
+                    </div>
+                    <div>
+                        <label for="prosent3">Prosent (%)</label>
+                        <input id="prosent3" type="number" placeholder="0" min="0" value="40">
+                    </div>
+                </div>
+            </div>
+            <button id="beregn">Beregn</button>
+        </div>
+    </div>
+    <div class="outline" id="outline2">
+    </div>
+</body>
+</html>

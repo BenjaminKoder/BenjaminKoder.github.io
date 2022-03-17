@@ -1,0 +1,145 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+    background-color: #afd0e6;
+}
+#tittel {
+    font-family: 'Bebas Neue', cursive;
+    background-image: linear-gradient(to right top, #0e75b9, #137ec6, #1788d3, #1b91e0, #1f9bed, #1f9bed, #1f9bed, #1f9bed, #1b91e0, #1788d3, #137ec6, #0e75b9);
+    -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+    border-bottom: 4px solid #1f9bed;
+    font-size: 65px;
+    /* font-style: italic; */
+    text-align: center;
+    margin:20px auto;
+    width:400px;
+}
+#tittel img {
+    width: 20px;
+    height:47.5px;
+}
+
+.outline {
+    width:60%;
+    min-width:450px;
+    background-color: #137DC5;
+    border-radius: 20px;
+    margin:auto;
+}
+.hoved {
+    background-color: #fff;
+    border-radius:20px;
+    margin-left:15px;
+    width:100%;
+    padding: 5px 0;
+}
+
+
+.overskrift {
+    font-family: 'Bebas Neue', cursive;
+    padding:10px 0 8px 25px;
+    color:#fff;
+    font-style: italic;
+    font-size: 1.6rem;
+}
+
+.drikkeenhet {
+    margin:10px 10px;
+    background-color:#e8ebec;
+    border: #455a68 solid 1px;
+    border-radius: 20px;
+    /* display:flex;
+    flex-direction: row;
+    align-items:center;
+    justify-content:space-between; */
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    align-items: center;
+}
+
+.drikkeenhet > div {
+    /* width: 200px;
+    text-align: center; */
+    margin:10px;
+    display: flex;
+    flex-direction: column;
+}
+.drikkebilde {
+    width:70px;
+    margin-left: 35%;
+}
+
+.drikkeenhet  input {
+    width:60%;
+    padding:5px;
+    
+}
+#prosent {
+    width:90% !important;
+}
+
+.drikkeenhet label {
+    font-family: 'Poppins', sans-serif;
+}
+
+/* #plussDrikke {
+    width:95%;
+    margin:10px auto;
+    padding:20px;
+}
+#nullstill {
+    width:95%;
+    margin:10px auto;
+    padding:20px;
+} */
+#knapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+#knapper button, #beregn {
+    width:95%;
+    margin:10px auto;
+    padding:20px;
+    background-color: #1e95e4d2;
+    border:2.5px solid #137DC5;
+    border-radius: 30px;
+    color: #fff;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 30px;
+}
+#beregn {
+    padding:10px;
+    border-radius: 15px;
+    width:60%;
+    margin-left:20%;
+}
+#knapper button:hover, #beregn:hover {
+    background-color: #fff;
+    color:#137DC5;
+    transition: 0.5s;
+    cursor:pointer;
+}
+
+#outline2 {
+    margin-top:20px;
+    background-color: #F6C101;
+}
+#hoved2 {
+    margin-bottom:20px;
+}
+.underskrift {
+
+    color: #1776b6;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 300;
+    font-size: 50px;
+    text-align: center;
+}
+#pilsTall {
+    font-size:150px;
+    font-weight: bold;
+    word-break: break-all !important;
+}
