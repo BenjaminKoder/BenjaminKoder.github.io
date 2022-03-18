@@ -50,7 +50,7 @@ let enkeltMengdeEl;
 let enkeltProsentEl;
 
 let sumAlkohol = 0;
-let pilsAlkohol = 330*0.045;
+let pilsAlkohol = 500*0.045;
 let antallPils;
 let promille;
 let tilstand;
