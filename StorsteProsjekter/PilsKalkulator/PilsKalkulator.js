@@ -13,9 +13,9 @@ let drikkeEnheterEl = document.querySelector("#drikkeEnheter");
 
 
 function plussDrikke() {
-    let randomDrink = Math.floor(Math.random()*8+1);
+    let randomDrink = Math.floor(Math.random()*17+1);
     while (randomDrinkControl==randomDrink) {
-        randomDrink = Math.floor(Math.random()*8+1);
+        randomDrink = Math.floor(Math.random()*17+1);
     }
         drikkeEnheterEl.innerHTML += `<div class='drikkeenhet'>
     <img src='./Bilder/Drikke${randomDrink}.png' alt='drikke' class='drikkebilde'>
@@ -88,16 +88,18 @@ function beregnDrikke() {
     console.log(promille)
     if (promille < 0) {
         tilstand = "NEGATIV PROMILLE"
-    } else if (0 <= promille && promille <= 0.3) {
-        tilstand = "YOU GOOD";
-    } else if (0.3<promille && promille <=0.6) {
+    } else if (0 <= promille && promille <= 0.2) {
+        tilstand = "LOVLIG Å KJØRE";
+    } else if (0.2 < promille && promille <= 0.4) {
+        tilstand = "FØLERN SÅVIDT";
+    }else if (0.4<promille && promille <=0.6) {
         tilstand = "BRISEN"
     } else if (0.6<promille && promille <=1) {
         tilstand = "LYKKERUS"
     } else if (1<promille && promille <=1.5) {
         tilstand = "LÆTTIS"
     } else if (1.5<promille && promille <=2) {
-        tilstand = "FJORTISFYLLA"
+        tilstand = "KANAKAZ"
     } else if (2<promille && promille <=2.5) {
         tilstand = "FARLIGE SAKER"
     } else if (2.5<promille && promille <=3) {

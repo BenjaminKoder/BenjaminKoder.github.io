@@ -4,6 +4,7 @@
 }
 body {
     background-color: #afd0e6;
+    background: linear-gradient(to bottom, #0a3857ad, #0c4266d2), url(./Bilder/Bakgrunn.jpg);
 }
 #tittel {
     font-family: 'Bebas Neue', cursive;
@@ -142,4 +143,23 @@ body {
     font-size:150px;
     font-weight: bold;
     word-break: break-all !important;
+}
+
+footer * {
+    padding:0;
+    margin:0;
+}
+footer {
+    background-color:#115380;
+    /* width:100%; */
+    padding:15px 0;
+    margin-top:50px;
+    text-align: center;
+}
+footer p {
+    font-size:14px;
+    color:rgba(255, 255, 255, 0.6);
+}
+footer span {
+    color:#fff;
 }
