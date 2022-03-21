@@ -260,3 +260,8 @@ footer span {
         left:-113.5px;
     }
 }
+@media (max-width:800px) {
+    #alternativer {
+        grid-template-columns: repeat(2,1fr);
+    }
+}

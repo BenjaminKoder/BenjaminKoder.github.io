@@ -151,7 +151,7 @@ footer * {
 }
 footer {
     background-color:#115380;
-    /* width:100%; */
+    width:100%;
     padding:15px 0;
     margin-top:50px;
     text-align: center;
@@ -162,4 +162,10 @@ footer p {
 }
 footer span {
     color:#fff;
+}
+
+@media (max-width:450px) {
+    .outline {
+        min-width: 380px;
+    }
 }
