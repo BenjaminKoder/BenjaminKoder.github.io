@@ -1,0 +1,272 @@
+* {
+    margin:0;
+    padding:0;
+}
+body {
+/*     background: linear-gradient(to right, #101820, #121b24, #141e27, #16212b, #18242f, #18242f, #18242f, #18242f, #16212b, #141e27, #121b24, #101820) fixed;
+    background: linear-gradient(to right, #b2e0ff, #b8e3ff, #bfe6fe, #c5e8fe, #ccebfe, #ccebfe, #ccebfe, #ccebfe, #c5e8fe, #bfe6fe, #b8e3ff, #b2e0ff) fixed; */
+    background: linear-gradient(to right, #ecf0f1, #f0f3f4, #f4f5f7, #f7f8fa, #fbfbfc, #fbfbfc, #fbfbfc, #fbfbfc, #f7f8fa, #f4f5f7, #f0f3f4, #ecf0f1) fixed;
+}
+#hovedinnhold {
+    width:90%;
+    margin:auto; 
+    text-align:center;
+    font-family: 'Poppins', sans-serif;
+}
+#hovedinnhold > h1 {
+    font-size: 47px;
+    padding:0;
+    font-family: 'Righteous', cursive;
+    margin:auto;
+    width:fit-content;
+    margin-top: 90px;
+    margin-bottom: 58px;
+/*     background-image: linear-gradient(to right, #fec815, #ffd10f, #ffd908, #ffe203, #ffeb00, #ffeb00, #ffeb00, #ffeb00, #ffe203, #ffd908, #ffd10f, #fec815); */
+    background-image: linear-gradient(to right, #196598, #1b71aa, #1c7dbd, #1e89d0, #2196e4, #2196e4, #2196e4, #2196e4, #1e89d0, #1c7dbd, #1b71aa, #196598);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+#hovedinnhold > p {
+    color:#fff;
+    margin:20px 0;
+}
+.alternativer_individ {
+    border-radius:1px;
+    position:relative;
+    overflow:hidden;
+    width:100%;
+    height:250px;
+}
+.alternativer_individ img {
+    width:100%;
+    height:100%;
+    /* object-fit: contain; */
+    object-fit: cover;
+    display: block;
+}
+#alternativer {
+    /* display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap:15px;
+}
+.lag {
+    background: transparent;
+    height:100%;
+    width:100%;
+    position:absolute;
+    top:0;
+    left:0;
+    transition: 0.5s;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.lag:hover {
+    background: rgba(126,126,126,0.5);
+}
+.lag h3 {
+    width:100%;
+    font-weight: 500px;
+    margin: auto;
+    padding: 10px;
+    color:#000;
+    border-radius:10px;
+    background-color: rgba(255,255,255,0.6);
+    width:auto;
+    font-size: 26px;
+    bottom:0;
+    position:absolute;
+    transition: 0.5s;
+}
+.lag:hover h3 {
+    bottom:36%;
+    font-size:40px;
+    opacity:1;
+}
+.grønndiv, .rosadiv, .guldiv {
+    border:#137DC5 solid 3px;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 #137dc5;
+}
+/* .rosadiv {
+    border:rgb(249,68,255) solid 3px;
+    border-radius: 10px;
+}
+.guldiv {
+    border:rgb(255,255,0) solid 3px;
+    border-radius:10px;
+} */
+.greenlag:hover, .pinklag:hover, .yellowlag:hover {
+    background-color:#137ec596;
+}
+/* .pinklag:hover {
+    background-color:rgba(249, 68, 255,0.6);
+}
+.yellowlag:hover {
+    background-color:rgba(255,255,0,0.6);
+} */
+#hovedinnhold > p span {
+    font-weight: bold;
+    font-size: 19px;
+}
+.g {
+    color:#0f0;
+}
+.r {
+    color:rgb(249, 68, 255);
+}
+.gu {
+    color:#ff0;
+}
+
+
+
+
+/*Dropdown-meny i høyre topp-hjørnet*/
+
+#dropdown {
+    position:fixed;
+    z-index:2;
+    top:80px;
+    right:50px;
+}
+#dropdown * {
+    padding:0;
+    margin:0;
+}
+#dropdown #profil {
+    position: relative;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:#1267a3 solid 3px;
+    overflow:hidden; /*Skjuler det av bildet som er utenfor diven*/
+    cursor:pointer;
+    opacity:0.65;
+}
+#dropdown #profil:hover {
+    opacity:1;
+    box-shadow: 0 0 10px #1267a3, 0 0 40px #2199ea, 0 0 80px #2199ea;
+    box-shadow: 0px 10px 15px rgba(11, 65, 102, 0.9);
+}
+#dropdown #profil img {
+    position:absolute;
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+#dropdown #meny {
+    position:absolute;
+    top:105px;
+    left:-102px;
+    padding:10px 20px;
+    background: linear-gradient(to bottom, #101820, #121b24, #141e27, #16212b, #18242f, #18242f, #18242f, #18242f, #16212b, #141e27, #121b24, #101820);
+    width:150px;
+    border-radius:4px;
+    border: #137DC5 solid 2px;
+    transition: all 0.5s ease; 
+    visibility: hidden;
+    opacity:0;
+}
+#dropdown #meny.active {
+    visibility: visible;
+    opacity:1;
+}
+#dropdown #meny h3 {
+    width:100%;
+    text-align:center;
+    font-size:20px;
+    font-family: 'Righteous', cursive;
+    padding:15px 0px;
+    color:#2199ea;
+    line-height: 1.2em; /*høyden på hver tekst-linje er høyere enn standaren 1em*/
+    background-image: linear-gradient(to right, #196598, #1b71aa, #1c7dbd, #1e89d0, #2196e4, #2196e4, #2196e4, #2196e4, #1e89d0, #1c7dbd, #1b71aa, #196598);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+}
+#dropdown #meny::before {
+    content:"";
+    position: absolute;
+    top:-12px;
+    right:35px;
+    width:20px;
+    height:20px;
+    background-color:#101820;
+    border-top: #137DC5 solid 2px;
+    border-left: #137DC5 solid 2px;
+    transform:rotate(45deg);
+}
+#dropdown #meny ul li {
+    list-style:none;
+    padding:10px 0;
+    border-top: 1px solid rgba(0,0,0,0.1);
+    display:flex;
+    align-items:center;
+    justify-content: start;
+    cursor:pointer;
+}
+#dropdown #meny ul li a {
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    color:#137DC5;
+    width:100%;
+}
+#dropdown #meny ul li img {
+    margin-right: 10px;
+    max-width:38px;
+    opacity:0.6;
+}
+#dropdown #meny ul li:hover img {
+    opacity:1;
+}
+#dropdown #meny ul li:hover a {
+    color:#42a9ee;
+}
+
+
+/* footer */
+footer * {
+    padding:0;
+    margin:0;
+}
+footer {
+    background-color:#408abb;
+    /* width:100%; */
+    padding:20px 0;
+    margin-top:50px;
+    text-align: center;
+}
+footer p {
+    font-size:14px;
+    color:#000000;
+}
+footer span {
+    opacity: 0.7;
+}
+
+
+
+@media (max-width:900px) {
+    #dropdown #profil {
+        width:60px;
+        height:60px;
+    }
+    #dropdown {
+        top:20px;
+        right:30px;
+    }
+    #dropdown #meny {
+        top:90px;
+        left:-113.5px;
+    }
+}
+@media (max-width:1100px) {
+    #alternativer {
+        grid-template-columns: repeat(2,1fr);
+    }
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terning</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+        body {
+            background-color: #efefef;
+        }
+        .hoved {
+            width:fit-content;
+            margin:auto;
+            
+        }
+        #terninger h1 {
+            border-radius:10px;
+            color:#fff;
+            padding:30px 40px;
+            width:fit-content;
+            margin:auto;
+            background-color: rgb(243, 149, 105);
+            border:1px solid rgb(143,49,20)
+        }
+        #terninger div {
+            margin:0 10px;
+        }
+        /* .rulling {
+            animation-name: diceroll;
+            animation-duration: 4s;
+        } */
+        h2 {
+            text-align: center;
+            font-size:3rem;
+        }
+        h4 {
+            text-align: center;
+        }
+        #terninger{
+            display: flex;
+            flex-wrap: wrap;
+            height:97px;
+            width:600px;
+            margin:10px auto;
+        }
+        label {
+            border-radius: 10px;
+            background-color: #efefef;
+            padding:10px;
+            width:fit-content;
+        }
+        #checkbokser {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            border:1px solid #000;
+            background-color: #fff;
+        }
+        label, button {
+            margin:10px;
+        }
+        
+    </style>
+</head>
+<body>
+    <h2>YATZY</h2>
+    <h4>Prøv å få høyest sum!</h4>
+    <div class="hoved" id="terninger">
+        <div id="terningdiv1"></div>
+        <div id="terningdiv2"></div>
+        <div id="terningdiv3"></div>
+        <div id="terningdiv4"></div>
+        <div id="terningdiv5"></div>
+    </div>
+    <div class="hoved" id="checkbokser">
+        <label> 
+            <input type="checkbox" value="Terning1" id="terning1"> Terning1
+        </label>
+        <label>  
+            <input type="checkbox" value="Terning2" id="terning2"> Terning2
+        </label>
+        <label> 
+            <input type="checkbox" value="Terning3" id="terning3"> Terning3
+        </label>
+        <label> 
+            <input type="checkbox" value="Terning4" id="terning4"> Terning4
+        </label>
+        <label> 
+            <input type="checkbox" value="Terning5" id="terning5"> Terning5
+        </label>
+        <p id="score"></p>
+        <button>Kast igjen: 3</button>
+    </div>
+    
+
+    <script src="Terning.js"></script>
+</body>
+</html>
