@@ -1,9 +1,14 @@
+if (!localStorage.antallTrykk) {
+    localStorage.antallTrykk = 0;
+} 
 let overskriftEl= document.querySelector("#kroner");
 let levelEl= document.querySelector("#level");
 let knappEl=document.querySelector("#knapp");
 let hovedEl = document.querySelector("#hoved");
 let bodyEl = document.querySelector("body");
 let imageEl = document.querySelector("#image");
+
+overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
 
 knappEl.addEventListener("click", skrivAntall);
 
@@ -19,15 +24,14 @@ knapppowerEl.addEventListener("click", skrivAntallpower);
 let jackpotEl=document.querySelector("#Jackpot");
 jackpotEl.addEventListener("click", Jackpotfunksjon);
 
-let antallTrykk=0;
 let press=0;
 let level=1;
 
 function skrivAntall() {
-    antallTrykk++;
+    localStorage.antallTrykk++;
     press++;
     console.log(press);
-    overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
     bodyEl.style.background="rgb(0,255,0)";
 
     if (press==50) {
@@ -58,37 +62,37 @@ function skrivAntall() {
 }
 
 function skrivAntallMinus() {
-    antallTrykk=antallTrykk-1;
-    overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    localStorage.antallTrykk--;
+    overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
     bodyEl.style.background="rgb(255,0,0)";
 }
 
 function skrivAntalldobbel() {
-    antallTrykk=antallTrykk+Math.floor(Math.random()*7-3);
-    overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    localStorage.antallTrykk=Number(localStorage.antallTrykk)+Math.floor(Math.random()*7-3);
+    overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
     bodyEl.style.background="rgb(255,255,0)";
 }
 
 function skrivAntallpower() {
-    if (antallTrykk>=100) {
-    antallTrykk=antallTrykk-100;
+    if (localStorage.antallTrykk>=100) {
+    localStorage.antallTrykk=localStorage.antallTrykk-100;
     knappEl.removeEventListener("click", skrivAntall)
     knappEl.addEventListener("click", skrivAntallpluss);
     knappEl.innerHTML="<p>2+</p>";
     knapppowerEl.removeEventListener("click", skrivAntallpower);
     knapppowerEl.addEventListener("click", skrivAntallpower2);
     knapppowerEl.innerHTML="<p>4+, pris 200</p>"
-    overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
     bodyEl.style.backgroundImage="url(.//images/UPGRADE.jfif)";
     bodyEl.style.backgroundSize="cover"
     }
 }
 function skrivAntallpower2() {
-    if (antallTrykk>= 200) {
-        antallTrykk=antallTrykk-200;
+    if (localStorage.antallTrykk>= 200) {
+        localStorage.antallTrykk=localStorage.antallTrykk-200;
         knappEl.removeEventListener("click", skrivAntallpluss)
         knappEl.addEventListener("click", skrivAntallpluss2);
-        overskriftEl.innerHTML="Score: "+antallTrykk;
+        overskriftEl.innerHTML="Score: "+Number(localStorage.antallTrykk);
         knappEl.innerHTML="<p>4+</p>";
         bodyEl.style.backgroundImage="url(./images/RedX.png)";
         bodyEl.style.backgroundSize="cover"
@@ -101,10 +105,10 @@ function skrivAntallpower2() {
 
 
 function skrivAntallpluss() {
-    antallTrykk=antallTrykk+2;
+    localStorage.antallTrykk=Number(localStorage.antallTrykk)+2;
     press++;
     console.log(press);
-    overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
     bodyEl.style.background="rgb(0,255,0)";
 
     if (press==50) {
@@ -134,10 +138,10 @@ function skrivAntallpluss() {
     }
 }
 function skrivAntallpluss2() {
-    antallTrykk=antallTrykk+4;
+    localStorage.antallTrykk=Number(localStorage.antallTrykk)+4;
     press++;
     console.log(press);
-    overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
     bodyEl.style.background="rgb(0,255,0)";
 
     if (press==50) {
@@ -168,9 +172,9 @@ function skrivAntallpluss2() {
 }
 
 function Jackpotfunksjon() {
-    if (antallTrykk>=100 ) {
-        antallTrykk=antallTrykk+(Math.round(Math.random()*225)-100);
-        overskriftEl.innerHTML="Kroner: "+antallTrykk;
+    if (localStorage.antallTrykk>=100 ) {
+        localStorage.antallTrykk=Number(localStorage.antallTrykk)+(Math.round(Math.random()*210)-100);
+        overskriftEl.innerHTML="Kroner: "+Number(localStorage.antallTrykk);
         bodyEl.style.backgroundImage="url(.//images/Jackpot.jpg)";
     }
 }
