@@ -192,7 +192,6 @@ if (gull===true){
 }
 
 function animate() {
-    console.log(scrollOffset)
     //kaller på animate-funksjonen: (recursive function)
     requestAnimationFrame(animate);
     //funksjon som clearer canvaset:
@@ -246,10 +245,11 @@ function animate() {
         console.log("You won")
         end = window.performance.now();
         celebration.play();
+        addUser(time);
 
         if (time<highscore){
             highscore=time.toFixed(1);
-            alert("Du fikk ny rekord! Gratulerer! Du brukte "+antalldød+" forsøk og "+time.toFixed(1)+ " sekunder på det siste forsøket.");
+            console.log("Du fikk ny rekord! Gratulerer! Du brukte "+antalldød+" forsøk og "+time.toFixed(1)+ " sekunder på det siste forsøket.");
         }
         highscoreEl.innerText="Rekord: "+ highscore;
 
@@ -283,9 +283,6 @@ window.addEventListener("keydown", ({ keyCode })=>{
             console.log("left");
             keys.left.pressed=true
             break
-        case 83: //83 er keyCoden til s
-            console.log("down");
-            break
         case 68: //68 er keyCoden til d
             console.log("right");
             keys.right.pressed=true
@@ -301,9 +298,6 @@ window.addEventListener("keydown", ({ keyCode })=>{
         case 37 : //37 er keyCoden til arrow (left)
             console.log("left");
             keys.left.pressed=true
-            break
-        case 40: //40 er keyCoden til arrow (down)
-            console.log("down");
             break
         case 39: //39 er keyCoden til arrow (right)
             console.log("right");
@@ -323,8 +317,6 @@ window.addEventListener("keyup", ({ keyCode })=>{
         case 65: //65 er keyCoden til a (left)
             keys.left.pressed=false
             break
-        case 83: //83 er keyCoden til s (down)
-            break
         case 68: //68 er keyCoden til d (right)
             //når spilleren slipper tasten blir farten lik 0
             keys.right.pressed=false
@@ -335,8 +327,6 @@ window.addEventListener("keyup", ({ keyCode })=>{
 
         case 37: //37 er keyCoden til arrow (left)
             keys.left.pressed=false
-            break
-        case 40: //40 er keyCoden til arrow (down)
             break
         case 39: //39 er keyCoden til arrow (right)
             //når spilleren slipper tasten blir farten lik 0
@@ -362,3 +352,28 @@ menyknappEl.addEventListener("click", () => {
         menyOpen=false;
     }
 });
+
+
+
+
+//FIREBASE:
+
+//Unikt for hver database:
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyD7iCragalDM_jfXjOrkPNb2UG3Et69dp8",
+    authDomain: "fir-p1-34296.firebaseapp.com",
+    projectId: "fir-p1-34296",
+    storageBucket: "fir-p1-34296.appspot.com",
+    messagingSenderId: "691363083123",
+    appId: "1:691363083123:web:470be96f7d7d0292748b06"
+};
+
+
+//Ikke unikt for hvert prosjekt:
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Lager en referanse til databasen
+let db = firebase.firestore();
+

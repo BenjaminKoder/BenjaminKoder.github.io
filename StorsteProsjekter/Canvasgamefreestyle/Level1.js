@@ -1,3 +1,20 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const canvas = document.querySelector("#canvas");
 const c = canvas.getContext("2d");
 
@@ -182,18 +199,20 @@ function animate() {
     var end = window.performance.now();
     var time = (end - start)/1000;
     tidtakerEl.innerText="Tid: "+(time).toFixed(1)+" sek";
+   
     
     //Win condition
     if (scrollOffset > 3070 && scrollOffset<3080) {
         console.log("You won")
         end = window.performance.now();
         celebration.play();
+        addUser(time);
         
         antalldød=1;
 
         if (time<highscore){
             highscore=time.toFixed(1);
-            alert("Du fikk ny rekord! Gratulerer! Du brukte "+antalldød+" forsøk og "+time.toFixed(1)+ " sekunder på det siste forsøket.");
+            console.log("Du fikk ny rekord! Gratulerer! Du brukte "+antalldød+" forsøk og "+time.toFixed(1)+ " sekunder på det siste forsøket.");
         }
         highscoreEl.innerText="Rekord: "+ highscore;
 
@@ -223,18 +242,12 @@ window.addEventListener("keydown", ({ keyCode })=>{
     // Når casesene er gjennomført (her trykket på), utføres switch-statementet
     switch (keyCode) {
         case 65 : //65 er keyCoden til a
-            console.log("left");
             keys.left.pressed=true
             break
-        case 83: //83 er keyCoden til s
-            console.log("down");
-            break
         case 68: //68 er keyCoden til d
-            console.log("right");
             keys.right.pressed=true
             break
         case 87: //87 er keyCoden til w
-            console.log("up");
             if (player.velocity.y===0){
                 player.velocity.y=-10
             }
@@ -242,18 +255,12 @@ window.addEventListener("keydown", ({ keyCode })=>{
 
         
         case 37 : //37 er keyCoden til arrow (left)
-            console.log("left");
             keys.left.pressed=true
             break
-        case 40: //40 er keyCoden til arrow (down)
-            console.log("down");
-            break
         case 39: //39 er keyCoden til arrow (right)
-            console.log("right");
             keys.right.pressed=true
             break
         case 38: //38 er keyCoden til arrow (up)
-            console.log("up");
             if (player.velocity.y==0){
                 player.velocity.y=-10
             }
@@ -266,8 +273,6 @@ window.addEventListener("keyup", ({ keyCode })=>{
         case 65: //65 er keyCoden til a (left)
             keys.left.pressed=false
             break
-        case 83: //83 er keyCoden til s (down)
-            break
         case 68: //68 er keyCoden til d (right)
             //når spilleren slipper tasten blir farten lik 0
             keys.right.pressed=false
@@ -279,8 +284,6 @@ window.addEventListener("keyup", ({ keyCode })=>{
         case 37: //37 er keyCoden til arrow (left)
             keys.left.pressed=false
             break
-        case 40: //40 er keyCoden til arrow (down)
-            break
         case 39: //39 er keyCoden til arrow (right)
             //når spilleren slipper tasten blir farten lik 0
             keys.right.pressed=false
@@ -289,19 +292,3 @@ window.addEventListener("keyup", ({ keyCode })=>{
             break
     }
 })
-
-
-const menyknappEl = document.querySelector("#menyknapp");
-const MenyEl = document.querySelector("#meny");
-
-let menyOpen = false;
-
-menyknappEl.addEventListener("click", () => {
-    if (!menyOpen) {
-        MenyEl.setAttribute("class","active");
-        menyOpen = true;
-    } else if(menyOpen===true) {
-        MenyEl.removeAttribute('class','active');
-        menyOpen=false;
-    }
-});

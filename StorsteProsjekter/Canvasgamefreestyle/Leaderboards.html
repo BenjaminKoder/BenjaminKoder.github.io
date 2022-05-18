@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboards</title>
+</head>
+<body>
+    <button id="leaderboardsknapp"><img src="Canvasgame.img/leaderboardknapp.webp" alt="leaderboards"></button>
+    <div id="leaderboards">
+
+    </div>
+    
+    
+    <div class="navnGruppe">
+        <input type="text" class="navnInput" id="name" placeholder="NAVN" required="" autocomplete="off" />
+        <label for="name" class="navnLabel" >NAVN</label>
+      </div>
+
+
+      <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+
+    <script>
+        let collectionName = "tider2"
+    </script>
+    <script src="Leaderboards.js"></script>
+</body>
+</html>

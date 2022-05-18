@@ -205,7 +205,7 @@ new Platform({x:-600,y:innerHeight-40,width:100, height:40}),
 
             new Platform({x:5200,y:innerHeight-50,width:1000, height:50}),
 //Bane 13 ScrollOffset 4790-4800:
-platforms = [new Platform({x:-300,y:innerHeight-40,width:500, height:40}),
+platforms = new Platform({x:-300,y:innerHeight-40,width:500, height:40}),
     new Platform({x:570,y:innerHeight-40,width:130, height:40}),
     new Platform({x:950,y:innerHeight-40,width:80, height:40}),
     new Platform({x:1200,y:innerHeight-140,width:40, height:20}),

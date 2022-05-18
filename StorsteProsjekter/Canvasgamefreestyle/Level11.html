@@ -49,7 +49,7 @@
             -webkit-text-fill-color: transparent;
             font-size: 32px;
         }
-        #antallforsøk,#tidtaker,#highscore, #tittel{
+        #antallforsøk,#tidtaker,#highscore/* , #tittel */{
             z-index:2;
             position: absolute;
             margin:40px;
@@ -70,10 +70,6 @@
             top:50px;
             right:0;
         }
-        #tittel {
-            bottom:0;
-            left:0;
-        }
         #nestelevel {
             z-index:2;
             position: absolute;
@@ -85,7 +81,8 @@
             font-family: 'Bebas Neue', cursive;
             background-color: #eb00002c;
             
-            top:50px;
+            top:120px;
+            right:0px;
             text-decoration:none;
         }
         #gull {
@@ -97,7 +94,7 @@
             font-family: 'Bebas Neue', cursive;
             color:#d4af37;
         }
-        #nestelevel:hover, #menyknapp:hover {
+        #nestelevel:hover, #menyknapp:hover, #leaderboardsknapp:hover {
             font-size: 29px;
             box-shadow:0 0 10px 0 #f00;
             background-image: linear-gradient(to right, #b10000, #bf0000, #ce0000, #dc0000, #eb0000, #eb0000, #eb0000, #eb0000, #dc0000, #ce0000, #bf0000, #b10000);
@@ -105,61 +102,136 @@
             transition:0.2s ease-in-out;
             cursor:pointer;
         }
-        #menyknapp {
+        #menyknapp, #leaderboardsknapp {
             cursor:pointer;
-            top:0px;
-            right:225px;
             z-index:3;
             position: absolute;
             
             margin:20px;
             padding:15px;
             padding-left: 21px;
-            border:1px solid #eb0000;
             border-radius:10px;
             color:#eb0000;
             font-family: 'Bebas Neue', cursive;
-            background-color: #eb00002c;
             
+        }
+        #menyknapp {
+            top:0px;
+            right:225px;
+            background-color: #eb00002c;
+            border:1px solid #eb0000;
+        }
+        #leaderboardsknapp {
+            top:180px;
+            left:20px;
+            background-color: #eb00002c;
+            border:1px solid #eb00002c;
+        }
+        #leaderboardsknapp img {
+            width:100px;
         }
         #menyknapp p {
             font-size: 38px;
             letter-spacing: 6px;
         }
-        #meny {
+        #meny, #leaderboards {
             position:absolute;
             top:50%;
             right:50%;
             transform: translate(50%,-50%);
             z-index:2;
-            width:70%;
+            
             border-radius:20px;
             background-color: #eb000062;
             
 
 
             display:none;
+            
+        }
+        #meny {
             flex-wrap: wrap;
+            width:70%;
+        }
+        #leaderboards {
+            width:25%;
         }
         #meny.active {
             display:flex;
         }
-
-        .leveler {
+        #leaderboards.active {
+            display:inline-block;
+        }
+        .score {
+            font-family: 'Bebas Neue', cursive;
+            padding:10px;   
+        }
+        .score h2 {
             font-size: 22px;
+        }
+        .score p {
+            font-size: 17px;
+        }
+
+        .leveler, .score {
             user-select:none;
             text-decoration:none;
             color:#fff;
             border-radius:20px;
-            padding:20px 0px;
-            width:159px;
-            height:60px;
+            
+            
             margin:10px;
-            display:flex;
-            justify-content: center;
+            
             font-family: 'Bebas Neue', cursive;
             z-index: 2;
         }
+        .leveler {
+            display:flex;
+            justify-content: center;
+            padding:20px 0px;
+            width:159px;
+            height:60px;
+            font-size: 22px;
+        }
+.navnGruppe {
+    position:absolute;
+    left:40px;
+    top:100px;
+}
+.navnLabel {
+    font-family: 'Bebas Neue', cursive;
+  font-size: 42px;
+  margin-left: 2rem;
+  margin-top: 0.7rem;
+  display: block;
+  transition: all 0.3s;
+  transform: translate(-55px,-23px);
+}
+
+.navnInput {
+font-family: 'Bebas Neue', cursive;
+  color: #333;
+  font-size: 20px;
+	margin: 0 auto;
+  padding: 10px 15px;
+  border-radius: 0.2rem;
+  background-color: #fff;
+  border:1px #000 solid;
+  width: 150px;
+  display: block;
+  transition: all 0.3s;
+  background-color: rgba(255, 0, 0, 0.502);
+}
+
+.navnInput:placeholder-shown + .navnLabel {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
+
+
+
         #Level1 {
             background-color:#e6194B;
         }
@@ -258,15 +330,37 @@
         <a class='leveler' id="Level14" href='./Level14.html'>Level 14</a>
         <a class='leveler' id="Level15" href='./Level15.html'>Level 15</a>
     </div>
-    <p id="tittel">Level 11</p>
+    <button id="leaderboardsknapp"><img src="Canvasgame.img/leaderboardknapp.webp" alt="leaderboards"></button>
+    <div id="leaderboards">
+
+    </div>
+    
+    
+    <div class="navnGruppe">
+        <input type="text" class="navnInput" id="name" placeholder="NAVN" required="" autocomplete="off" />
+        <label for="name" class="navnLabel" >NAVN</label>
+      </div>
+
+    
+    <!-- <p id="tittel">Level 11</p> -->
     <div id="gullstjerne">
         
     </div>
-    <p id="gull">Gull = 15 sek</p>
+    <p id="gull">Gull = 38 sek</p>
 
     <h1>GEOMETRY DASH ish</h1>
     
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
 
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+
+    <script>
+        let collectionName = "tider11";
+    </script>
+    <script src="Leaderboards.js"></script>  
     <script src="Level11.js" type="module"></script>
 </body>
 </html>

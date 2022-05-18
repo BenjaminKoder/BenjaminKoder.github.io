@@ -1,3 +1,87 @@
+/* let navnInputEl = document.querySelector(".navnInput");
+let navnLabelEl = document.querySelector(".navnLabel");
+
+if (localStorage.navnverdi) {
+    navnInputEl.value = localStorage.navnverdi;
+    navnInputEl.style.backgroundColor = "rgba(60, 255, 0, 0.502)";
+    navnInputEl.style.border = "3px rgb(0, 216, 18) solid";
+    navnLabelEl.style.color = "rgb(0, 161, 13)";
+    navnInputEl.blur();
+}
+
+navnInputEl.addEventListener("keydown", function(event) {
+    if (event.key == "Enter" && navnInputEl.value != "") {
+        navnInputEl.style.backgroundColor = "rgba(60, 255, 0, 0.502)";
+        navnInputEl.style.border = "3px rgb(0, 216, 18) solid";
+        navnLabelEl.style.color = "rgb(0, 161, 13)";
+        localStorage.navnverdi = navnInputEl.value;
+        navnInputEl.blur();
+    } else if (event.key == "Enter" && navnInputEl.value == "") {
+        navnInputEl.style.backgroundColor = "rgba(255, 0, 0, 0.502)";
+        navnInputEl.blur();
+    }   else {
+        navnInputEl.style.backgroundColor = "#fff";
+        navnInputEl.style.border = "1px #000 solid";
+        navnLabelEl.style.color = "#000";
+    }
+})
+
+
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+    apiKey: "AIzaSyBp7J-JtNoxDkIBRCgCO855dlodFUntPFI",
+    authDomain: "geometrydashish-80a36.firebaseapp.com",
+    projectId: "geometrydashish-80a36",
+    storageBucket: "geometrydashish-80a36.appspot.com",
+    messagingSenderId: "815295319421",
+    appId: "1:815295319421:web:323c9d69efc19688951014",
+    measurementId: "G-1ZBH4FB7XB"
+};
+
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Lager en referanse til databasen
+let db = firebase.firestore();
+
+let collectionName = "tider11";
+
+
+
+
+function getUsers() {
+    db.collection(collectionName).orderBy("tid").get().then((snapshot) => {
+        let dokumenter = snapshot.docs;
+
+        leaderboardsEl.innerHTML = "";
+
+        for (let i=0;i<5;i++) {
+            let data = dokumenter[i].data();
+
+            leaderboardsEl.innerHTML += `<div class="score">
+            <h2>Navn: ${data.navn} </h2>
+            <p>Tid: ${data.tid.toFixed(3)} sek</p>
+            </div>`
+            let scoreEl = document.querySelectorAll(".score");
+            let randomColorScore = Math.floor(Math.random()*360);
+            scoreEl[i].style.backgroundColor = `hsl(${randomColorScore}, 100%, 40%)`;
+        }
+    })
+}
+
+getUsers();
+
+
+
+
+
+
+
+ */
+
+
+
+
 const canvas = document.querySelector("#canvas");
 const c = canvas.getContext("2d");
 
@@ -137,7 +221,27 @@ platforms = [new Platform({x:-300,y:innerHeight-50,width:700, height:50}),
     new Platform({x:3650,y:innerHeight-40,width:300, height:40}),
     new Platform({x:4100,y:innerHeight-30,width:30, height:30}),
     new Platform({x:4430,y:innerHeight-40,width:20, height:40}),
-    new Platform({x:4750,y:innerHeight-30,width:500, height:40}),
+    new Platform({x:4750,y:innerHeight-30,width:200, height:40}),
+    new Platform({x:5150,y:innerHeight-30,width:500, height:40}),
+    new Platform({x:5880,y:innerHeight-30,width:500, height:40}),
+
+    new Platform({x:6580,y:innerHeight-100,width:60, height:30}),
+    new Platform({x:6750,y:innerHeight-70,width:40, height:30}),
+    new Platform({x:6910,y:innerHeight-150,width:30, height:30}),
+    new Platform({x:6750,y:innerHeight-230,width:60, height:30}),
+    new Platform({x:6550,y:innerHeight-270,width:60, height:30}),
+    new Platform({x:6350,y:innerHeight-230,width:60, height:30}),
+    new Platform({x:6050,y:innerHeight-230,width:90, height:30}),
+    new Platform({x:6060,y:innerHeight-330,width:70, height:30}),
+    new Platform({x:6070,y:innerHeight-430,width:50, height:30}),
+    new Platform({x:6250,y:innerHeight-410,width:70, height:30}),
+    new Platform({x:6440,y:innerHeight-420,width:80, height:30}),
+    new Platform({x:6620,y:innerHeight-400,width:90, height:30}),
+    new Platform({x:6810,y:innerHeight-390,width:100, height:30}),
+    new Platform({x:7050,y:innerHeight-430,width:120, height:30}),
+    new Platform({x:7550,y:innerHeight-50,width:120, height:50}),
+    new Platform({x:7755,y:innerHeight-120,width:30, height:30}),
+    new Platform({x:8000,y:innerHeight-50,width:450, height:50}),
 ]
 //kaller på update-metoden:
 
@@ -195,25 +299,26 @@ function animate() {
         }
     })
 
-    var end = window.performance.now();
-    var time = (end - start)/1000;
+    let end = window.performance.now();
+    let time = (end - start)/1000;
     tidtakerEl.innerText="Tid: "+(time).toFixed(1)+" sek";
     
     //Win condition
-    if (scrollOffset > 4760 && scrollOffset<4770) {
+    if (scrollOffset > 8000 && scrollOffset<8100) {
         console.log("You won")
         end = window.performance.now();
         celebration.play();
+        addUser(time);
         
         antalldød=1;
 
         if (time<highscore){
             highscore=time.toFixed(1);
-            alert("Du fikk ny rekord! Gratulerer! Du brukte "+antalldød+" forsøk og "+time.toFixed(1)+ " sekunder på det siste forsøket.");
+            console.log("Du fikk ny rekord! Gratulerer! Du brukte "+antalldød+" forsøk og "+time.toFixed(1)+ " sekunder på det siste forsøket.");
         }
         highscoreEl.innerText="Rekord: "+ highscore;
 
-        if (time<=15.1){
+        if (time<=38.1){
             gull = true;
         }
 
@@ -239,18 +344,12 @@ window.addEventListener("keydown", ({ keyCode })=>{
     // Når casesene er gjennomført (her trykket på), utføres switch-statementet
     switch (keyCode) {
         case 65 : //65 er keyCoden til a
-            console.log("left");
             keys.left.pressed=true
             break
-        case 83: //83 er keyCoden til s
-            console.log("down");
-            break
         case 68: //68 er keyCoden til d
-            console.log("right");
             keys.right.pressed=true
             break
         case 87: //87 er keyCoden til w
-            console.log("up");
             if (player.velocity.y===0){
                 player.velocity.y=-10
             }
@@ -258,18 +357,12 @@ window.addEventListener("keydown", ({ keyCode })=>{
 
         
         case 37 : //37 er keyCoden til arrow (left)
-            console.log("left");
             keys.left.pressed=true
             break
-        case 40: //40 er keyCoden til arrow (down)
-            console.log("down");
-            break
         case 39: //39 er keyCoden til arrow (right)
-            console.log("right");
             keys.right.pressed=true
             break
         case 38: //38 er keyCoden til arrow (up)
-            console.log("up");
             if (player.velocity.y==0){
                 player.velocity.y=-10
             }
@@ -282,8 +375,6 @@ window.addEventListener("keyup", ({ keyCode })=>{
         case 65: //65 er keyCoden til a (left)
             keys.left.pressed=false
             break
-        case 83: //83 er keyCoden til s (down)
-            break
         case 68: //68 er keyCoden til d (right)
             //når spilleren slipper tasten blir farten lik 0
             keys.right.pressed=false
@@ -295,8 +386,6 @@ window.addEventListener("keyup", ({ keyCode })=>{
         case 37: //37 er keyCoden til arrow (left)
             keys.left.pressed=false
             break
-        case 40: //40 er keyCoden til arrow (down)
-            break
         case 39: //39 er keyCoden til arrow (right)
             //når spilleren slipper tasten blir farten lik 0
             keys.right.pressed=false
@@ -306,18 +395,3 @@ window.addEventListener("keyup", ({ keyCode })=>{
     }
 })
 
-
-const menyknappEl = document.querySelector("#menyknapp");
-const MenyEl = document.querySelector("#meny");
-
-let menyOpen = false;
-
-menyknappEl.addEventListener("click", () => {
-    if (!menyOpen) {
-        MenyEl.setAttribute("class","active");
-        menyOpen = true;
-    } else if(menyOpen===true) {
-        MenyEl.removeAttribute('class','active');
-        menyOpen=false;
-    }
-});
