@@ -1,7 +1,7 @@
 let sumPilsEl = document.querySelector("#outline2");
 let randomDrinkControl = 0;
 let randomDrink;
-let drikkeEnhetCounter = 4;
+let drikkeEnhetCounter = 5;
 
 let plussDrikkeBtn = document.querySelector("#plussDrikke");
 plussDrikkeBtn.addEventListener("click", plussDrikke);

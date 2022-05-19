@@ -145,6 +145,11 @@ body {
     font-weight: bold;
     word-break: break-all !important;
 }
+@media (max-width:500px) {
+    #pilsTall {
+        font-size: 100px;
+    }
+}
 
 footer * {
     padding:0;
