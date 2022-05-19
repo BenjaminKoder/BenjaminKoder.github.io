@@ -34,6 +34,7 @@ body {
     background-color: #fff;
     border-radius:20px;
     margin-left:15px;
+    /* margin-bottom: 15px; */
     width:100%;
     padding: 5px 0;
 }
@@ -143,6 +144,11 @@ body {
     font-size:150px;
     font-weight: bold;
     word-break: break-all !important;
+}
+@media (max-width:500px) {
+    #pilsTall {
+        font-size: 100px;
+    }
 }
 
 footer * {
