@@ -81,7 +81,7 @@ class Platform {
         this.height=height;
     }
     draw() {
-        c.fillStyle="#f9fafa"
+        c.fillStyle="#509adb20"
         c.fillRect(this.position.x, this.position.y, this.width, this.height);
     }
 }
