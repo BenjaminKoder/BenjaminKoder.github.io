@@ -34,7 +34,6 @@ body {
     background-color: #fff;
     border-radius:20px;
     margin-left:15px;
-    /* margin-bottom: 15px; */
     width:100%;
     padding: 5px 0;
 }
@@ -133,17 +132,10 @@ body {
     color: #0063a5;
     margin:10px;
 }
-/* #understrekPromille {
-    width: 60%;
-    margin: auto;
-    border-bottom: 3px solid #0063a5;
-    border-radius: 5px;
-} */
 #underskriftVekt, #vektDisplay {
     color: #0063a5;
     font-family: 'Bebas Neue', cursive;
     font-weight: 300;
-    /* margin:10px; */
 }
 #underskriftVekt {
     font-size: 50px;
@@ -151,7 +143,6 @@ body {
 }
 #vektDisplay {
     min-width:fit-content;
-    /* width:200px; */
     text-align: center;
     font-size: 40px;
     padding:6px 16px;
@@ -222,7 +213,6 @@ footer span {
     cursor: pointer;
 }
 #kjønnForm label img {
-    /* width:70%; */
     min-width:200px;
     padding:20px 0;
 } 

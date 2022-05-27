@@ -155,7 +155,7 @@ function beregnDrikke() {
         </form>
         <button class="beregn" id="beregnPromille">Beregn</button>
     </div>`
-    /* hovedPromilleEl = document.querySelector("#hovedPromille"); */
+
     sumPilsEl.scrollIntoView();
 
     vektEl = document.querySelector("#vekt");
