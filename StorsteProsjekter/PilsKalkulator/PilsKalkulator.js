@@ -136,12 +136,12 @@ function beregnDrikke() {
         <h1 class="underskrift" id="underskriftPromille">Kjønn</h1>
         <form id="kjønnForm">
             <label class="kjønnLabels active" id="mannLabel">
-                <img src="./Bilder/drikkendeMann.png" alt="mann">
+                <img src="./Bilder/DrikkendeMann.png" alt="mann">
                 <input id="mannInput" type="radio" name="kjønn" class="kjønnInputs" checked>
                 <p class="underskrift" id="skriftMann">Mann</p>
             </label>
             <label class="kjønnLabels unactive" id="dameLabel">
-                <img src="./Bilder/drikkendeDame.png" alt="dame">
+                <img src="./Bilder/DrikkendeDame.png" alt="dame">
                 <input id="dameInput" type="radio" name="kjønn" class="kjønnInputs">
                 <p class="underskrift" id="skriftDame">Dame</p>
             </label>
