@@ -117,9 +117,9 @@ function beregnDrikke() {
     }
     sumPilsEl.innerHTML=`<p class="overskrift">PILS 🍺</p>
     <div class="hoved" id="hoved2">
-        <h1 class="underskrift">Drikken din tilsvarer ca.</h1>
+        <h1 class="underskrift" id="pilsForklaring">Drikken din tilsvarer</h1>
         <h1 class="underskrift" id="pilsTall">${antallPils.toFixed(1)} PILS</h1>
-        <h1 class="underskrift" >TILSTAND: ${tilstand}</h1>
+        <h1 class="underskrift" id="pilsForklaring">TILSTAND: ${tilstand}</h1>
     </div>`
     /* let sumPilsHoved = document.querySelector("#hoved2");
     for(i=0;i<=antallPils;i+=0.1){

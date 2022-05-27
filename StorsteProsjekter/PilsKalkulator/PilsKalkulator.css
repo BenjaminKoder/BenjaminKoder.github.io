@@ -165,9 +165,13 @@ body {
     font-weight: bold;
     word-break: break-all !important;
 }
-@media (max-width:500px) {
+@media (max-width:520px) {
     #pilsTall {
         font-size: 100px;
+        letter-spacing: normal;
+    }
+    #pilsForklaring {
+        font-size: 40px;
     }
 }
 footer * {
