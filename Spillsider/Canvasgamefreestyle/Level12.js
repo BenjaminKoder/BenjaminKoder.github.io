@@ -338,3 +338,42 @@ window.addEventListener("keyup", ({ keyCode })=>{
 })
 
 
+const menyknappEl = document.querySelector("#menyknapp");
+const MenyEl = document.querySelector("#meny");
+
+let menyOpen = false;
+
+menyknappEl.addEventListener("click", () => {
+    if (!menyOpen) {
+        MenyEl.setAttribute("class","active");
+        menyOpen = true;
+    } else if(menyOpen===true) {
+        MenyEl.removeAttribute('class','active');
+        menyOpen=false;
+    }
+});
+
+
+
+
+//FIREBASE:
+
+//Unikt for hver database:
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyD7iCragalDM_jfXjOrkPNb2UG3Et69dp8",
+    authDomain: "fir-p1-34296.firebaseapp.com",
+    projectId: "fir-p1-34296",
+    storageBucket: "fir-p1-34296.appspot.com",
+    messagingSenderId: "691363083123",
+    appId: "1:691363083123:web:470be96f7d7d0292748b06"
+};
+
+
+//Ikke unikt for hvert prosjekt:
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+
+// Lager en referanse til databasen
+let db = firebase.firestore();
+
