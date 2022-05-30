@@ -200,6 +200,7 @@ let Promille;
 let PromilleOverTid;
 let promilleOverTidHovedEl
 let promilleFarge = 0;
+let drikketid;
 
 //Kilde for formel til å beregne promille: https://www.wikihow.com/Calculate-Blood-Alcohol-Content-(Widmark-Formula)
 function beregnPromille() {
@@ -208,10 +209,10 @@ function beregnPromille() {
 
     if(mannInputEl.checked) {
         //kjønnskonstanten er lik 0.68 for menn:
-        kjønnsKonstant=0.72;
+        kjønnsKonstant=0.74;
     } else if (dameInputEl.checked) {
         //kjønnskonstant er lik 0.55 for damer:
-        kjønnsKonstant=0.585;
+        kjønnsKonstant=0.60;
     }
 
     sumAlkoholGram=sumAlkoholMl*0.79
@@ -220,8 +221,10 @@ function beregnPromille() {
 
     Promille=(sumAlkoholGram/(vektGram*kjønnsKonstant))*1000-0.04;
 
+    drikketid = antallPils/2;
+
     promilleOverTidEl.innerHTML=`    
-    <p class="overskrift">Promille over [tid] i timer</p>
+    <p class="overskrift">Promille over tid i timer</p>
     <div class="hoved" id="promilleOverTidHoved">
             <div id="promilleEtterTidOverskrift">
                 <h1 id="tidOverskrift">Tid:</h1>
@@ -229,24 +232,38 @@ function beregnPromille() {
             </div>
     </div>`
     promilleOverTidHovedEl = document.querySelector("#promilleOverTidHoved");   
-
-    for (i=2;i<=2000;i++){
-        promilleOverTid=Promille-(i*0.075);
-        if (promilleOverTid>0){
+    promilleOverTid=Promille-(drikketid*0.08);
+    if (promilleOverTid>0){
+        promilleOverTidHovedEl.innerHTML+=`
+            <div class="promilleEtterTid">
+                <h1 class="tid">0 timer:</h1>
+                <h1 class="promille">${promilleOverTid.toFixed(2)}</h1>
+            </div>`
+    }
+    for (i=1;i<=2000;i++){
+        promilleOverTid=Promille-(i*0.075+drikketid*0.075);
+        if (i===2){
+            promilleOverTid=Promille-(i*0.075+drikketid*0.075);
             promilleOverTidHovedEl.innerHTML+=`
             <div class="promilleEtterTid">
                 <h1 class="tid">${i/2} time:</h1>
                 <h1 class="promille">${promilleOverTid.toFixed(2)}</h1>
             </div>`
+        } else if (promilleOverTid>0){
+            promilleOverTidHovedEl.innerHTML+=`
+            <div class="promilleEtterTid">
+                <h1 class="tid">${i/2} timer:</h1>
+                <h1 class="promille">${promilleOverTid.toFixed(2)}</h1>
+            </div>`
         } else if(promilleOverTid<=0){
             promilleOverTidHovedEl.innerHTML+=`
             <div class="promilleEtterTid">
-                <h1 class="tid">${i/2} time:</h1>
+                <h1 class="tid">${i/2} timer:</h1>
                 <h1 class="promille">${0.00.toFixed(2)}</h1>
             </div>`
             let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
             let promilleFargeHsl=`hsl(125,100%,43%)`
-            promilleOverTidUnderseksjon[i-2].style.color=promilleFargeHsl;
+            promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
         break;
         }
     
@@ -275,10 +292,10 @@ function beregnPromille() {
         }
         let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
         let promilleFargeHsl=`hsl(${promilleFarge},100%,43%)`
-        promilleOverTidUnderseksjon[i-2].style.color=promilleFargeHsl;
+        promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
     }
     promilleOverTidHovedEl.innerHTML +=`
-    <p id="forklaringPromille">Gjelder dersom du har drukket opp etter 1 time <span>(standard for promillekalkulatorer)</span></p>`
+    <p id="forklaringPromille">Tiden gjelder fra siste drink. Alkoholkonsumet antas å ligge på 45 ml (2 pils) i timen <span>(standard for promillekalkulatorer)</span></p>`
     promilleOverTidEl.scrollIntoView();
 }
 
