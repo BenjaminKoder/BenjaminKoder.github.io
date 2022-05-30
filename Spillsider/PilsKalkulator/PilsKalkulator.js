@@ -153,6 +153,13 @@ function beregnDrikke() {
         <form id="vektForm">
             <input id="vekt" class="slider" type="range" placeholder="0" min="1" max="125" value="68">
         </form>
+            <label for="drikkeperiode" id="drikkeperiodeLabel">
+                <h1 class="underskrift" id="underskriftDrikkeperiode">Drikkeperiode (timer):</h1>
+                <input id="drikkeperiodeDisplay" type="number" value="3" min="1" max="24">
+            </label>
+        <form id="drikkeperiodeForm">
+            <input id="drikkeperiode" class="slider" type="range" placeholder="0" min="1" max="24" value="3">
+        </form>
         <button class="beregn" id="beregnPromille">Beregn</button>
     </div>`
 
@@ -169,6 +176,21 @@ function beregnDrikke() {
     }
     function oppdaterVektSlider() {
         vektEl.value = vektDisplayEl.value;
+    }
+
+
+
+    drikkeperiodeEl = document.querySelector("#drikkeperiode");
+    drikkeperiodeDisplayEl = document.querySelector("#drikkeperiodeDisplay");
+
+    drikkeperiodeEl.addEventListener("input", OppdaterdrikkeperiodeDisplay);
+    drikkeperiodeDisplayEl.addEventListener("input", OppdaterdrikkeperiodeSlider);
+
+    function OppdaterdrikkeperiodeDisplay() {
+        drikkeperiodeDisplayEl.value = drikkeperiodeEl.value;
+    }
+    function OppdaterdrikkeperiodeSlider() {
+        drikkeperiodeEl.value = drikkeperiodeDisplayEl.value;
     }
 
     let kjønnInputEls = document.querySelectorAll(".kjønnInputs");
@@ -209,10 +231,10 @@ function beregnPromille() {
 
     if(mannInputEl.checked) {
         //kjønnskonstanten er lik 0.68 for menn:
-        kjønnsKonstant=0.74;
+        kjønnsKonstant=0.73;
     } else if (dameInputEl.checked) {
         //kjønnskonstant er lik 0.55 for damer:
-        kjønnsKonstant=0.60;
+        kjønnsKonstant=0.59;
     }
 
     sumAlkoholGram=sumAlkoholMl*0.79
@@ -221,7 +243,7 @@ function beregnPromille() {
 
     Promille=(sumAlkoholGram/(vektGram*kjønnsKonstant))*1000-0.04;
 
-    drikketid = antallPils/2;
+    drikketid = drikkeperiodeEl.value;
 
     promilleOverTidEl.innerHTML=`    
     <p class="overskrift">Promille over tid i timer</p>
@@ -232,7 +254,7 @@ function beregnPromille() {
             </div>
     </div>`
     promilleOverTidHovedEl = document.querySelector("#promilleOverTidHoved");   
-    promilleOverTid=Promille-(drikketid*0.08);
+    promilleOverTid=Promille-(drikketid*0.15);
     if (promilleOverTid>0){
         promilleOverTidHovedEl.innerHTML+=`
             <div class="promilleEtterTid">
@@ -241,9 +263,9 @@ function beregnPromille() {
             </div>`
     }
     for (i=1;i<=2000;i++){
-        promilleOverTid=Promille-(i*0.075+drikketid*0.075);
+        promilleOverTid=Promille-(i*0.075+drikketid*0.15);
         if (i===2){
-            promilleOverTid=Promille-(i*0.075+drikketid*0.075);
+            promilleOverTid=Promille-(i*0.075+drikketid*0.15);
             promilleOverTidHovedEl.innerHTML+=`
             <div class="promilleEtterTid">
                 <h1 class="tid">${i/2} time:</h1>
@@ -299,3 +321,17 @@ function beregnPromille() {
     promilleOverTidEl.scrollIntoView();
 }
 
+
+
+drikkeperiodeEl = document.querySelector("#drikkeperiode");
+    drikkeperiodeDisplayEl = document.querySelector("#drikkeperiodeDisplay");
+
+    drikkeperiodeEl.addEventListener("input", OppdaterdrikkeperiodeDisplay);
+    drikkeperiodeDisplayEl.addEventListener("input", OppdaterdrikkeperiodeSlider);
+
+    function OppdaterdrikkeperiodeDisplay() {
+        drikkeperiodeDisplayEl.value = drikkeperiodeEl.value;
+    }
+    function OppdaterdrikkeperiodeSlider() {
+        drikkeperiodeEl.value = drikkeperiodeDisplayEl.value;
+    }

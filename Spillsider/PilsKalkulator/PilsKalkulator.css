@@ -132,7 +132,7 @@ body {
     color: #0063a5;
     margin:10px;
 }
-#underskriftVekt, #vektDisplay {
+#underskriftVekt, #vektDisplay, #underskriftDrikkeperiode, #drikkeperiodeDisplay {
     color: #0063a5;
     font-family: 'Bebas Neue', cursive;
     font-weight: 300;
@@ -141,7 +141,7 @@ body {
     font-size: 50px;
     margin-right: 10px;
 }
-#vektDisplay {
+#vektDisplay, #drikkeperiodeDisplay {
     min-width:fit-content;
     text-align: center;
     font-size: 40px;
@@ -149,7 +149,7 @@ body {
     border:2px solid #0063a5;
     border-radius: 10px;
 }
-#vektLabel {
+#vektLabel, #drikkeperiodeLabel {
     display: flex;
     justify-content: center; 
     margin-top: 20px;
@@ -227,12 +227,12 @@ footer span {
 .active {
     box-shadow: 2px 2px 14px rgba(0,0,0,.8);
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
 }
 .unactive {
     opacity:0.7;
     transition-property: all;
-    transition-duration: 0.5s;
+    transition-duration: 0.2s;
 }
 #skriftDame, #skriftMann {
     position:relative;
@@ -245,7 +245,7 @@ footer span {
     bottom:-20px;
 }
 
-#vektForm {
+#vektForm, #drikkeperiodeForm {
     display:flex;
     justify-content: center;
 }
@@ -267,13 +267,21 @@ footer span {
     font-size: 25px;
     color: #1776b6;
 }
-.slider::before {
+#vekt::before {
     content:"1";
 }
-.slider::after {
+#vekt::after {
     content:"125";
     display: block;
 }
+#drikkeperiode::before {
+    content:"1";
+}
+#drikkeperiode::after {
+    content:"24";
+    display: block;
+}
+
 .slider:hover {
     opacity: 1;
 }

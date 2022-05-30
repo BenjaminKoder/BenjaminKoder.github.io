@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="no">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Databaser</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+</head>
+
+
+<!-- <h1>Introduksjon til databaser</h1>
+
+    <div id="nybruker">
+        <label for="navn">navn</label>
+        <input type="text" id="navn">
+
+        <label for="etternavn">Etternavn</label>
+        <input type="text" id="etternavn">
+
+
+        <div id="du">Du er i ferd med å oppgi sensitiv informasjon til databasen</div>
+
+        <button id="registrer">
+            Registrer
+        </button>
+    </div>
+    <div id="hoved">
+
+    </div> -->
+<title>Spinner</title>
+</head>
+
+<body>
+
+
+
+    <div id="utseende">
+        <div id="venstre">
+            <p id="navnet">Ditt navn er:</p>
+            <p id="scoreCounter">Penger: 0</p>
+            <p id="spinsCounter">Spins: 0</p>
+            <p id="timeCounter"></p>
+            
+
+            <div></div>
+
+            <div id="leaderboards">
+                Her kommer leaderboards når du beveger musen
+
+            </div>
+
+        </div>
+
+        <div id="sentral">
+            
+            <h1 id="overskrift">Luckyspins</h1>
+            <hr id="linje">
+            <div id="innstruks" class="hidden">
+
+                
+                
+                
+                
+                
+
+                
+                <ol>
+                    <li>Skriv inn ditt brukernavn i inputfelet</li>
+                    <li>Trykk på spin-knappen for å spinne hjulet</li>
+                    <li>Oppgrader for å bruker kortere tid per spin</li>
+                    <li>Tjen penger og pass på å ikke gå tom for spins.</li>
+                    <li>Treffer du bomben mister du alle pengene dine eller får 8 kr</li>
+                  </ol>
+                  Lykke til!
+
+                </div>
+            <span id="arrow"><img src="./Images/arrow.png" alt="arrowDown"></span>
+            <div id="spinnerParent">
+
+                
+                <div id="container">
+                    <div class="one"><img src="Images/bomb2.png" alt="bomb" style="width: 50px; height:50px;"></div>
+                    <div class="two">25</div>
+                    <div class="three">18</div>
+                    <div class="four">12</div>
+                    <div class="five">10</div>
+                    <div class="six">5</div>
+                    <div class="seven">3</div>
+                    <div class="eight">0</div>
+                </div>
+
+            </div>
+            <p id="score">0</p>
+            
+        </div>
+        <div id="hoyre">
+            <div id="nybruker">
+                <label for="fornavn"></label>
+                <input type="text" id="fornavn">
+                <button id="registrer">Registrer</button>
+            </div>
+            <div>
+                <button id="btnInfo">Innstruks</button>
+            </div>
+            <div>
+                <button id="buySpins">BUY SPIN FOR 10kr</button>
+            </div>
+            <div>
+                <button id="spin">SPIN</button>
+            </div>
+            <div>
+                <button id="upgrade">SPEED UP:10</button>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <!--  <div id="slettBruker">
+        
+        <label for="brukernavnSlett">BrukernavnSlett</label>
+            <input type="text" id="brukernavnSlett">
+            <button id="slett">Slett bruker</button>
+        </div> -->
+
+
+
+
+
+    </div>
+
+
+
+
+
+
+    <!--
+<button id="toggleLeaderboards">Toggle leaderboards</button> -->
+
+    
+
+    <!-- <img src="Images/refresh.png" id="refreshimg" alt="refresh-button"> -->
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-app.js"></script>
+
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.2/firebase-firestore.js"></script>
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
