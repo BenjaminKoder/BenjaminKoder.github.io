@@ -5,7 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Databaser</title>
+    <title>Spinner (database)</title>
+    <link rel="icon" href="./Images/luckywheel2.png">
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,28 +14,13 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lora&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora&family=Quattrocento+Sans:wght@700&display=swap"
+        rel="stylesheet">
 </head>
 
 
-<!-- <h1>Introduksjon til databaser</h1>
-
-    <div id="nybruker">
-        <label for="navn">navn</label>
-        <input type="text" id="navn">
-
-        <label for="etternavn">Etternavn</label>
-        <input type="text" id="etternavn">
-
-
-        <div id="du">Du er i ferd med å oppgi sensitiv informasjon til databasen</div>
-
-        <button id="registrer">
-            Registrer
-        </button>
-    </div>
-    <div id="hoved">
-
-    </div> -->
 <title>Spinner</title>
 </head>
 
@@ -48,9 +34,8 @@
             <p id="scoreCounter">Penger: 0</p>
             <p id="spinsCounter">Spins: 0</p>
             <p id="timeCounter"></p>
-            
 
-            <div></div>
+
 
             <div id="leaderboards">
                 Her kommer leaderboards når du beveger musen
@@ -60,38 +45,41 @@
         </div>
 
         <div id="sentral">
-            
+
             <h1 id="overskrift">Luckyspins</h1>
             <hr id="linje">
             <div id="innstruks" class="hidden">
 
-                
-                
-                
-                
-                
 
-                
+
+
+
+
+
+
                 <ol>
-                    <li>Skriv inn ditt brukernavn i inputfelet</li>
+                    <li>Skriv inn ditt brukernavn i inputfelet, for at det skal lagres</li>
                     <li>Trykk på spin-knappen for å spinne hjulet</li>
                     <li>Oppgrader for å bruker kortere tid per spin</li>
-                    <li>Tjen penger og pass på å ikke gå tom for spins.</li>
-                    <li>Treffer du bomben mister du alle pengene dine eller får 8 kr</li>
-                  </ol>
-                  Lykke til!
+                    <li>Kjøpt spins så du ikke går tom</li>
+                    <li>Treffer du bomben mister du alle pengene dine</li>
+                    <li>Og ikke minst, sammenlign deg med vennene dine (hvis ikke kan du gjøre som meg og spille mot meg
+                        selv)</li>
+                    Lykke til!
+                </ol>
 
-                </div>
+
+            </div>
             <span id="arrow"><img src="./Images/arrow.png" alt="arrowDown"></span>
             <div id="spinnerParent">
 
-                
+
                 <div id="container">
                     <div class="one"><img src="Images/bomb2.png" alt="bomb" style="width: 50px; height:50px;"></div>
-                    <div class="two">25</div>
-                    <div class="three">18</div>
-                    <div class="four">12</div>
-                    <div class="five">10</div>
+                    <div class="two">60</div>
+                    <div class="three">30</div>
+                    <div class="four">25</div>
+                    <div class="five">15</div>
                     <div class="six">5</div>
                     <div class="seven">3</div>
                     <div class="eight">0</div>
@@ -99,15 +87,11 @@
 
             </div>
             <p id="score">0</p>
-            
+
         </div>
         <div id="hoyre">
-            <div id="nybruker">
-                <label for="fornavn"></label>
-                <input type="text" id="fornavn">
-                <button id="registrer">Registrer</button>
-            </div>
-            <div>
+
+            <div id="divInnstruks">
                 <button id="btnInfo">Innstruks</button>
             </div>
             <div>
@@ -116,41 +100,28 @@
             <div>
                 <button id="spin">SPIN</button>
             </div>
+
             <div>
-                <button id="upgrade">SPEED UP:10</button>
+                <button id="upgrade">Oppgrader fart: 50kr</button>
             </div>
+            <div>
+                <button id="sjekkLeaderboards">Refresh Leaderboards</button>
+            </div>
+            <div id="regi">
+                <div id="registrerbtn"><button id="registrer">Logg inn</button></div>
+                <div id="nybruker">
+                    <label for="fornavn"></label>
+                    <input type="text" id="fornavn" placeholder="Brukernavn">
+
+                </div>
+            </div>
+
 
         </div>
 
 
 
-
-
-
-        <!--  <div id="slettBruker">
-        
-        <label for="brukernavnSlett">BrukernavnSlett</label>
-            <input type="text" id="brukernavnSlett">
-            <button id="slett">Slett bruker</button>
-        </div> -->
-
-
-
-
-
     </div>
-
-
-
-
-
-
-    <!--
-<button id="toggleLeaderboards">Toggle leaderboards</button> -->
-
-    
-
-    <!-- <img src="Images/refresh.png" id="refreshimg" alt="refresh-button"> -->
 
 
 

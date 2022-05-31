@@ -2,38 +2,32 @@
 
 
 const firebaseConfig = {
-    // Skriv din config her
-    /* apiKey: "AIzaSyBPnlx2XV9Sg-k3DYD0n_InzhhQPN5xUsQ",
-    authDomain: "newprog-616ae.firebaseapp.com",
-    projectId: "newprog-616ae",
-    storageBucket: "newprog-616ae.appspot.com",
-    messagingSenderId: "514830459978",
-    appId: "1:514830459978:web:a8b0b2b16ffe8ce56532b3" */
-    /* apiKey: "AIzaSyB36lZchbB9irTEi1RJgVZB0vtCdBdAnVs",
-    authDomain: "myproject251-da91c.firebaseapp.com",
-    projectId: "myproject251-da91c",
-    storageBucket: "myproject251-da91c.appspot.com",
-    messagingSenderId: "1026524450308",
-    appId: "1:1026524450308:web:c1f45cada822a371996f51" */
-    // Your web app's Firebase configuration
-        apiKey: "AIzaSyABcHecG_p2rzhzQwHmL_dk12-VB8uXVU8",
-        authDomain: "sjekke.firebaseapp.com",
-        projectId: "sjekke",
-        storageBucket: "sjekke.appspot.com",
-        messagingSenderId: "244016051048",
-        appId: "1:244016051048:web:212402562ad8aa5e875cdd"
+    // Her er konfigurasjonen til databasen. Denne er unik
+    /* apiKey: "AIzaSyABcHecG_p2rzhzQwHmL_dk12-VB8uXVU8",
+    authDomain: "sjekke.firebaseapp.com",
+    projectId: "sjekke",
+    storageBucket: "sjekke.appspot.com",
+    messagingSenderId: "244016051048",
+    appId: "1:244016051048:web:212402562ad8aa5e875cdd" */
+    apiKey: "AIzaSyArtcs9CrZFvrnjLtu9RdXLh8zdrCNFsYE",
+    authDomain: "sistegang-24413.firebaseapp.com",
+    projectId: "sistegang-24413",
+    storageBucket: "sistegang-24413.appspot.com",
+    messagingSenderId: "754408743746",
+    appId: "1:754408743746:web:bf7787e14aa12fedc45edb"
 };
 
 
 
-
+//Initialiserer databasen
 firebase.initializeApp(firebaseConfig);
 
+//Deklarer en variabel slik at det kan være lett å endre senere
 let collectionName = "Brukere"
-/* let collectionName= "DidrikVarHer" */
 
 let db = firebase.firestore();
 
+//Metoden document.querySelector() lar oss hente HTML-elementer slik at vi kan redigere dem med JavaScript
 
 let bodyEl = document.querySelector("body")
 let containerEl = document.querySelector("#container");
@@ -57,26 +51,27 @@ let btnInfoEl = document.querySelector("#btnInfo")
 
 
 
-
+//Deklarer variabler
 let score = 0;
-let queue = true;
+let queue = true;//Boolean. True or false
 let numbera;
 let numberb;
 
 
 // Initialiserer spilleren
+//Isteden for å bruke dette objektet, kunne jeg brukt localStorage. spiller.money og localStorage.money fungrer da på mange måter likt, men localStorage lagrer seg i browseren. 
 let spiller = {
     navn: "Temp",
     money: 350,
     spins: 15,
     timeSpin: 5000,
-    upgradeCost: 4,
+    upgradeCost: 50,
 }
 let spinsCost = 10;
 
 
 
-//Oppdaterer siden 
+//Oppdaterer siden. Denne kommer vi senere til å henvise til. Når vi har endret noen verdier er det fint å oppdatere dem.
 function updateSite() {
     scoreCounterEl.innerText = `Penger: ${spiller.money}kr`;
     timeCounterEl.innerText = `Tid per spin: ${spiller.timeSpin / 1000}s`;
@@ -84,13 +79,12 @@ function updateSite() {
     spinsCounterEl.innerText = `Spins: ${spiller.spins}`;
     upgradeEl.innerText = `Oppgrader fart: ${spiller.upgradeCost}kr`;
 }
-
+//Kjører update med en gang
 updateSite()
 
 //Oppdaterer informasjonen til databasen. For hvis brukernavnet allerede finnes i databasen skal vi .update og ikke .add
 function updateDatabase(spiller) {
     console.log("Oppdaterer databasen")
-    //let id = e.target.getAttribute("data-id");
     // Bruker navnet på spilleren som id i firebase dokumentet
     let id = spiller.navn
     db.collection(collectionName).doc(id).update({
@@ -110,18 +104,24 @@ btnInfoEl.addEventListener("click", kjorInnstruks)
 
 function kjorInnstruks() {
     innstruksEl.classList.toggle("hidden")
+    //toggler class hidden når knappen blir trykktet på. På den måten kan vi ha en knapp som viser innstruks om spillet. Deretter kan man trykke på knappen igjen for å fjerne informasjonen
 }
 //upgrade funksjonen kjører hvis spiller.timeSpin er over 150 og større enn spiller.upgradeCost. spiller.upgradeCost varier fordi den øker. 
 function upgrade() {
     if (spiller.timeSpin > 150) {
+        //Hvis pengene til brukeren er større eller er lik det oppgraderingsKosten nå ligger på(den øker), trekk fra tid per spin og penger
         if (spiller.money >= spiller.upgradeCost) {
             spiller.timeSpin -= 250;
             spiller.money -= spiller.upgradeCost;
-            scoreCounterEl.innerText = `Penger: ${spiller.money}`;
-            containerEl.style.transition = spiller.timeSpin / 1000 + "s";
+
+
+            containerEl.style.transition = spiller.timeSpin / 1000 + "s";//Forteller hvor lang tid det tar for hjulet å gå rundt
+            /* scoreCounterEl.innerText = `Penger: ${spiller.money}`;
             timeCounterEl.innerText = `Tid per spin: ${spiller.timeSpin / 1000}s`
             spiller.upgradeCost = Math.floor(Number(spiller.upgradeCost) * 1.25);
-            upgradeEl.innerText = `Oppgrader fart: ${Number(spiller.upgradeCost)}kr`;
+            upgradeEl.innerText = `Oppgrader fart: ${Number(spiller.upgradeCost)}kr` */
+            //Oppdaterer den nye informasjonen
+            updateSite();
         }
     } else {
         upgradeEl.innerText = "Tom for oppgraderinger"
@@ -137,11 +137,12 @@ function buySpin() {
     if (spiller.money >= spinsCost) {
         spiller.spins += 1
         spiller.money -= spinsCost
-        scoreCounterEl.innerText = `Penger: ${Number(spiller.money)}kr`;
-        spinsCounterEl.innerText = `Spins: ${Number(spiller.spins)}`;
+        /* scoreCounterEl.innerText = `Penger: ${Number(spiller.money)}kr`;
+        spinsCounterEl.innerText = `Spins: ${Number(spiller.spins)}`; */
+        updateSite()
 
     }
-
+    //Oppdaterer til databasen
     updateDatabase(spiller)
 }
 
@@ -150,9 +151,8 @@ function spinCheck() {
     if (spiller.spins >= 1) {
         spin()
     }
-    else if (spiller.spins === 0) {
-        hovedEl.innerHTML += '<h1>Dette går ikke</h1>'
-
+    else {
+        console.log("Du har ikke nok penger")
     }
 }
 function spin() {
@@ -171,13 +171,13 @@ function spin() {
 
         }
         if (score > 7 && score < 8) {
-            score = 25;
+            score = 60;
         } else if (score > 6 && score < 7) {
-            score = 18;
+            score = 30;
         } else if (score > 5 && score < 6) {
-            score = 12;
+            score = 25;
         } else if (score > 4 && score < 5) {
-            score = 10;
+            score = 15;
         } else if (score > 3 && score < 4) {
             score = 5;
         } else if (score > 2 && score < 3) {
@@ -187,6 +187,7 @@ function spin() {
         }
         if (score > 0 && score < 1) {
             /* score = 15; */
+            //Det er her bildet av bomben er
             spiller.money = 0;
             console.log("du mistet alle pengene dine taper")
         }
@@ -195,7 +196,9 @@ function spin() {
             console.log("du mistet alle pengene dine taper")
         }
         spinDegrees += Math.floor(Math.random() * 1000 + 200);
+        //Oppdaterer info på nettsiden etter hjulet har spunnet
         setTimeout(scoreShow, spiller.timeSpin)
+        //gjør at du får en mindre i spins
         spiller.spins -= 1
     }
 }
@@ -215,15 +218,24 @@ function refresh() {
     spiller.money = 350;
     spiller.spins = 15;
     spiller.timeSpin = 5000;
-    spiller.upgradeCost = 4;
+    spiller.upgradeCost = 50;
 
     scoreCounterEl.innerText = `Penger: ${Number(spiller.money)}kr`;
 
     buySpinsEl.innerText = `Kjøp spins: ${spinsCost}kr`;
+    //oppdatere til databasen
     updateDatabase(spiller)
 }
 
+//Når registrer knappet blir trykket på eller enter blir presset når du er i navnInput-feltet, kjør lagHentbruker-funksjonen
 registrerBtnEl.addEventListener("click", lagHentBruker)
+
+navnInputEl.addEventListener("keydown", function (event) {
+    if (event.key == "Enter") {
+        lagHentBruker();
+    }
+})
+
 
 function lagHentBruker() {
 
@@ -233,7 +245,7 @@ function lagHentBruker() {
     if (navn != "") {
 
         navnetEl.innerHTML = `Ditt navn er: ${navn} `;//Vi ser brukernavnet på nettsiden
-
+        //Tar et øyeblikksbilde av hvordan databasen
         db.collection(collectionName).get().then((snapshot) => {
             // Henter ut dokumentene
             let dokumenter = snapshot.docs;
@@ -241,7 +253,7 @@ function lagHentBruker() {
 
             for (let i = 0; i < dokumenter.length; i++) {
                 let data = dokumenter[i].data()
-                console.log(data)
+
 
                 if (data.navn == navn) {
                     //Henter ut informasjonen som ligger i databasen når brukernavnet skrevet i inputfeltet er lik en av dem i databasen
@@ -254,13 +266,16 @@ function lagHentBruker() {
 
                     break
                 } else {
-                    refresh()
+
+                    console.log("refreshe")
+
                     ny = true
                 }
             }
 
             if (ny) {
                 spiller.navn = navn
+                refresh()
                 lagBruker(navn)
             }
 
@@ -296,15 +311,11 @@ function lagBruker(navn) {
 
 
 
-bodyEl.addEventListener("click", leaderboards)//når noe blir klikket på nettsiden, kjører leaderboards
-bodyEl.addEventListener("mousemove", leaderboards)//når musen beveger seg over body, nettsiden
+/* bodyEl.addEventListener("click", leaderboards)//når noe blir klikket på nettsiden, kjører leaderboards
+bodyEl.addEventListener("mousemove", leaderboards) *///når musen beveger seg over body, nettsiden
 window.addEventListener("load", leaderboards)//når nettsiden laster inn
+sjekkLeaderboardsEl.addEventListener("click",leaderboards)
 
-navnInputEl.addEventListener("keydown", function (event) {
-    if (event.key == "Enter") {
-        lagHentBruker();
-    }
-})
 
 function leaderboards() {
     //sorterer etter penger fra øverst til nederst

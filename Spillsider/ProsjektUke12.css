@@ -40,8 +40,8 @@ body {
 .alternativer_individ img {
     width:100%;
     height:100%;
-    /* object-fit: contain; */
-    object-fit: cover;
+    object-fit: contain;
+    /* object-fit: cover; */
     display: block;
 }
 #alternativer {
@@ -50,7 +50,8 @@ body {
     flex-wrap: wrap;
     justify-content: center; */
     display: grid;
-    grid-template-columns: repeat(5,1fr);
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(2,1fr);
     gap:15px;
 }
 .lag {
@@ -84,7 +85,7 @@ body {
 }
 .lag:hover h3 {
     bottom:36%;
-    font-size:40px;
+    /* font-size:40px; */
     opacity:1;
 }
 .grønndiv, .rosadiv, .guldiv {
