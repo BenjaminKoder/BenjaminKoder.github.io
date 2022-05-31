@@ -253,14 +253,27 @@ function beregnPromille() {
     </div>`
     promilleOverTidHovedEl = document.querySelector("#promilleOverTidHoved");   
     promilleOverTid=Promille-(drikketid*0.15);
-    if (promilleOverTid>0){
+
+    /* let ifBool = true;
+    if (promilleOverTid<0){
+        promilleOverTidHovedEl.innerHTML+=`
+            <div class="promilleEtterTid">
+                <h1 class="tid">0 timer:</h1>
+                <h1 class="promille">${0.00.toFixed(2)}</h1>
+            </div>`
+            let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
+            let promilleFargeHsl=`hsl(125,100%,43%)`
+            promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
+            ifBool = false;
+    } else if (promilleOverTid>0){
         promilleOverTidHovedEl.innerHTML+=`
             <div class="promilleEtterTid">
                 <h1 class="tid">0 timer:</h1>
                 <h1 class="promille">${promilleOverTid.toFixed(2)}</h1>
             </div>`
     }
-    for (i=1;i<=2000;i++){
+  if (ifBool === true){  */
+    for (i=0;i<=2000;i++){
         promilleOverTid=Promille-(i*0.075+drikketid*0.15);
         if (i===2){
             promilleOverTid=Promille-(i*0.075+drikketid*0.15);
@@ -283,7 +296,7 @@ function beregnPromille() {
             </div>`
             let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
             let promilleFargeHsl=`hsl(125,100%,43%)`
-            promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
+            promilleOverTidUnderseksjon[i].style.color=promilleFargeHsl;
             break;
         }
     
@@ -312,10 +325,11 @@ function beregnPromille() {
         }
         let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
         let promilleFargeHsl=`hsl(${promilleFarge},100%,43%)`
-        promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
+        promilleOverTidUnderseksjon[i].style.color=promilleFargeHsl;
     }
+/*   } */
     promilleOverTidHovedEl.innerHTML +=`
-    <p id="forklaringPromille">Tiden gjelder fra siste drink.</p>`
+    <p id="forklaringPromille">Tiden gjelder fra siste drink etter drikkeperioden på ${drikketid} timer.</p>`
     promilleOverTidEl.scrollIntoView();
 }
 
