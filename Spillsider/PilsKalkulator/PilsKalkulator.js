@@ -154,7 +154,7 @@ function beregnDrikke() {
             <input id="vekt" class="slider" type="range" placeholder="0" min="1" max="125" value="68">
         </form>
             <label for="drikkeperiode" id="drikkeperiodeLabel">
-                <h1 class="underskrift" id="underskriftDrikkeperiode">Drikkeperiode (timer):</h1>
+                <h1 class="underskrift" id="underskriftDrikkeperiode">Drikkeperiode (timer): </h1>
                 <input id="drikkeperiodeDisplay" type="number" value="3" min="1" max="24">
             </label>
         <form id="drikkeperiodeForm">
@@ -177,8 +177,6 @@ function beregnDrikke() {
     function oppdaterVektSlider() {
         vektEl.value = vektDisplayEl.value;
     }
-
-
 
     drikkeperiodeEl = document.querySelector("#drikkeperiode");
     drikkeperiodeDisplayEl = document.querySelector("#drikkeperiodeDisplay");
@@ -286,7 +284,7 @@ function beregnPromille() {
             let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
             let promilleFargeHsl=`hsl(125,100%,43%)`
             promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
-        break;
+            break;
         }
     
         if (promilleOverTid < 0) {
@@ -316,22 +314,11 @@ function beregnPromille() {
         let promilleFargeHsl=`hsl(${promilleFarge},100%,43%)`
         promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
     }
-    promilleOverTidHovedEl.innerHTML +=`
-    <p id="forklaringPromille">Tiden gjelder fra siste drink. Alkoholkonsumet antas å ligge på 45 ml (2 pils) i timen <span>(standard for promillekalkulatorer)</span></p>`
+    /* promilleOverTidHovedEl.innerHTML +=`
+    <p id="forklaringPromille">Tiden gjelder fra siste drink. Alkoholkonsumet antas å ligge på 45 ml (2 pils) i timen <span>(standard for promillekalkulatorer)</span></p>` */
     promilleOverTidEl.scrollIntoView();
 }
 
 
 
-drikkeperiodeEl = document.querySelector("#drikkeperiode");
-    drikkeperiodeDisplayEl = document.querySelector("#drikkeperiodeDisplay");
-
-    drikkeperiodeEl.addEventListener("input", OppdaterdrikkeperiodeDisplay);
-    drikkeperiodeDisplayEl.addEventListener("input", OppdaterdrikkeperiodeSlider);
-
-    function OppdaterdrikkeperiodeDisplay() {
-        drikkeperiodeDisplayEl.value = drikkeperiodeEl.value;
-    }
-    function OppdaterdrikkeperiodeSlider() {
-        drikkeperiodeEl.value = drikkeperiodeDisplayEl.value;
-    }
+    

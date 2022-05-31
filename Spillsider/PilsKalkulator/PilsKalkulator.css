@@ -137,15 +137,25 @@ body {
     font-family: 'Bebas Neue', cursive;
     font-weight: 300;
 }
-#underskriftVekt {
+#underskriftVekt, #underskriftDrikkeperiode {
     font-size: 50px;
     margin-right: 10px;
+}
+@media (max-width:900px){
+    #underskriftVekt, #underskriftDrikkeperiode {
+        font-size: 35px;
+        margin-right: 10px;
+    }
+    #vektDisplay, #drikkeperiodeDisplay {
+        font-size: 30px !important;
+        padding:4px !important;
+    }
 }
 #vektDisplay, #drikkeperiodeDisplay {
     min-width:fit-content;
     text-align: center;
     font-size: 40px;
-    padding:6px 16px;
+    padding:6px;
     border:2px solid #0063a5;
     border-radius: 10px;
 }
