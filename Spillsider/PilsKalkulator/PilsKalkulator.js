@@ -314,8 +314,8 @@ function beregnPromille() {
         let promilleFargeHsl=`hsl(${promilleFarge},100%,43%)`
         promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
     }
-    /* promilleOverTidHovedEl.innerHTML +=`
-    <p id="forklaringPromille">Tiden gjelder fra siste drink. Alkoholkonsumet antas å ligge på 45 ml (2 pils) i timen <span>(standard for promillekalkulatorer)</span></p>` */
+    promilleOverTidHovedEl.innerHTML +=`
+    <p id="forklaringPromille">Tiden gjelder fra siste drink.</p>`
     promilleOverTidEl.scrollIntoView();
 }
 
