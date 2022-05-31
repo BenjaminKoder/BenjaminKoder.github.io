@@ -153,6 +153,7 @@ body {
     opacity:1;
     box-shadow: 0 0 10px #1267a3, 0 0 40px #2199ea, 0 0 80px #2199ea;
     box-shadow: 0px 10px 15px rgba(11, 65, 102, 0.9);
+    transition: 0.2s;
 }
 #dropdown #profil img {
     position:absolute;
