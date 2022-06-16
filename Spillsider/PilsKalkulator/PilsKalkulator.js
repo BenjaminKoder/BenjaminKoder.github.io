@@ -15,16 +15,17 @@ let drikkeEnheterEl = document.querySelector("#drikkeEnheter");
 
 
 function plussDrikke() {
-    let randomDrink = Math.floor(Math.random()*17+1);
+    let randomDrink = Math.floor(Math.random()*18+1);
     while (randomDrinkControl==randomDrink) {
-        randomDrink = Math.floor(Math.random()*17+1);
+        randomDrink = Math.floor(Math.random()*18+1);
     }
     let nyDrikkeEl = document.createElement("div")
 
     nyDrikkeEl.classList.add("drikkeenhet")
+    console.log(randomDrink)
 
     nyDrikkeEl.innerHTML += `
-    <img src='./Bilder/Drikke${randomDrink}.png' alt='drikke' class='drikkebilde'>
+    <img src='./Bilder/Drikke${randomDrink}F.png' alt='drikke' class='drikkebilde'>
     <div>
         <label for='antall${drikkeEnhetCounter}'>Antall (stk)</label>
         <input id='antall${drikkeEnhetCounter}' type='number' placeholder='0' min='0'>
@@ -136,14 +137,14 @@ function beregnDrikke() {
         <h1 class="underskrift" id="underskriftPromille">Kjønn</h1>
         <form id="kjønnForm">
             <label class="kjønnLabels active" id="mannLabel">
-                <img src="./Bilder/DrikkendeMann.png" alt="mann">
+                <img src="./Bilder/DrikkendeMannF.png" alt="mann">
                 <input id="mannInput" type="radio" name="kjønn" class="kjønnInputs" checked>
-                <p class="underskrift" id="skriftMann">Mann</p>
+                <p class="underskrift">Mann</p>
             </label>
             <label class="kjønnLabels unactive" id="dameLabel">
-                <img src="./Bilder/DrikkendeDame.png" alt="dame">
+                <img src="./Bilder/DrikkendeDameF.png" alt="dame">
                 <input id="dameInput" type="radio" name="kjønn" class="kjønnInputs">
-                <p class="underskrift" id="skriftDame">Dame</p>
+                <p class="underskrift">Dame</p>
             </label>
         </form>
             <label for="vekt" id="vektLabel">
@@ -196,7 +197,26 @@ function beregnDrikke() {
     for (i=0; i<kjønnInputEls.length;i++) {
        kjønnInputEls[i].addEventListener("click", sjekkAktiv);
     }
+    /* let mannInputEl = document.querySelector("#mannInput");
+    let dameInputEl = document.querySelector("#dameInput");
+    mannInputEl.addEventListener("click", sjekkAktivMann);
+    dameInputEl.addEventListener("click", sjekkAktivDame);
 
+    function sjekkAktivMann() {
+
+            if (mannInputEl.checked==true) {
+                mannInputEl.setAttribute("class", "active");
+            } else if (mannInputEl.checked==false){
+            mannInputEl.setAttribute("class", "unactive");
+            } 
+        }
+    function sjekkAktivDame() {
+            if (dameInputEl.checked==true) {
+                dameInputEl.setAttribute("class", "active");
+            } else if (dameInputEl.checked==false){
+            dameInputEl.setAttribute("class", "unactive");
+            } 
+        } */
 
     function sjekkAktiv() {
         for (i=0; i<kjønnInputEls.length;i++) {
@@ -246,33 +266,16 @@ function beregnPromille() {
     promilleOverTidEl.innerHTML=`    
     <p class="overskrift">Promille over tid i timer</p>
     <div class="hoved" id="promilleOverTidHoved">
+            <p id="forklaringPromille">Tiden gjelder fra siste drink etter drikkeperioden på ${drikketid} timer.</p>
             <div id="promilleEtterTidOverskrift">
                 <h1 id="tidOverskrift">Tid:</h1>
                 <h1 id="promilleOverskrift">Promille:</h1>
             </div>
     </div>`
-    promilleOverTidHovedEl = document.querySelector("#promilleOverTidHoved");   
     promilleOverTid=Promille-(drikketid*0.15);
 
-    /* let ifBool = true;
-    if (promilleOverTid<0){
-        promilleOverTidHovedEl.innerHTML+=`
-            <div class="promilleEtterTid">
-                <h1 class="tid">0 timer:</h1>
-                <h1 class="promille">${0.00.toFixed(2)}</h1>
-            </div>`
-            let promilleOverTidUnderseksjon = document.querySelectorAll(".promille");
-            let promilleFargeHsl=`hsl(125,100%,43%)`
-            promilleOverTidUnderseksjon[i-1].style.color=promilleFargeHsl;
-            ifBool = false;
-    } else if (promilleOverTid>0){
-        promilleOverTidHovedEl.innerHTML+=`
-            <div class="promilleEtterTid">
-                <h1 class="tid">0 timer:</h1>
-                <h1 class="promille">${promilleOverTid.toFixed(2)}</h1>
-            </div>`
-    }
-  if (ifBool === true){  */
+    promilleOverTidHovedEl = document.querySelector("#promilleOverTidHoved");  
+
     for (i=0;i<=2000;i++){
         promilleOverTid=Promille-(i*0.075+drikketid*0.15);
         if (i===2){
@@ -327,9 +330,7 @@ function beregnPromille() {
         let promilleFargeHsl=`hsl(${promilleFarge},100%,43%)`
         promilleOverTidUnderseksjon[i].style.color=promilleFargeHsl;
     }
-/*   } */
-    promilleOverTidHovedEl.innerHTML +=`
-    <p id="forklaringPromille">Tiden gjelder fra siste drink etter drikkeperioden på ${drikketid} timer.</p>`
+
     promilleOverTidEl.scrollIntoView();
 }
 

@@ -20,7 +20,7 @@ body {
 }
 #tittel img {
     width: 20px;
-    height:47.5px;
+    height:47px;
 }
 
 .outline {
@@ -63,8 +63,8 @@ body {
     flex-direction: column;
 }
 .drikkebilde {
-    width:70px;
-    margin-left: 35%;
+    width:160px;
+    margin-left: 8%;
 }
 
 .drikkeenhet  input {
@@ -227,8 +227,9 @@ footer span {
     cursor: pointer;
 }
 #kjønnForm label img {
-    min-width:200px;
-    padding:20px 0;
+    width:200%;
+    min-width: 200px;
+    /* padding:20px 0; */
 } 
 #kjønnForm label input {
     -webkit-appearance : none;
@@ -248,12 +249,12 @@ footer span {
     position:relative;
     color: #145f91;
 }
-#skriftDame {
+/* #skriftDame {
     bottom:12px;
 }
 #skriftMann {
     bottom:-20px;
-}
+} */
 
 #vektForm, #drikkeperiodeForm {
     display:flex;
@@ -365,16 +366,19 @@ footer span {
     #kjønnForm label img {
         min-width:160px !important;
     }
-    .tid, .promille, #tidOverskrift, #promilleOverskrift {
-        font-size: 40px !important;
-    }
+    /* .tid, .promille, #tidOverskrift, #promilleOverskrift {
+        font-size:20px !important;
+    } */
 }
-@media (max-width:770px) {
+@media (max-width:778px){
+    .tid, .promille, #tidOverskrift, #promilleOverskrift {
+        font-size: 37px !important;
+    }
     #kjønnForm label {
         width:45%;
     }
 }
-@media (max-width:810px){
+@media (max-width:910px){
     .tid, .promille, #tidOverskrift, #promilleOverskrift {
         font-size: 50px;
     }
