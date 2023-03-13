@@ -7,6 +7,7 @@ body {
     background-color: #afd0e6;
     background: linear-gradient(to bottom, #0a3857ad, #0c4266d2), url(./Bilder/Bakgrunn.jpg);
     width:100vw !important;
+    overflow-x: hidden;
 }
 #tittel {
     font-family: 'Bebas Neue', cursive;
@@ -34,9 +35,10 @@ body {
 .hoved {
     background-color: #fff;
     border-radius:20px;
-    margin-left:15px;
-    width:100%;
-    padding: 5px 0;
+    /* margin-left:15px; */
+    width:96%;
+    margin:auto;
+    padding: 5px 0px;
 }
 
 
@@ -64,8 +66,8 @@ body {
     flex-direction: column;
 }
 .drikkebilde {
-    width:110%;
-    /* margin-left: 8%; */
+    width:70%;
+    margin-left: 20px;
 }
 
 .drikkeenhet  input {
@@ -391,5 +393,11 @@ footer span {
 @media (max-width:910px){
     .tid, .promille, #tidOverskrift, #promilleOverskrift {
         font-size: 50px;
+    }
+}
+@media (max-width:870px){
+    .drikkebilde {
+        width:100%;
+        margin-left: 10px;
     }
 }
