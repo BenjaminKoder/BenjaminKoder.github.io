@@ -24,18 +24,24 @@ score = 0
 healthPrize = 2
 gravityPrize = 35
 gravityPower = 10
-pizzaAmount = 5
-pizzaPrize = 5
+pizzaAmount = 1
+pizzaPrice = 5
+
+textList = []
+bgRectList = []
 
 RED = (255,0,0)
 BLUE = (47,123,171)
+DARKBLUE = (27,69,86)
+LIGHTBLUE = (68,165,250)
 GREEN = (0,255,0)
 BLACK = (0,0,0)
 YELLOW = (255,241,0)
 WHITE = (105,105,105)
 
 def eventListener():
-    global gameRun, score, healthPrize, WHealth, WHealthPerm,gravityPower, gravityPrize, pizzaAmount,pizzaPrize
+    global gameRun, score, gravityPower
+#     , healthPrize, WHealth, WHealthPerm, gravityPrize, pizzaAmount,pizzaPrice
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
@@ -45,29 +51,29 @@ def eventListener():
                     if JazzPlayer.yPos >= H-40 and gameRun:
                         JazzPlayer.jumping = True
                         JazzPlayer.gravity = -gravityPower
-                if event.key == pg.K_h:
-                    if score >= healthPrize and WHealthPerm<200 and not gameRun:
-                        score-=healthPrize
-                        if healthPrize>=200:
-                            healthPrize = 200
-                        else:
-                            healthPrize*=2
-                        WHealthPerm+=10
-                        WHealth = WHealthPerm
+#                 if event.key == pg.K_h:
+#                     if score >= healthPrize and WHealthPerm<100 and not gameRun:
+#                         score-=healthPrize
+#                         if healthPrize>=200:
+#                             healthPrize = 200
+#                         else:
+#                             healthPrize*=2
+#                         WHealthPerm+=10
+#                         WHealth = WHealthPerm
                 if event.key == pg.K_r:
                     if not gameRun:
                         restart()
                         gameRun=True
-                if event.key == pg.K_g:
-                    if score >= gravityPrize and gravityPower<=15 and not gameRun:
-                        score-=gravityPrize
-                        gravityPrize*=2
-                        gravityPower*=1.2
-                if event.key == pg.K_f:
-                    if score >= pizzaAmount and pizzaAmount<=30 and not gameRun:
-                        score-=pizzaAmount
-                        pizzaAmount+=1
-                        pizzaPrize+=5
+#                 if event.key == pg.K_g:
+#                     if score >= gravityPrize and gravityPower<=15 and not gameRun:
+#                         score-=gravityPrize
+#                         gravityPrize*=2
+#                         gravityPower*=1.2
+#                 if event.key == pg.K_f:
+#                     if score >= pizzaPrice and pizzaAmount<=30 and not gameRun:
+#                         score-=pizzaPrice
+#                         pizzaAmount+=1
+#                         pizzaPrice+=5
                         
                         
                         
@@ -217,6 +223,9 @@ class AnimateCharacter(pg.sprite.Sprite):
 
         if pg.sprite.collide_mask(self.Tuba,self.JazzPlayer):
             WHealth-=2
+            #Streker på kryss og tvers av skjermen:
+            pg.draw.line(screen,"#ff0000",(0,0),(W,H),10)
+            pg.draw.line(screen,"#ff0000",(0,H),(W,0),10)
 
 
 
@@ -249,9 +258,10 @@ def drawBg():
 
             speed += 1
             groundVar+=1
+
 def drawHealthbar():
     global WHealth, gameRun
-    healthRect = pg.Rect(55,55,WHealth,40)
+    healthRect = pg.Rect(55,55,WHealth*2,40)
     whiteRect = pg.Rect(55,55,200,40)
     bgRect = pg.Rect(50,50,210,50)
     pg.draw.rect(screen,BLACK,bgRect)
@@ -260,14 +270,73 @@ def drawHealthbar():
     
     if WHealth<=0:
         gameRun = False
-def createText(fontTtf,size,text,color,xPos,yPos,hoverAmplitude):
-    global hover
+def createText(fontTtf,size,text,color,xPos,yPos,hoverAmplitude,bgBool):
+    global hover, textList
     hover+=0.1
     font = pg.font.Font(f"Fonts/{fontTtf}",size)
     surf = font.render(text, True, color)
     rect = surf.get_rect(center = (xPos,yPos))
-    rect.y += hoverAmplitude*m.sin(hover)
-    screen.blit(surf,rect)
+    if hoverAmplitude!=0:
+        rect.y += hoverAmplitude*m.sin(hover)
+        screen.blit(surf,rect)
+    else:
+        textList.append((surf,rect))
+        
+    if bgBool:
+        bgRect = pg.Rect(rect.x-5,rect.y-5,rect.w+10,rect.h+10)
+        bgRectList.append(bgRect)
+        
+def showTextAndButtons():
+    global textList, bgRectList,score,healthPrize,WHealth, WHealthPerm, gravityPrize, gravityPower, pizzaPrice, pizzaAmount
+    hovering = False
+    mouse_pos = pg.mouse.get_pos()
+    mouse_press = pg.mouse.get_pressed()[0]
+    #Setter farge og piltype etter sjekk av kollisjon mellom mus og knapper:
+    for bgRect in bgRectList:
+        if bgRect.collidepoint((mouse_pos[0],mouse_pos[1])):
+            pg.draw.rect(screen,LIGHTBLUE,bgRect,border_radius = 20)
+            hovering = True
+        else:
+            pg.draw.rect(screen,DARKBLUE,bgRect,border_radius = 20)
+    if hovering:
+        pg.mouse.set_cursor(pg.SYSTEM_CURSOR_HAND)
+    else:
+        pg.mouse.set_cursor(pg.SYSTEM_CURSOR_ARROW)
+            
+    #Sjekker om knappene blir trykke på:
+    if bgRectList[0].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press:
+        if score >= healthPrize:
+            if WHealthPerm<100:
+                        score-=healthPrize
+                        if healthPrize>=200:
+                            healthPrize = 200
+                        else:
+                            healthPrize*=2
+                        WHealthPerm+=10
+                        WHealth = WHealthPerm
+            else:
+                createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX HEALTH",GREEN,W/2,H/2+80,0,True)
+    if bgRectList[1].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press:
+        if score >= gravityPrize:
+            if gravityPower<=15:
+                            score-=gravityPrize
+                            gravityPrize*=2
+                            gravityPower*=1.2
+            else:
+                createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX GRAVITY",RED,W/2,H/2+160,0,True)
+    if bgRectList[2].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press:
+        if score >= pizzaPrice:
+            if pizzaAmount<=30:
+                        score-=pizzaPrice
+                        pizzaAmount+=1
+                        pizzaPrice+=10
+            else:
+                createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX AMOUNT OF PIZZAS",YELLOW,W/2,H/2+240,0,True)
+                 
+    for text in textList:                                                                                                                                                                                                      
+       screen.blit(text[0],text[1])
+       
+
 def restart():
     global tubaTimeChange, speedTuba,mapSize,mapSizeNeg,WHealth,TubaList, pizzaList
     tubaTimeChange = 0
@@ -328,7 +397,6 @@ class Pizza(pg.sprite.Sprite):
         if pg.sprite.collide_mask(self.pizza,self.JazzPlayer):
             pizza.delete = True
             score+=1
-            print(score)
 
 
 frameSpeedR = 50
@@ -365,10 +433,30 @@ tubaPause = 500
 tubaTimeChange = 0
 speedTuba = 1
 
+def createTexts():
+    global score
+#     textList = []
+    createText("Nunito/Nunito-VariableFont_wght.ttf",60,"Press R to restart",BLACK,W/2,H/2,0,False)
+    createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Upgrade health: {healthPrize} pizzas",BLUE,W/2,H/2+80,0,True)
+    createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Lower the gravity: {gravityPrize} pizzas",BLUE,W/2,H/2+160,0,True)
+    createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Upgrade the amount of pizzas: {pizzaPrice} pizzas",BLUE,W/2,H/2+240,0,True)
+    createText("Bebas_Neue/BebasNeue-Regular.ttf",80,f"PIZZA: {score}",BLUE,W-150,100,0,False)
+def transparancyLayer():
+    bg = pg.Surface((W,H))
+    bg = bg.convert_alpha()
+    bg.fill((255,255,255,150))
+    screen.blit(bg,(0,0))
+
+createTexts()
+
+lastUpdatePizza = pg.time.get_ticks()
+pizzaPause = 1000
+
 while True:
     eventListener()
     
     if gameRun:
+        pg.mouse.set_cursor(pg.SYSTEM_CURSOR_ARROW)
         drawBg()
 
         JazzPlayer.movement()
@@ -382,9 +470,6 @@ while True:
 
         currentTime = pg.time.get_ticks()
         if currentTime - lastUpdate >= tubaPause:
-            for i in range(ran.randint(pizzaAmount,pizzaAmount+3)):
-                pizza = Pizza("spritesheets/pizza.png")
-                pizzaList.append(pizza)
             switch = ran.randint(1,2)
             lastUpdate = currentTime
             tubaTimeChange+=500
@@ -398,6 +483,12 @@ while True:
                 Tuba = AnimateCharacter("spritesheets/tuba.png",100,W,H-ran.randint(33,H),framesPerMovementTuba,"runRight",32,True)
             TubaList.append(Tuba)
             
+        currentTimePizza = pg.time.get_ticks()
+        if currentTimePizza - lastUpdatePizza >= pizzaPause:
+            for i in range(ran.randint(pizzaAmount,pizzaAmount+1)):
+                pizza = Pizza("spritesheets/pizza.png")
+                pizzaList.append(pizza)
+            lastUpdatePizza = currentTimePizza
             
         for Tuba in TubaList: 
             Tuba.movementSelected()
@@ -407,18 +498,20 @@ while True:
             if Tuba.delete:
                 TubaList.remove(Tuba)
         drawHealthbar()
-        createText("Bebas_Neue/BebasNeue-Regular.ttf",80,f"PIZZA: {score}",YELLOW,W-150,100,10)
+        createText("Bebas_Neue/BebasNeue-Regular.ttf",80,f"PIZZA: {score}",YELLOW,W-150,100,10,False)
+
         
     if not gameRun:
         drawBg()
-        createText("Bebas_Neue/BebasNeue-Regular.ttf",80,"Shake that Jazz!",BLACK,W/2,H/2-150,5)
-        createText("Nunito/Nunito-VariableFont_wght.ttf",60,"Press R to restart",BLACK,W/2,H/2,0)
-        createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Upgrade health with {healthPrize} pizzas [H]",BLUE,W/2,H/2+80,0)
-        createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Lower the gravity with {gravityPrize} pizzas [G]",BLUE,W/2,H/2+160,0)
-        createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Upgrade the amount of pizzas with {pizzaPrize} pizzas [F]",BLUE,W/2,H/2+240,0)
-        createText("Bebas_Neue/BebasNeue-Regular.ttf",80,f"PIZZA: {score}",YELLOW,W-150,100,0)
         WHealth = WHealthPerm
+        transparancyLayer()
         drawHealthbar()
+        createTexts()
+        showTextAndButtons()
+        createText("Bebas_Neue/BebasNeue-Regular.ttf",80,"Shake that Jazz!",BLACK,W/2,H/2-150,5,False)
+        textList = []
+        bgRectList = []
+        
         
         
         
