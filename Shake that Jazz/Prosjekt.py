@@ -26,6 +26,10 @@ gravityPrize = 35
 gravityPower = 10
 pizzaAmount = 1
 pizzaPrice = 5
+tubaPause = 500
+tubaTimeChange = 0
+speedTuba = 1
+pizzaPause = 1000
 
 textList = []
 bgRectList = []
@@ -41,7 +45,6 @@ WHITE = (105,105,105)
 
 def eventListener():
     global gameRun, score, gravityPower
-#     , healthPrize, WHealth, WHealthPerm, gravityPrize, pizzaAmount,pizzaPrice
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
@@ -51,33 +54,10 @@ def eventListener():
                     if JazzPlayer.yPos >= H-40 and gameRun:
                         JazzPlayer.jumping = True
                         JazzPlayer.gravity = -gravityPower
-#                 if event.key == pg.K_h:
-#                     if score >= healthPrize and WHealthPerm<100 and not gameRun:
-#                         score-=healthPrize
-#                         if healthPrize>=200:
-#                             healthPrize = 200
-#                         else:
-#                             healthPrize*=2
-#                         WHealthPerm+=10
-#                         WHealth = WHealthPerm
                 if event.key == pg.K_r:
                     if not gameRun:
                         restart()
                         gameRun=True
-#                 if event.key == pg.K_g:
-#                     if score >= gravityPrize and gravityPower<=15 and not gameRun:
-#                         score-=gravityPrize
-#                         gravityPrize*=2
-#                         gravityPower*=1.2
-#                 if event.key == pg.K_f:
-#                     if score >= pizzaPrice and pizzaAmount<=30 and not gameRun:
-#                         score-=pizzaPrice
-#                         pizzaAmount+=1
-#                         pizzaPrice+=5
-                        
-                        
-                        
-        
             
 def display():
     pg.time.Clock().tick(fps)
@@ -382,7 +362,7 @@ class Pizza(pg.sprite.Sprite):
             self.delete = True
     
     def collidePlayer(self):
-        global score
+        global score, WHealth
         self.JazzPlayer = pg.sprite.Sprite()
         self.JazzPlayer.image = JazzPlayer.animationSurf
         self.JazzPlayer.rect = JazzPlayer.animationRect
@@ -397,6 +377,10 @@ class Pizza(pg.sprite.Sprite):
         if pg.sprite.collide_mask(self.pizza,self.JazzPlayer):
             pizza.delete = True
             score+=1
+            if WHealth<100:
+                WHealth+=1
+        elif WHealth>100:
+            WHealth = 100
 
 
 frameSpeedR = 50
@@ -404,7 +388,6 @@ frameSpeedI = 500
 frameSpeedJ = 250
 
 framesPerMovementJazzP = {
-    # "state" : [startFrame, numFrames, cooldown]
     "idle" : [0, 2, frameSpeedI],
     "runRight" : [2, 3, frameSpeedR],
     "runLeft" : [9, 3, frameSpeedR],
@@ -427,15 +410,10 @@ pizzaList = []
 pizza = Pizza("spritesheets/pizza.png")
 pizzaList.append(pizza)
 
-
 lastUpdate = pg.time.get_ticks()
-tubaPause = 500
-tubaTimeChange = 0
-speedTuba = 1
 
 def createTexts():
     global score
-#     textList = []
     createText("Nunito/Nunito-VariableFont_wght.ttf",60,"Press R to restart",BLACK,W/2,H/2,0,False)
     createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Upgrade health: {healthPrize} pizzas",BLUE,W/2,H/2+80,0,True)
     createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"Lower the gravity: {gravityPrize} pizzas",BLUE,W/2,H/2+160,0,True)
@@ -450,7 +428,7 @@ def transparancyLayer():
 createTexts()
 
 lastUpdatePizza = pg.time.get_ticks()
-pizzaPause = 1000
+
 
 while True:
     eventListener()
