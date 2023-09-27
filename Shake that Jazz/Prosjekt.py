@@ -20,7 +20,7 @@ WHealthPerm = 10
 WHealth = WHealthPerm
 gameRun = True
 hover = 0
-score = 0
+score = 100000
 healthPrize = 2
 gravityPrize = 35
 gravityPower = 10
@@ -30,6 +30,10 @@ tubaPause = 500
 tubaTimeChange = 0
 speedTuba = 1
 pizzaPause = 1000
+mousePressed = False
+healthMax = False
+gravityMax = False
+pizzaMax = False
 
 textList = []
 bgRectList = []
@@ -43,21 +47,32 @@ BLACK = (0,0,0)
 YELLOW = (255,241,0)
 WHITE = (105,105,105)
 
+
 def eventListener():
-    global gameRun, score, gravityPower
+    global gameRun, score, gravityPower, mousePressed
     for event in pg.event.get():
         if event.type == pg.QUIT:
             pg.quit()
             exit()
         if event.type == pg.KEYDOWN:
-                if event.key == pg.K_SPACE:
-                    if JazzPlayer.yPos >= H-40 and gameRun:
-                        JazzPlayer.jumping = True
-                        JazzPlayer.gravity = -gravityPower
-                if event.key == pg.K_r:
-                    if not gameRun:
-                        restart()
-                        gameRun=True
+            if event.key == pg.K_SPACE:
+                if JazzPlayer.yPos >= H-40 and gameRun:
+                    JazzPlayer.jumping = True
+                    JazzPlayer.gravity = -gravityPower
+            if event.key == pg.K_r:
+                if not gameRun:
+                    restart()
+                    gameRun=True
+                    
+        if event.type == pg.MOUSEBUTTONDOWN:
+            mousePressed = True
+#             #Venstre mustast er trykket
+#             if pg.mouse.get_pressed()[0] and mousePressed == False:
+#                 mousePressed = True
+#         elif event.type != pg.MOUSEBUTTONDOWN:
+#             mousePressed = False
+#         print(mousePressed)
+                    
             
 def display():
     pg.time.Clock().tick(fps)
@@ -267,7 +282,7 @@ def createText(fontTtf,size,text,color,xPos,yPos,hoverAmplitude,bgBool):
         bgRectList.append(bgRect)
         
 def showTextAndButtons():
-    global textList, bgRectList,score,healthPrize,WHealth, WHealthPerm, gravityPrize, gravityPower, pizzaPrice, pizzaAmount
+    global textList, bgRectList,score,healthPrize,WHealth, WHealthPerm, gravityPrize, gravityPower, pizzaPrice, pizzaAmount, mousePressed, healthMax, gravityMax, pizzaMax
     hovering = False
     mouse_pos = pg.mouse.get_pos()
     mouse_press = pg.mouse.get_pressed()[0]
@@ -283,38 +298,42 @@ def showTextAndButtons():
     else:
         pg.mouse.set_cursor(pg.SYSTEM_CURSOR_ARROW)
             
-    #Sjekker om knappene blir trykke på:
-    if bgRectList[0].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press:
+    #Sjekker om knappene blir trykket på:
+    if bgRectList[0].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press and mousePressed:
+        mousePressed = False
         if score >= healthPrize:
             if WHealthPerm<100:
                         score-=healthPrize
-                        if healthPrize>=200:
-                            healthPrize = 200
+                        if healthPrize>=256:
+                            healthPrize = 256
                         else:
                             healthPrize*=2
                         WHealthPerm+=10
                         WHealth = WHealthPerm
             else:
-                createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX HEALTH",GREEN,W/2,H/2+80,0,True)
-    if bgRectList[1].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press:
+                healthMax = True
+    if bgRectList[1].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press and mousePressed:
+        mousePressed = False
         if score >= gravityPrize:
             if gravityPower<=15:
                             score-=gravityPrize
                             gravityPrize*=2
                             gravityPower*=1.2
             else:
-                createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX GRAVITY",RED,W/2,H/2+160,0,True)
-    if bgRectList[2].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press:
+                gravityMax = True
+    if bgRectList[2].collidepoint((mouse_pos[0],mouse_pos[1])) and mouse_press and mousePressed:
+        mousePressed = False
         if score >= pizzaPrice:
-            if pizzaAmount<=30:
+            if pizzaAmount<=15:
                         score-=pizzaPrice
                         pizzaAmount+=1
                         pizzaPrice+=10
             else:
-                createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX AMOUNT OF PIZZAS",YELLOW,W/2,H/2+240,0,True)
+                pizzaMax = True
                  
     for text in textList:                                                                                                                                                                                                      
        screen.blit(text[0],text[1])
+    varMax(healthMax,gravityMax,pizzaMax)
        
 
 def restart():
@@ -331,7 +350,7 @@ class Pizza(pg.sprite.Sprite):
     def __init__(self,imgFile):
         super().__init__()
         self.diameter = 100
-        self.xPos = ran.randint(-1000,W-self.diameter+1000)
+        self.xPos = ran.randint(-400,W-self.diameter+400)
         self.yPos = 0
         self.frame = 0
         
@@ -377,11 +396,18 @@ class Pizza(pg.sprite.Sprite):
         if pg.sprite.collide_mask(self.pizza,self.JazzPlayer):
             pizza.delete = True
             score+=1
-            if WHealth<100:
+            if WHealth<10:
                 WHealth+=1
         elif WHealth>100:
             WHealth = 100
 
+def varMax(health, gravity, pizza):
+    if health:
+        createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX HEALTH",GREEN,W/2,H/2+80,0,True)
+    elif gravity:
+        createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX GRAVITY",RED,W/2,H/2+160,0,True)
+    elif pizza:
+        createText("Bebas_Neue/BebasNeue-Regular.ttf",50,f"MAX AMOUNT OF PIZZAS",YELLOW,W/2,H/2+240,0,True)
 
 frameSpeedR = 50
 frameSpeedI = 500
@@ -489,10 +515,6 @@ while True:
         createText("Bebas_Neue/BebasNeue-Regular.ttf",80,"Shake that Jazz!",BLACK,W/2,H/2-150,5,False)
         textList = []
         bgRectList = []
-        
-        
-        
-        
 
     display()
 
