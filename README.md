@@ -13,14 +13,13 @@ Nyere prosjekter finnes på [porteføljesiden](https://benjamin-eng.vercel.app/)
 | [Tallsystemer](https://benjaminkoder.github.io/StorsteProsjekter/Tallsystemer/index.html) | Nettside om tallsystemer, bits og bytes | [StorsteProsjekter/Tallsystemer/](StorsteProsjekter/Tallsystemer) |
 | [Lykkehjul med database](https://benjaminkoder.github.io/Spillsider/SpinnerTob/saannBenjiVil/index.html) | Spinner med innlogging og ledertavle | [Spillsider/SpinnerTob/](Spillsider/SpinnerTob) |
 | [Lykkehjul med localStorage](https://benjaminkoder.github.io/Spillsider/SpinnerTycoon/Spinner.html) | Spinner som lagrer i nettleseren | [Spillsider/SpinnerTycoon/](Spillsider/SpinnerTycoon) |
-| [Mario](https://benjaminkoder.github.io/StorsteProsjekter/shyguy/index.html) | Hoppespill i nettleseren | [StorsteProsjekter/shyguy/](StorsteProsjekter/shyguy) |
+| [Benjamins prosjekter](https://benjaminkoder.github.io/StorsteProsjekter/StorsteProsjekter.html) | De første prosjektene jeg lagde, som viser utviklingen min | [StorsteProsjekter/](StorsteProsjekter) |
 
 ## Resten av repoet
 
 Mappene er ikke ryddet i ettertid, fordi lenkene til prosjektene peker inn i dem.
 
 - `Spillsider/` – spillene og de mindre prosjektene
-- `StorsteProsjekter/` – øvinger og prosjekter fra IT-faget på videregående (HTML, CSS, flexbox, grid, tabeller og JavaScript)
 - `mario/`, `shyguy/`, `shyguy copy/` – tidligere versjoner av Mario-spillet
 - `Shake that Jazz/` – en versjon av Pygame-spillet. Den oppdaterte versjonen ligger i [shake-that-jazz](https://github.com/BenjaminKoder/shake-that-jazz).
 - `forside/` – bildene til forsiden
