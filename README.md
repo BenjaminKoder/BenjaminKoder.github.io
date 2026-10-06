@@ -13,7 +13,7 @@ Nyere prosjekter finnes på [porteføljesiden](https://benjamin-eng.vercel.app/)
 | [Tallsystemer](https://benjaminkoder.github.io/StorsteProsjekter/Tallsystemer/index.html) | Nettside om tallsystemer, bits og bytes | [StorsteProsjekter/Tallsystemer/](StorsteProsjekter/Tallsystemer) |
 | [Lykkehjul med database](https://benjaminkoder.github.io/Spillsider/SpinnerTob/saannBenjiVil/index.html) | Spinner med innlogging og ledertavle | [Spillsider/SpinnerTob/](Spillsider/SpinnerTob) |
 | [Lykkehjul med localStorage](https://benjaminkoder.github.io/Spillsider/SpinnerTycoon/Spinner.html) | Spinner som lagrer i nettleseren | [Spillsider/SpinnerTycoon/](Spillsider/SpinnerTycoon) |
-| [Mario](https://benjaminkoder.github.io/StorsteProsjekter/shyguy/index.html) | Plattformspill i nettleseren | [StorsteProsjekter/shyguy/](StorsteProsjekter/shyguy) |
+| [Mario](https://benjaminkoder.github.io/StorsteProsjekter/shyguy/index.html) | Hoppespill i nettleseren | [StorsteProsjekter/shyguy/](StorsteProsjekter/shyguy) |
 
 ## Resten av repoet
 
