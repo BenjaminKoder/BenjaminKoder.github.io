@@ -6,14 +6,14 @@ Nyere prosjekter finnes på [porteføljesiden](https://benjamin-eng.vercel.app/)
 
 ## Prosjekter
 
-| Prosjekt | | Mappe |
+| Prosjekt | | Kode |
 |---|---|---|
-| [Pilsulator](https://benjaminkoder.github.io/Spillsider/PilsKalkulator/index.html) | Promillekalkulator basert på Widmarks formel | `Spillsider/PilsKalkulator/` |
-| [Geometry Dash ish](https://benjaminkoder.github.io/Spillsider/Canvasgamefreestyle/index.html) | Plattformspill på HTML5 Canvas med 15 baner og ledertavle i Firebase | `Spillsider/Canvasgamefreestyle/` |
-| [Tallsystemer](https://benjaminkoder.github.io/StorsteProsjekter/Tallsystemer/index.html) | Nettside om tallsystemer, bits og bytes | `StorsteProsjekter/Tallsystemer/` |
-| [Lykkehjul med database](https://benjaminkoder.github.io/Spillsider/SpinnerTob/saannBenjiVil/index.html) | Spinner med innlogging og ledertavle | `Spillsider/SpinnerTob/` |
-| [Lykkehjul med localStorage](https://benjaminkoder.github.io/Spillsider/SpinnerTycoon/Spinner.html) | Spinner som lagrer i nettleseren | `Spillsider/SpinnerTycoon/` |
-| [Mario](https://benjaminkoder.github.io/StorsteProsjekter/shyguy/index.html) | Plattformspill i nettleseren | `StorsteProsjekter/shyguy/` |
+| [Pilsulator](https://benjaminkoder.github.io/Spillsider/PilsKalkulator/index.html) | Promillekalkulator basert på Widmarks formel | [Spillsider/PilsKalkulator/](Spillsider/PilsKalkulator) |
+| [Geometry Dash ish](https://benjaminkoder.github.io/Spillsider/Canvasgamefreestyle/index.html) | Plattformspill på HTML5 Canvas med 15 baner og ledertavle i Firebase | [Spillsider/Canvasgamefreestyle/](Spillsider/Canvasgamefreestyle) |
+| [Tallsystemer](https://benjaminkoder.github.io/StorsteProsjekter/Tallsystemer/index.html) | Nettside om tallsystemer, bits og bytes | [StorsteProsjekter/Tallsystemer/](StorsteProsjekter/Tallsystemer) |
+| [Lykkehjul med database](https://benjaminkoder.github.io/Spillsider/SpinnerTob/saannBenjiVil/index.html) | Spinner med innlogging og ledertavle | [Spillsider/SpinnerTob/](Spillsider/SpinnerTob) |
+| [Lykkehjul med localStorage](https://benjaminkoder.github.io/Spillsider/SpinnerTycoon/Spinner.html) | Spinner som lagrer i nettleseren | [Spillsider/SpinnerTycoon/](Spillsider/SpinnerTycoon) |
+| [Mario](https://benjaminkoder.github.io/StorsteProsjekter/shyguy/index.html) | Plattformspill i nettleseren | [StorsteProsjekter/shyguy/](StorsteProsjekter/shyguy) |
 
 ## Resten av repoet
 
