@@ -1,110 +1,113 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="no">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pilsulator</title>
-    <link rel="stylesheet" href="PilsKalkulator.css">
-    <link rel="icon" href="./Bilder/Drikke4.png">
-    <script src="PilsKalkulator.js" defer></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Benjamin Eng – tidlige prosjekter</title>
+    <meta name="description" content="Spill og nettsider Benjamin Eng laget mens han lærte programmering, 2021–2023." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Geist:wght@400;500&family=Geist+Mono:wght@500&display=swap" rel="stylesheet" />
+    <style>
+      :root {
+        --bg: #fbf9f4;
+        --ink: #111733;
+        --muted: #535a75;
+        --blue: #1f4bff;
+        --periwinkle: #c4cfff;
+        --lavender: #cdc7fb;
+        --ice: #e6ebff;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--ink);
+        font-family: "Geist", system-ui, sans-serif;
+        line-height: 1.5;
+      }
+      main { max-width: 1100px; margin: 0 auto; padding: 64px 16px 80px; }
+      h1, h2 { font-family: "Bricolage Grotesque", sans-serif; letter-spacing: -0.02em; margin: 0; }
+      h1 { font-size: clamp(2.6rem, 8vw, 4.5rem); font-weight: 800; line-height: 1; }
+      h1 span { color: var(--blue); }
+      .intro { max-width: 620px; margin: 20px 0 0; font-size: 1.15rem; color: var(--muted); }
+      .links { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 56px; }
+      .btn {
+        font-family: "Geist Mono", monospace; font-weight: 500; font-size: 0.9rem;
+        color: var(--ink); text-decoration: none;
+        border: 2px solid var(--ink); border-radius: 999px; padding: 8px 16px;
+        box-shadow: 3px 3px 0 var(--ink); transition: transform .15s, box-shadow .15s;
+      }
+      .btn:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 var(--ink); }
+      .btn.primary { background: var(--blue); color: #fff; }
+      .btn.light { background: var(--periwinkle); }
+      .grid { display: grid; gap: 28px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); }
+      .card {
+        display: flex; flex-direction: column; overflow: hidden;
+        background: #fff; color: inherit; text-decoration: none;
+        border: 2px solid var(--ink); border-radius: 12px;
+        box-shadow: 5px 5px 0 var(--ink); transition: transform .2s, box-shadow .2s;
+      }
+      .card:hover { transform: translate(-3px, -3px); box-shadow: 8px 8px 0 var(--ink); }
+      .frame { padding: 14px 14px 0; border-bottom: 2px solid var(--ink); }
+      .frame img {
+        display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top;
+        border: 2px solid var(--ink); border-bottom: 0; border-radius: 8px 8px 0 0;
+      }
+      .body { padding: 16px 18px 20px; }
+      .body h2 { font-size: 1.45rem; font-weight: 700; }
+      .body p { margin: 6px 0 0; color: var(--muted); font-size: 0.97rem; }
+      .meta { margin-top: 14px; font-family: "Geist Mono", monospace; font-size: 0.8rem; font-weight: 500; text-decoration: underline; text-underline-offset: 4px; }
+      footer { margin-top: 64px; font-family: "Geist Mono", monospace; font-size: 0.8rem; color: var(--muted); }
+      footer a { color: inherit; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Benjamin <span>Eng</span></h1>
+      <p class="intro">
+        Spill og nettsider jeg laget mens jeg lærte programmering, fra 2021 til 2023. De fleste er skrevet i HTML, CSS
+        og JavaScript og kjører direkte i nettleseren. Nyere prosjekter ligger på porteføljesiden.
+      </p>
+      <div class="links">
+        <a class="btn primary" href="https://portfolio-website-nine-silk-69.vercel.app/">Porteføljeside ↗</a>
+        <a class="btn light" href="https://github.com/BenjaminKoder">GitHub ↗</a>
+      </div>
 
-    <!-- fonts: -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,600;1,400&display=swap" rel="stylesheet">
+      <div class="grid">
+        <a class="card" href="Spillsider/PilsKalkulator/index.html">
+          <div class="frame" style="background: var(--blue)"><img src="forside/pilsulator.jpg" alt="Skjermbilde av Pilsulator" loading="lazy" /></div>
+          <div class="body"><h2>Pilsulator</h2><p>Promillekalkulator basert på Widmarks formel.</p><div class="meta">Prøv ↗</div></div>
+        </a>
+        <a class="card" href="Spillsider/Canvasgamefreestyle/index.html">
+          <div class="frame" style="background: var(--periwinkle)"><img src="forside/canvas-spill.jpg" alt="Skjermbilde av Geometry Dash ish" loading="lazy" /></div>
+          <div class="body"><h2>Geometry Dash ish</h2><p>Plattformspill på HTML5 Canvas med 15 baner og ledertavle i Firebase.</p><div class="meta">Spill ↗</div></div>
+        </a>
+        <a class="card" href="StorsteProsjekter/Tallsystemer/index.html">
+          <div class="frame" style="background: var(--lavender)"><img src="forside/tallsystemer.jpg" alt="Skjermbilde av Tallsystemer" loading="lazy" /></div>
+          <div class="body"><h2>Tallsystemer</h2><p>Nettside om tallsystemer, bits og bytes, og hvordan datamaskinen gjør tall om til tekst og farger.</p><div class="meta">Åpne ↗</div></div>
+        </a>
+        <a class="card" href="https://github.com/BenjaminKoder/Portfolio/tree/main/prosjekter/shake-that-jazz">
+          <div class="frame" style="background: var(--ice)"><img src="forside/shake-that-jazz.jpg" alt="Skjermbilde av Shake That Jazz" loading="lazy" /></div>
+          <div class="body"><h2>Shake That Jazz</h2><p>Pygame-spill med egne sprites og en butikk for oppgraderinger. Laget i Python, så det kjøres lokalt.</p><div class="meta">Kode ↗</div></div>
+        </a>
+        <a class="card" href="Spillsider/SpinnerTob/saannBenjiVil/index.html">
+          <div class="frame" style="background: var(--blue)"><img src="forside/spinner-db.jpg" alt="Skjermbilde av lykkehjulet med database" loading="lazy" /></div>
+          <div class="body"><h2>Lykkehjul med database</h2><p>Spinner med innlogging og ledertavle.</p><div class="meta">Åpne ↗</div></div>
+        </a>
+        <a class="card" href="Spillsider/SpinnerTycoon/Spinner.html">
+          <div class="frame" style="background: var(--periwinkle)"><img src="forside/spinner-ls.jpg" alt="Skjermbilde av lykkehjulet med localStorage" loading="lazy" /></div>
+          <div class="body"><h2>Lykkehjul med localStorage</h2><p>Spinner som lagrer fremgangen i nettleseren.</p><div class="meta">Åpne ↗</div></div>
+        </a>
+        <a class="card" href="StorsteProsjekter/shyguy/index.html">
+          <div class="frame" style="background: var(--lavender)"><img src="forside/mario.jpg" alt="Skjermbilde av Mario" loading="lazy" /></div>
+          <div class="body"><h2>Mario</h2><p>Plattformspill i nettleseren.</p><div class="meta">Spill ↗</div></div>
+        </a>
+      </div>
 
-    <!-- fonts: -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-<!--Google Adsense:-->
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1617751525579321"
-     crossorigin="anonymous"></script>
-</head>
-<body>
-    <h1 id="tittel">P<img src="./Bilder/ØlSomI.png" alt="I">LSULATOR</h1>
-    <div class="outline">
-        <p class="overskrift">DRIKKEN DIN</p>
-        <div class="hoved">
-            <div id="knapper">
-                <button id="plussDrikke">+</button>
-                <button id="nullstill">Nullstill</button>
-            </div>
-            <div id="drikkeEnheter">
-                <div class="drikkeenhet">
-                    <img src="./Bilder/ØlFlatF.png" alt="drikke" class="drikkebilde">
-                    <div>
-                        <label for="antall1">Antall (stk)</label>
-                        <input id="antall1" type="number" placeholder="0" min="0">
-                    </div>
-                    <div>
-                        <label for="mengde1">Mengde (dl)</label>
-                        <input id="mengde1" type="number" placeholder="0" min="0" value="5">
-                    </div>
-                    <div>
-                        <label for="prosent1">Prosent (%)</label>
-                        <input id="prosent1" type="number" placeholder="0" min="0" value="4.5">
-                    </div>
-                </div>
-                <div class="drikkeenhet">
-                    <img src="./Bilder/VinFlatF.png" alt="drikke" class="drikkebilde">
-                    <div>
-                        <label for="antall2">Antall (stk)</label>
-                        <input id="antall2" type="number" placeholder="0" min="0">
-                    </div>
-                    <div>
-                        <label for="mengde2">Mengde (dl)</label>
-                        <input id="mengde2" type="number" placeholder="0" min="0" value="10">
-                    </div>
-                    <div>
-                        <label for="prosent2">Prosent (%)</label>
-                        <input id="prosent2" type="number" placeholder="0" min="0" value="12.5">
-                    </div>
-                </div>
-                <div class="drikkeenhet">
-                    <img src="./Bilder/BrennevinFlatF.png" alt="drikke" class="drikkebilde">
-                    <div>
-                        <label for="antall3">Antall (stk)</label>
-                        <input id="antall3" type="number" placeholder="0" min="0">
-                    </div>
-                    <div>
-                        <label for="mengde3">Mengde (dl)</label>
-                        <input id="mengde3" type="number" placeholder="0" min="0" value="7.5">
-                    </div>
-                    <div>
-                        <label for="prosent3">Prosent (%)</label>
-                        <input id="prosent3" type="number" placeholder="0" min="0" value="40">
-                    </div>
-                </div>
-                <div class="drikkeenhet">
-                    <img src="./Bilder/ShotsF.png" alt="drikke" class="drikkebilde">
-                    <div>
-                        <label for="antall4">Antall (stk)</label>
-                        <input id="antall4" type="number" placeholder="0" min="0">
-                    </div>
-                    <div>
-                        <label for="mengde4">Mengde (dl)</label>
-                        <input id="mengde4" type="number" placeholder="0" min="0" value="0.44">
-                    </div>
-                    <div>
-                        <label for="prosent4">Prosent (%)</label>
-                        <input id="prosent4" type="number" placeholder="0" min="0" value="40">
-                    </div>
-                </div>
-            </div>
-            <button class="beregn">Beregn</button>
-        </div>
-    </div>
-    <div class="outline" id="outline2">
-    </div>
-    <div class="outline" id="outline3">
-    </div>
-    <div class="outline" id="outline4">
-    </div>
-    <!-- <footer>
-        <p>Copyright &copy;2022 <span>Benjamin Eng</span> med illustrasjoner av <span>Felix Johanssen</span></p>
-    </footer> -->
-</body>
+      <footer>
+        Koden ligger i <a href="https://github.com/BenjaminKoder/BenjaminKoder.github.io">BenjaminKoder.github.io</a> på GitHub.
+      </footer>
+    </main>
+  </body>
 </html>
